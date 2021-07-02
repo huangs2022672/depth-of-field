@@ -1,7 +1,10 @@
 import React from 'react';
 
 const App = () => (
-  <h1>Welcome to Depth of Field!!</h1>
+  <div>
+    <h1 className="live-msg">Depth of Field is LIVE!!</h1>
+    <img className="live-img" src={window.liveURL} alt="depth of field is LIVE!!!"/>
+  </div>
 )
 
 export default App;

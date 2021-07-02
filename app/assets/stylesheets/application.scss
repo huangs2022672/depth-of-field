@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .live-img {
+   width: 100%;
+   height: 100%;
+  //  position: absolute;
+ }
+
+ .live-msg {
+   position: absolute;
+   z-index: 1;
+ }
