@@ -1,0 +1,12 @@
+<% if false %>
+  <% if logged_in? %>
+    <script id="bootstrap-current-user" type="text/javascript">
+      window.currentUser = <%= render("api/users/user.json.jbuilder",
+        user: current_user).html_safe %>
+    </script>
+  <% end %>
+<% end %>
+
+<main id="root">
+  React is Broken!!!
+</main>
