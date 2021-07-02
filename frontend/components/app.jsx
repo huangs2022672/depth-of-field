@@ -1,7 +1,7 @@
 import React from 'react';
 
 const App = () => (
-  <div>div in App component</div>
+  <h1>Welcome to Depth of Field!!</h1>
 )
 
 export default App;
