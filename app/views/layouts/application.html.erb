@@ -5,12 +5,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <% if logged_in? %>
+      <script id="bootstrap-current-user" type="text/javascript">
+        window.currentUser = {
+          "id": <%= current_user.id %>,
+          "firstName": "<%= current_user.first_name %>",
+          "lastName": "<%= current_user.last_name %>",
+          "age": <%= current_user.age %>,
+          "email": "<%= current_user.email %>"
+        }
+      </script>
+    <% end %>
+
+
     <script type="text/javascript">
       window.liveURL = "<%= image_url('we_are_live.jpg') %>"
     </script>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
