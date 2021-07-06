@@ -94,7 +94,7 @@ header.global-nav{
 
 .login-signup button {
   font-size: 16px;
-  padding: 7px 20px;  
+  padding: 7px 20px;
 }
 
 button.login {
@@ -265,7 +265,7 @@ main.session-form {
   width: 22rem;
   display: block;
   background: white;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 form.session-form {
@@ -281,6 +281,22 @@ form.session-form div {
   border: 1px solid #898989;
 }
 
+div#session-form-header {
+  margin: 0px auto;
+  margin-top: 30px;
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+form.session-form div.session-form-errors {
+  height: 40px;
+  border: none;
+  margin: 0px auto
+}
+
 div.session-form input {
   border: none;
   position: relative;
@@ -294,7 +310,7 @@ div.session-form label {
   position: absolute;
   top: 10px;
   left: 20px;
-  color: #898989; 
+  color: #898989;
 }
 
 div#session-form-button {
@@ -308,14 +324,6 @@ div#session-form-button button {
   background: #128FDC;
   width: 100%;
   height: 100%;
-}
-
-div#session-form-header {
-  margin: 30px auto;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 div#session-form-links {
