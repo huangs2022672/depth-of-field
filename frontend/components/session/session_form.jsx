@@ -49,20 +49,22 @@ class SessionForm extends React.Component {
           }</Link>
         </header>
         <main className="session-form">
-          <form 
+          <form
           className="session-form"
           onSubmit={this.handleSubmit}
           >
             <div id="session-form-header">
-              <h2>{formType} {formType === "Sign Up" ? "for" : "to"} Depth of Field</h2>
+              <h2>{formType} {formType === "Sign Up" ? "for" : "to"} </h2><Logo/>
             </div>
-            {
-              errors ? (
-                errors.map(error => (
-                  <p>{error}</p>
-                ))
-              ) : null 
-            }
+            <div className="session-form-errors">
+              {
+                errors ? (
+                  errors.map(error => (
+                    <p>{error}</p>
+                  ))
+                ) : null
+              }
+            </div>
             {
               formType === "Sign Up" ? (
                 <>
@@ -121,7 +123,7 @@ class SessionForm extends React.Component {
           {
             formType === "Log In" ? (
               <>
-                <form 
+                <form
                 className="demo-user"
                 onSubmit={this.handleDemo}
                 >

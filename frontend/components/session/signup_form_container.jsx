@@ -4,7 +4,7 @@ import SessionForm from "./session_form"
 
 const mSTP = ({errors}, ownProps) => {
   return {
-    errors: errors.session.errors,
+    errors: errors.session,
     formType: "Sign Up"
   }
 }

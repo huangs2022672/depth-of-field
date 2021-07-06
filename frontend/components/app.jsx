@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   Route,
   Switch
 } from 'react-router-dom'
@@ -21,9 +21,9 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer}/>
     </Switch>
       <Route exact path="/" component={GlobalNavContainer}/>
-      <Route exact path="/" component={SplashMessage}/>
+      <AuthRoute exact path="/" component={SplashMessage}/>
+      <AuthRoute exact path="/" component={SplashBG}/>
       <Route exact path="/" component={Footer}/>
-      <Route exact path="/" component={SplashBG}/>
   </div>
 )
 
