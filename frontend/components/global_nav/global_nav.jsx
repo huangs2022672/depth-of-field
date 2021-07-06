@@ -10,7 +10,7 @@ class GlobalNav extends React.Component {
       <header className="global-nav">
         <Logo/>
         <SearchBar/>
-        <SessionNav currentUser={currentUser} logout={logout}/>
+        <SessionNav user={currentUser} logout={logout}/>
       </header>
     )
   }

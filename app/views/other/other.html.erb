@@ -1,0 +1,13 @@
+<%= if false %>
+  <% if logged_in? %>
+    <script id="bootstrap-current-user" type="text/javascript">
+      window.currentUser = {
+        "id": <%= current_user.id %>,
+        "firstName": "<%= current_user.first_name %>",
+        "lastName": "<%= current_user.last_name %>",
+        "age": <%= current_user.age %>,
+        "email": "<%= current_user.email %>"
+      }
+    </script>
+  <% end %>
+<% end %>

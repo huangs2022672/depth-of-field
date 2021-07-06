@@ -78,6 +78,25 @@
       <ol>entry file</ol>
 
 
+      <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+      <h2>log in test</h2>
+      <h3>log in sets currentUserId in sessions, but does not return the current user in entities.users</h3>
+      <ol>user clicks log in: session form</ol>
+      <ol>handleSubmit runs formAction: dispatch login with user params in login form container </ol>
+      <ol>login(user) thunk action called from session actions</ol>
+      <ol>login thunk action calls: api util login: apiutil</ol>
+      <ol>api util log in posts to session#create action</ol>
+      <ol>session#create, finds user/logs in</ol>
+      <h2>what does it mean to log in user in the backend???</h2>
+      <ol>session#create renders logged in user info back to front end </ol>
+      <ol>session thunk action return promise from ajax request from login </ol>
+      <ol>.then is called with returned user</ol>
+      <ol>returned user is "received", mapped to an object with Type, then is dispatched to reducer</ol>
+      <ol>reducer receives POJO of reeceive_current_user type</ol>
+      <ol>ISSUE FOUND: users reducer receives and process actions from both new session thunk and new user thunk </ol>
+
+
 
     </ul>
   </main>

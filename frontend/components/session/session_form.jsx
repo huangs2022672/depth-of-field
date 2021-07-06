@@ -6,19 +6,29 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       age: "",
       email: "",
       password: ""
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDemo = this.handleDemo.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    this.props.formAction(user);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const user = Object.assign({}, {
+      email: "demouser@gmail.com",
+      password: "1234567"
+    });
     this.props.formAction(user);
   }
 
@@ -39,10 +49,12 @@ class SessionForm extends React.Component {
           }</Link>
         </header>
         <main className="session-form">
-          <form className="session-form"
-            onSubmit={this.handleSubmit}>
+          <form 
+          className="session-form"
+          onSubmit={this.handleSubmit}
+          >
             <div id="session-form-header">
-              <h2>{formType} {formType === "Sign Up" ? "for" : "in to"} Depth of Field</h2>
+              <h2>{formType} {formType === "Sign Up" ? "for" : "to"} Depth of Field</h2>
             </div>
             {
               errors ? (
@@ -55,21 +67,21 @@ class SessionForm extends React.Component {
               formType === "Sign Up" ? (
                 <>
                   <div className="session-form">
-                    <label htmlFor="firstName">First name</label>
+                    <label htmlFor="first_name">First name</label>
                     <input
-                    id="firstName"
+                    id="first_name"
                     type="text"
-                    value={this.state.firstName}
-                    onChange={this.update("firstName")}
+                    value={this.state.first_name}
+                    onChange={this.update("first_name")}
                     />
                   </div>
                   <div className="session-form">
-                    <label htmlFor="lastName">Last name</label>
+                    <label htmlFor="last_name">Last name</label>
                     <input
-                    id="lastName"
+                    id="last_name"
                     type="text"
-                    value={this.state.lastName}
-                    onChange={this.update("lastName")}
+                    value={this.state.last_name}
+                    onChange={this.update("last_name")}
                     />
                   </div>
                   <div className="session-form">
@@ -105,16 +117,31 @@ class SessionForm extends React.Component {
             <div id="session-form-button">
               <button>{formType}</button>
             </div>
-            <div id="session-form-links">
-              <span>{formType === "Sign Up" ? "Already a member?" : "Not a member?"}</span>
-              <Link to={
-                formType === "Sign Up" ? "/login" : "/signup"
-              }>{
-                formType === "Sign Up" ? "Log in here." : "Sign up here."
-              }</Link>
-            </div>
           </form>
+          {
+            formType === "Log In" ? (
+              <>
+                <form 
+                className="demo-user"
+                onSubmit={this.handleDemo}
+                >
+                  <div className="demo-user">
+                    <button>Demo User</button>
+                  </div>
+                </form>
+              </>
+            ) : null
+          }
+          <div id="session-form-links">
+            {formType === "Sign Up" ? <span>Already a member? </span> : <span>Not a member? </span>}
+            <Link to={
+              formType === "Sign Up" ? "/login" : "/signup"
+            }>{
+              formType === "Sign Up" ? <span> Log in here.</span> : <span> Sign up here.</span>
+            }</Link>
+          </div>
         </main>
+        <img className="session-form" src={window.sessionBG} alt="rolling fields" />
       </div>
     )
   }
