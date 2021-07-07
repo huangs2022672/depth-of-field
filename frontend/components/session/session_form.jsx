@@ -17,6 +17,10 @@ class SessionForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this)
   }
 
+  componentWillUnmount() {
+    this.props.removeErrors()
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -54,13 +58,14 @@ class SessionForm extends React.Component {
           onSubmit={this.handleSubmit}
           >
             <div id="session-form-header">
-              <h2>{formType} {formType === "Sign Up" ? "for" : "to"} </h2><Logo/>
+              <h2>{formType === "Sign Up" ? "Sign up for" : "Log in to"} </h2>
+              <Logo/>
             </div>
             <div className="session-form-errors">
               {
                 errors ? (
                   errors.map(error => (
-                    <p>{error}</p>
+                    <p key={error}>{error}</p>
                   ))
                 ) : null
               }
@@ -102,7 +107,7 @@ class SessionForm extends React.Component {
               <label htmlFor="email">Email address</label>
               <input
               id="email"
-              type="email"
+              type="text"
               value={this.state.email}
               onChange={this.update("email")}
               />

@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   
-  validates :first_name, :last_name, presence: true, length: { in: 2..20 }
-  validates :age, presence: true, numericality: { greater_than_or_equal_to: 13 }
-  validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
-  validates :password, length: { minimum: 6, allow_nil: true}
+  validates :first_name, :last_name, presence: true, length: { in: 2..20, message: "must be at least 2 characters." }
+  validates :age, presence: true, numericality: { greater_than_or_equal_to: 13, message: ": you must be 13 or older to sign up." }
+  validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "is not valid."}
+  validates :password, length: { minimum: 6, message: "must be at least 6 characters."}, allow_nil: true
   validates :password_digest, presence: true
   validates :session_token, presence: true, uniqueness: true
 

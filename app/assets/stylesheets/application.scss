@@ -134,19 +134,19 @@ main.splash-message div {
 
 h1.splash-message {
   font-size: 49px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 h2.splash-message {
   font-size: 23px;
   display: inline;
   text-align: justify;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 a.splash-message {
   font-size: 21px;
-  width: 200px;
+  width: 160px;
   height: 64px;
   background: white;
   color: #000000;
@@ -154,11 +154,9 @@ a.splash-message {
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  font-weight: 800;
+  font-weight: 8000;
   padding: 0 20px;
 }
-
-
 
 div.splash-bg {
   position: fixed;
@@ -282,19 +280,30 @@ form.session-form div {
 }
 
 div#session-form-header {
+  height: 100px;
   margin: 0px auto;
   margin-top: 30px;
+  margin-bottom: 15px;
   border: none;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
+div#session-form-header>h2 {
+  font-size: 20px;
+}
+
 form.session-form div.session-form-errors {
-  height: 40px;
+  height: inherit;
   border: none;
-  margin: 0px auto
+  margin: 0px auto;
+  color: red;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 div.session-form input {
@@ -380,15 +389,4 @@ div.demo-user {
   width: 30%;
   display: flex;
   justify-content: space-evenly;
-}
-
-.live-img {
-  width: 100%;
-  height: 100%;
-//  position: absolute;
-}
-
-.live-msg {
-  position: absolute;
-  z-index: 1;
 }
