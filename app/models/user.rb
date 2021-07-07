@@ -7,6 +7,10 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :session_token, presence: true, uniqueness: true
 
+  has_many :photos,
+    foreign_key: :uploader_id,
+    class_name: :Photo
+
   attr_reader :password
   after_initialize :ensure_session_token
 
