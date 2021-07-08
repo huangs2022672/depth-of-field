@@ -1,0 +1,45 @@
+.explore-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 70%;
+  box-sizing: border-box;
+  margin: 120px auto;
+  // border: 1px solid red;
+
+  .explore-index-item {
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+
+    img {
+    height: 200px;
+    // position: absolute;
+    z-index: -1;
+    }
+
+    div.photo-hover-details {
+      // background: red;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      div {
+        padding: 10px 15px;
+        display: none;
+      }
+    }
+
+    div.photo-hover-details:hover {
+      div {
+        display: block;
+      }
+      // z-index: 1;
+      // border: 1px solid red;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 export const fetchPhotos = () => {
+  // debugger
   return (
     $.ajax({
       method: "GET",

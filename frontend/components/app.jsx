@@ -11,20 +11,39 @@ import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
 import SplashBG from './splash/splash_bg';
 import SplashMessage from './splash/splash_message';
+import ExploreIndexContainer from './photos/explore_index_container';
+import PhotoShowContainer from './photos/photo_show_container'
 
 const App = () => (
   <div>
-    {/* <h1 className="live-msg">Depth of Field is LIVE!!</h1>
-    <img className="live-img" src={window.liveURL} alt="depth of field is LIVE!!!"/> */}
     <Switch>
-      <AuthRoute exact path="/login" component={LoginFormContainer}/>
-      <AuthRoute exact path="/signup" component={SignupFormContainer}/>
+      <AuthRoute path="/login" component={LoginFormContainer}/>
+      <AuthRoute path="/signup" component={SignupFormContainer}/>
+      <Route path="/" render={ () => (
+        <div>
+          <GlobalNavContainer/>
+          <Footer/>
+        </div>
+      )}/>
     </Switch>
-      <Route exact path="/" component={GlobalNavContainer}/>
-      <AuthRoute exact path="/" component={SplashMessage}/>
-      <AuthRoute exact path="/" component={SplashBG}/>
-      <Route exact path="/" component={Footer}/>
+
+    <AuthRoute exact path="/" component={SplashMessage}/>
+    <AuthRoute exact path="/" component={SplashBG}/>
+
+    <Route path="/explore" component={ExploreIndexContainer}/>
+    <Route exact path="/photos/:photoId" component={PhotoShowContainer}/>
+
   </div>
 )
 
 export default App;
+
+{/* <AuthRoute exact path="/" components={{bg: SplashBG, message: SplashMessage}}/>
+<AuthRoute exact path="/" render={ () => (
+  <div>
+    <SplashMessage/>
+    <SplashBG/>
+  </div>
+)}/>
+<Route path="/" component={Footer}/>
+<Route path="/" component={GlobalNavContainer}/> */}

@@ -6,7 +6,9 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
+    # debugger
     @photos = Photo.all
+    #  add filter for most recent
     render :index
   end
 

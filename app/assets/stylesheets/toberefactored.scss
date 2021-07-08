@@ -1,0 +1,387 @@
+html, body {
+  margin: 0;
+  background: #f3f5f6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
+#global-nav-logo {
+  width: 200px;
+  height: 40px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+header.session-form #global-nav-logo {
+  width: 150px;
+  margin-left: 200px;
+
+}
+
+#global-nav-logo .iconify {
+  font-size: 52px;
+}
+
+header.session-form #global-nav-logo .iconify {
+  font-size: 39px;
+}
+
+#global-nav-logo h2 {
+  font-size: 40px;
+  font-family: 'Engagement', cursive;
+  display: flex;
+  align-items: center;
+}
+
+header.session-form #global-nav-logo h2 {
+  font-size: 30px;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  padding: 0;
+}
+
+button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: #128FDC;
+  padding: 0;
+}
+
+header.global-nav{
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0,0,0,.25);
+  height: 64px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.login-signup {
+  margin-right: 20px;
+  color: white;
+}
+
+.login-signup button {
+  font-size: 16px;
+  padding: 7px 20px;
+}
+
+button.login {
+  background-color: transparent;
+}
+
+button.signup {
+  color: black;
+  background-color: white;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+div.splash-message {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+main.splash-message {
+  width: 540px;
+  display: block;
+  font-weight: bolder;
+}
+
+main.splash-message div {
+  display: flex;
+  justify-content: center;
+}
+
+h1.splash-message {
+  font-size: 49px;
+  margin-bottom: 40px;
+}
+
+h2.splash-message {
+  font-size: 23px;
+  display: inline;
+  text-align: justify;
+  margin-bottom: 80px;
+}
+
+a.splash-message {
+  font-size: 21px;
+  width: 160px;
+  height: 64px;
+  background: white;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  font-weight: 8000;
+  padding: 0 20px;
+}
+
+div.splash-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+}
+
+img.splash-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.welcome-logout {
+  display: flex;
+  margin: 0 10px;
+  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-logout button {
+  height: 32px;
+  width: 80px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: white;
+  color:black;
+}
+
+.global-search-form {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.global-search-form label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.global-search-form label i {
+  // padding: 10px;
+  // color: rgba(255, 255, 255, 0.25);
+  color: rgba(0, 0, 0, 0.5);
+
+  position: absolute;
+  top: 8px;
+  left: 7px;
+}
+
+#global-nav-search {
+  height: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+#global-nav-search[type=text] {
+  // width: 100%;
+  padding: 0px 33px;
+  box-sizing: border-box;
+}
+
+div.session-form-main {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img.session-form {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+
+}
+
+header.session-form {
+  background: #212124;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 3rem;
+}
+
+header.session-form a {
+  margin-left: 40px;
+  margin-right: 30px;
+}
+
+main.session-form {
+  width: 22rem;
+  display: block;
+  background: white;
+  border-radius: 5px;
+}
+
+form.session-form {
+  display: block;
+}
+
+form.session-form div {
+  height: 54px;
+  width: 300px;
+  margin: 10px auto;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid #898989;
+}
+
+div#session-form-header {
+  height: 100px;
+  margin: 0px auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+div#session-form-header>h2 {
+  font-size: 20px;
+}
+
+form.session-form div.session-form-errors {
+  height: inherit;
+  border: none;
+  margin: 0px auto;
+  color: red;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+div.session-form input {
+  border: none;
+  position: relative;
+  top: 28px;
+  left: 20px;
+  background: transparent;
+  width: 80%;
+}
+
+div.session-form label {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: #898989;
+}
+
+div#session-form-button {
+  height: 40px;
+  width: 300px;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+
+div#session-form-button button {
+  background: #128FDC;
+  width: 100%;
+  height: 100%;
+}
+
+div#session-form-links {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 20px;
+}
+
+.demo-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.demo-user {
+  height: 40px;
+  width: 300px;
+  margin: 0px auto;
+  margin-top: 10px;
+}
+
+.demo-user button {
+  background: #128FDC;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.footer-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: hsla(0,0%,100%,.6);
+  background: #000000;
+  z-index: 1;
+}
+
+.footer-text-links {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 14px;
+}
+
+.footer-icon-links {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -26,11 +26,11 @@ class SearchBar extends React.Component {
       <form
       className="global-search-form"
       onSubmit={this.handleSubmit}>
-        <label><Link to="/search"><i className="fa fa-search fa-2x"></i></Link>
-          
-          <input 
-            id="global-nav-search" 
-            type="text" 
+        <label><Link to="/search"><i className="fa fa-search fa-lg"></i></Link>
+
+          <input
+            id="global-nav-search"
+            type="text"
             value={this.state.searchContext}
             onChange={this.handleSearch}
           />
