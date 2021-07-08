@@ -79,11 +79,11 @@ user5 = User.create!(
     uploader_id: rand(1..5),
     views: rand(1..100)
   )
-  photo.file.attach( io: File.open("#{image-url("seed_image_#{j}.jpg")}"), filename: "field_#{j}.jpg")
+  photo.file.attach( io: File.open("/app/assets/images/seed_image_#{j}.jpg"), filename: "field_#{j}.jpg")
 end
 
 
-
+# photo.file.attach( io: File.open("#{image-url("seed_image_#{j}.jpg")}"),
 
 ### first seeds ###
 
