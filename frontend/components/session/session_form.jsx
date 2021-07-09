@@ -122,7 +122,7 @@ class SessionForm extends React.Component {
                 />
             </div>
             <div id="session-form-button">
-              <button>{formType}</button>
+              <button>{formType === "Sign Up" ? "Sign up" : "Log in"}</button>
             </div>
           </form>
           {
@@ -140,7 +140,7 @@ class SessionForm extends React.Component {
             ) : null
           }
           <div id="session-form-links">
-            {formType === "Sign Up" ? <span>Already a member? </span> : <span>Not a member? </span>}
+            {formType === "Sign Up" ? <p>Already a member? </p> : <p>Not a member? </p>}
             <Link to={
               formType === "Sign Up" ? "/login" : "/signup"
             }>{

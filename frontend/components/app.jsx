@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom'
 import { AuthRoute } from '../util/route_util';
 import Footer from './footer/footer';
-
 import GlobalNavContainer from './global_nav/global_nav_container'
 import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
@@ -13,6 +12,7 @@ import SplashBG from './splash/splash_bg';
 import SplashMessage from './splash/splash_message';
 import ExploreIndexContainer from './photos/explore_index_container';
 import PhotoShowContainer from './photos/photo_show_container'
+import PhotoUploadContainer from './photos/photo_upload_container'
 
 const App = () => (
   <div>
@@ -31,8 +31,10 @@ const App = () => (
     <AuthRoute exact path="/" component={SplashBG}/>
 
     <Route path="/explore" component={ExploreIndexContainer}/>
-    <Route exact path="/photos/:photoId" component={PhotoShowContainer}/>
-
+    <Switch>
+      <Route exact path="/photos/upload" component={PhotoUploadContainer}/>
+      <Route exact path="/photos/:photoId" component={PhotoShowContainer}/>
+    </Switch>
   </div>
 )
 

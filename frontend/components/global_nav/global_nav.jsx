@@ -18,7 +18,9 @@ class GlobalNav extends React.Component {
         <SearchBar/>
         {
           currentUser ? (
-            <Link to="/upload">Upload</Link>
+            <Link to="/photos/upload">
+              <span className="iconify cloud-upload-icon" data-icon="ic:baseline-cloud-upload" data-inline="false"></span>
+            </Link>
           ) : null
         }
         <SessionNav user={currentUser} logout={logout}/>

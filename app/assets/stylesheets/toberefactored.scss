@@ -10,7 +10,7 @@ h1 {
 }
 
 #global-nav-logo {
-  width: 200px;
+  width: 154px;
   height: 40px;
   margin: 0 20px;
   display: flex;
@@ -20,26 +20,25 @@ h1 {
 header.session-form #global-nav-logo {
   width: 150px;
   margin-left: 200px;
-
 }
 
 #global-nav-logo .iconify {
-  font-size: 52px;
+  font-size: 36px;
 }
 
 header.session-form #global-nav-logo .iconify {
-  font-size: 39px;
+  font-size: 30px;
 }
 
 #global-nav-logo h2 {
-  font-size: 40px;
+  font-size: 32px;
   font-family: 'Engagement', cursive;
   display: flex;
   align-items: center;
 }
 
 header.session-form #global-nav-logo h2 {
-  font-size: 30px;
+  font-size: 27px;
 }
 
 a {
@@ -52,7 +51,7 @@ button {
   border: none;
   color: white;
   cursor: pointer;
-  background: #128FDC;
+  // background: #128FDC;
   padding: 0;
 }
 
@@ -76,8 +75,11 @@ header.global-nav{
 }
 
 .login-signup button {
-  font-size: 16px;
+  // font-size: 16px;
   padding: 7px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+
 }
 
 button.login {
@@ -88,7 +90,11 @@ button.signup {
   color: black;
   background-color: white;
   border-radius: 3px;
-  font-weight: bold;
+  font-weight: 600;
+}
+
+button.signup:hover {
+  color: gray;
 }
 
 div.splash-message {
@@ -105,7 +111,7 @@ div.splash-message {
 }
 
 main.splash-message {
-  width: 540px;
+  width: 640px;
   display: block;
   font-weight: bolder;
 }
@@ -118,13 +124,26 @@ main.splash-message div {
 h1.splash-message {
   font-size: 49px;
   margin-bottom: 40px;
+  font-weight: 600;
+}
+
+h1.splash-message {
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 h2.splash-message {
   font-size: 23px;
   display: inline;
-  text-align: justify;
+  text-align: center;
   margin-bottom: 80px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+h2.splash-message {
+  margin-top: 25px;
+  margin-bottom: 55px;
 }
 
 a.splash-message {
@@ -137,8 +156,13 @@ a.splash-message {
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  font-weight: 8000;
+  font-weight: bolder;
   padding: 0 20px;
+  font-weight: 700;
+}
+
+a.splash-message:hover {
+  color: gray;
 }
 
 div.splash-bg {
@@ -163,6 +187,11 @@ img.splash-bg {
   font-size: 20px;
   align-items: center;
   justify-content: center;
+
+  span {
+    padding: 10px;
+    font-size: 16px;
+  }
 }
 
 .welcome-logout button {
@@ -206,7 +235,7 @@ img.splash-bg {
   height: 30px;
   width: 100%;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   background: rgba(255, 255, 255, 0.75);
 }
 
@@ -284,10 +313,21 @@ div#session-form-header {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-}
-
-div#session-form-header>h2 {
   font-size: 20px;
+
+  a {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  a h2 {
+    font-size: 45px;
+  }
+
+  a .iconify {
+    font-size: 50px;
+  }
 }
 
 form.session-form div.session-form-errors {
@@ -310,11 +350,17 @@ div.session-form input {
   width: 80%;
 }
 
+input:focus {
+  outline: none;
+}
+
+
 div.session-form label {
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: 12px;
+  left: 21px;
   color: #898989;
+  font-size: 15px;
 }
 
 div#session-form-button {
@@ -328,15 +374,35 @@ div#session-form-button button {
   background: #128FDC;
   width: 100%;
   height: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+}
+
+div#session-form-button button:hover {
+  background: #1394e4;
+
 }
 
 div#session-form-links {
-  margin: 0 auto;
+  border: none;
+  border-top: 1px solid rgba(221, 219, 219, 0.75);
+  margin: 20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  padding: 20px;
+  padding-top: 12px;
+  width: 300px;
+  font-size: 13px;
+  height: 30px;
+
+  p {
+    padding-right: 5px;
+  }
+  span {
+    color: #006dac;
+  }
 }
 
 .demo-user {
@@ -357,6 +423,14 @@ div.demo-user {
   width: 100%;
   height: 100%;
   border-radius: 5px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.demo-user button:hover {
+  background: #1394e4;
+
 }
 
 .footer-nav {

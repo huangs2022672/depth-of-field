@@ -1,8 +1,8 @@
 .explore-index {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  max-width: 70%;
+  // justify-content: space-between;
+  max-width: 85%;
   box-sizing: border-box;
   margin: 120px auto;
   // border: 1px solid red;
@@ -13,7 +13,8 @@
     position: relative;
 
     img {
-    height: 200px;
+    height: 30vh;
+    // max-width: 20vw;
     // position: absolute;
     z-index: -1;
     }
