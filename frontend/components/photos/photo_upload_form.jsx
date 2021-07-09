@@ -88,45 +88,76 @@ class PhotoUploadForm extends React.Component {
             </div>
           ) : (
             <div className="after-file-uploaded">
-              <form onSubmit={this.handleSubmit}
-              className="photo-upload-form"
-              >
-                <h3>Edit Photo</h3>
+              <div className="photo-upload-form">
+                <form onSubmit={this.handleSubmit}
+                className="photo-upload-form"
+                >
+                  <div>
+                    <h3>Editing photo: </h3>
+                  </div>
 
-                <label htmlFor="title"></label>
-                <input type="text"
-                id="title"
-                value={this.state.title}
-                onChange={this.handleTitle}
-                />
+                  <div>
+                    <div>
+                      <label htmlFor="title"></label>
+                      <input type="text"
+                      id="title"
+                      value={this.state.title}
+                      onChange={this.handleTitle}
+                      />
+                    </div>
 
-                <label htmlFor="description">Add a description</label>
-                <input type="text"
-                id="description"
-                value={this.state.description}
-                onChange={this.handleDescription}
-                />
+                    <div className="position-rel">
+                      <label className="add-desc-label"
+                      htmlFor="description">Add a description</label>
+                      <input type="text"
+                      id="description"
+                      value={this.state.description}
+                      onChange={this.handleDescription}
+                      />
+                    </div>
+                  </div>
 
-                <p>Privacy</p>
-                <input type="radio"
-                id="public"
-                value={false}
-                onChange={this.handlePrivacy}
-                checked
-                />
-                <label htmlFor="public">Anyone (public)</label>
-                <input type="radio"
-                id="private"
-                value={true}
-                onChange={this.handlePrivacy}
-                />
-                <label htmlFor="private">Only you (private)</label>
-                <button>Upload photo</button>
-              </form>
+                  <div className="position-rel">
+                    <label className="add-tags-label"
+                    htmlFor="tags">Add tags</label>
+                    <input type="text"
+                    id="tags"
+                    value={this.state.tags}
+                    onChange={this.handleTags}
+                    />
+                  </div>
+
+                  <div className="no-bottom-border">
+                    <p>Owner Settings</p>
+                    <div className="vertical-align">
+                      <input type="radio"
+                      id="public"
+                      value={false}
+                      onChange={this.handlePrivacy}
+                      selected={!this.state.private}
+                      />
+                      <label className="privacy" htmlFor="public">Anyone (public)</label>
+                    </div>
+                    <div className="vertical-align">
+                      <input type="radio"
+                      id="private"
+                      value={true}
+                      onChange={this.handlePrivacy}
+                      selected={this.state.private}
+                      />
+                      <label className="privacy" htmlFor="private">Only you (private)</label>
+                    </div>
+                  </div>
+
+                  <button className="upload-button">Upload photo</button>
+
+                </form>
+              </div>
+
               <div className="uploaded-photo-display">
-                <h3>PHOTO PREVIEW</h3>
                 <img src={this.state.photoUrl} alt={this.state.title} />
               </div>
+
             </div>
           )
         }

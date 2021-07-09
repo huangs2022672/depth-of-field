@@ -10,7 +10,13 @@ class PhotoShow extends React.Component {
     const { photo } = this.props
     return (
       <div className="photo-show">
-        <img src={photo.img_url} alt={photo.title} />
+        {
+          photo ? (
+            <img src={photo.img_url} alt={photo.title} />
+          ) : (
+            <p>photo issue</p>
+          )
+        }
       </div>
     )
   }

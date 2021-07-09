@@ -12,7 +12,7 @@ class GlobalNav extends React.Component {
         <Logo/>
         {
           currentUser ? (
-            <Link to="/explore">Explore</Link>
+            <Link to="/explore" className="top-nav-explore">Explore</Link>
           ) : null
         }
         <SearchBar/>

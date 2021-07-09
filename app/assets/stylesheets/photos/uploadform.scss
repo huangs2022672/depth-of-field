@@ -1,5 +1,6 @@
-div.photo-upload {
+div.photo-upload-container {
   margin-top: 48px;
+  position: relative;
 
   .upload-control-bar {
     height: 41px;
@@ -8,7 +9,6 @@ div.photo-upload {
     align-items: center;
     width: 65px;
     margin-left: 20px;
-
 
     .photo-upload-input {
       color: transparent;
@@ -25,7 +25,6 @@ div.photo-upload {
       color: black;
       display: inline-block;
       padding-left: 10px;
-      // font-size: 14px;
       font-weight: 500;
     }
 
@@ -38,7 +37,7 @@ div.photo-upload {
 
   .upload-main {
     height: 86vh;
-    background: rgb(53, 53, 53);
+    background: rgba(50, 50, 50, 1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,10 +47,7 @@ div.photo-upload {
 
     p {
       margin: 25px 0;
-      // display: block;
       text-align: center;
-
-
     }
 
     .photo-upload-content {
@@ -91,6 +87,145 @@ div.photo-upload {
       input.photo-upload-input:hover {
         background: #0052b6;
       }
+    }
+  }
+}
+
+div.after-file-uploaded {
+  background: rgba(50, 50, 50, 1);
+  display: flex;
+  color: #eeeeee;
+  height: 86vh;
+  min-height: 400px;
+
+  div.photo-upload-form {
+    width: 245px;
+    margin: 12px;
+    font-size: 14px;
+    font-family: Arial,Helvetica,sans-serif;
+
+    form.photo-upload-form {
+      border: 0.5px solid rgba(128, 128, 128, 0.25);
+      border-radius: 2px;
+      background: rgba(0, 0, 0, 0.25);
+      height: 100%;
+
+      > div {
+        border-bottom: 0.5px solid rgba(128, 128, 128, 0.25);
+        padding: 0px 20px;
+        // line-height: 10px;
+
+        > h3 {
+          font-size: 18px;
+          color: #999999;
+          padding: 16px 0px;
+        }
+
+        label.privacy {
+          font-size: 11px;
+          margin-left: 24px;
+        }
+
+        div.vertical-align {
+          position: relative;
+        }
+
+        input[type=radio] {
+          position: absolute;
+          top: 5px;
+        }
+
+        #title {
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        label, p {
+          display: inline-block;
+          padding: 7px 0;
+        }
+      }
+
+      input[type=text] {
+        background: transparent;
+        border: none;
+        width: 200px;
+        height: 24px;
+        color: #999999;
+        cursor: pointer;
+        border-radius: 3px;
+        margin-bottom: 18px;
+        // position: absolute;
+      }
+
+      input[type=text]:focus {
+        background: white;
+        color: black;
+        // position: unset;
+      }
+
+      div.position-rel {
+        position: relative;
+
+        label {
+          cursor: pointer;
+        }
+      }
+
+      label.add-tags-label {
+        padding: 16px 0 16px 3px;
+      }
+      input#tags {
+        position: absolute;
+        left: 20px;
+        color: transparent;
+      }
+      input#tags:focus {
+        position: unset;
+        color: black
+      }
+
+      label.add-desc-label {
+        padding-left: 3px;
+      }
+      input#description {
+        position: absolute;
+        left: 0px;
+        color: transparent;
+      }
+      input#description:focus {
+        color: black;
+      }
+
+
+
+
+      div.no-bottom-border {
+        border-bottom: none;
+        padding-top: 10px;
+      }
+
+      button.upload-button {
+        position: absolute;
+        right: 15px;
+        top: 9px;
+        background: #0063dc;
+        width: 106px;
+        height: 24px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .uploaded-photo-display {
+    display: flex;
+    align-items: center;
+    margin: 12px 40px;
+
+    > img {
+      max-height: 720px;
+      border: 5px solid rgba(0, 0, 0, .75);
+      border-radius: 5px;
     }
   }
 }
