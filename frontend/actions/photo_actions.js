@@ -34,7 +34,6 @@ const receiveErrors = (errors) => {
 
 
 export const fetchPhotos = () => dispatch => {
-  // debugger
   return (
     PhotoApiUtil.fetchPhotos()
       .then(photos => dispatch(receiveAllPhotos(photos

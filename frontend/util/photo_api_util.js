@@ -18,6 +18,7 @@ export const fetchPhoto = (photoId) => {
 }
 
 export const uploadPhoto = (photo) => {
+  // debugger
   return (
     $.ajax({
       method: "POST",

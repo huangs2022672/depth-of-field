@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PhotoUploadInput from './photo_upload_form_input';
 
 class PhotoUploadForm extends React.Component {
@@ -23,7 +24,6 @@ class PhotoUploadForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     const formData = new FormData();
     formData.append('photo[title]', this.state.title);
@@ -32,6 +32,10 @@ class PhotoUploadForm extends React.Component {
     formData.append('photo[file]', this.state.photoFile);
     formData.append('photo[uploader_id]', this.state.uploaderId);
     this.props.uploadPhoto(formData)
+      .then(payload=> {
+        return this.props.history.push(`/users/${payload.photo.uploader_id}`)
+      })
+
   }
 
   handleClick(e) {
@@ -77,7 +81,7 @@ class PhotoUploadForm extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     const { uploadPhoto } = this.props
     return (
       <div>
@@ -202,4 +206,4 @@ class PhotoUploadForm extends React.Component {
   }
 }
 
-export default PhotoUploadForm;
+export default withRouter(PhotoUploadForm);
