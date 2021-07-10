@@ -1,5 +1,3 @@
-require 'open-uri'
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -10,8 +8,6 @@ require 'open-uri'
 
 # Photo.destroy_all
 # User.destroy_all
-
-### USERS ###
 
 user1 = User.create!(
   first_name: "Demo",
@@ -53,11 +49,25 @@ user5 = User.create!(
   password: "1234567"
 )
 
+### for seeding locally ###
 
-### PHOTOS ###
+# p "Created #{User.count} users"
 
-# file = open('https://<your_bucket>.<your_region>.amazonaws.com/<optional_folder_name>/<some_file>.jpg')
-# demo_user.avatar.attach(io: file, filename: 'some_file.jpg')
+# 33.times do |i|
+#   j = i + 1
+#   photo = Photo.create!(
+#     title: "Title of photo ##{j}",
+#     description: "Description of Photo ##{j}",
+#     private: false,
+#     uploader_id: rand(1..5),
+#     views: rand(1..100)
+#   )
+#   photo.file.attach( io: File.open("/mnt/f/AppAcademy/depth-of-field/app/assets/images/seed_images/seed_image_#{j}.jpg"), filename: "field_#{j}.jpg")
+#   # puts photo.file.attached?
+
+# end
+
+# p "Created #{Photo.count} photos"
 
 
 33.times do |i|
@@ -69,5 +79,20 @@ user5 = User.create!(
     uploader_id: rand(1..5),
     views: rand(1..100)
   )
-  photo.file.attach( io: open("https://depth-of-field-seeds.s3.amazonaws.com/seed_image_#{j}.jpg"), filename: "field_#{j}.jpg")
+  photo.file.attach( io: File.open("/app/assets/images/seed_image_#{j}.jpg"), filename: "field_#{j}.jpg")
 end
+
+
+photo.file.attach( io: File.open("#{image_url("seed_image_#{j}.jpg")}"),
+
+### first seeds ###
+
+# Photo.delete_all
+# p1 = Photo.create!(title: "first photo", uploader_id: 1)
+# p1.file.attach( io: File.open("/mnt/f/session_bg.jpg"), filename: "session_bg.jpg")
+# p2 = Photo.create!(title: "2nd photo", uploader_id: 1)
+# p2.file.attach( io: File.open("/mnt/f/splash_bg.jpg"), filename: "splash_bg.jpg")
+# p3 = Photo.create!(title: "my pc", uploader_id: 1)
+# p3.file.attach( io: File.open("/mnt/f/my_pc.jpg"), filename: "my_pc.jpg")
+#
+# p "Created #{Photo.count} photos"

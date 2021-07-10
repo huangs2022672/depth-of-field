@@ -55,7 +55,7 @@ class PhotoUploadForm extends React.Component {
   }
 
   handlePrivacy(e) {
-    debugger
+    // debugger
     this.setState({private: e.currentTarget.value})
   }
 
