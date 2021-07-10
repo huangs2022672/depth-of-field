@@ -94,13 +94,13 @@ div.photo-upload-container {
 div.after-file-uploaded {
   background: rgba(50, 50, 50, 1);
   display: flex;
-  color: #eeeeee;
+  color: #dddddd;
   height: 86vh;
   min-height: 400px;
 
   div.photo-upload-form {
-    width: 245px;
-    margin: 12px;
+    width: 224px;
+    margin: 14px;
     font-size: 14px;
     font-family: Arial,Helvetica,sans-serif;
 
@@ -111,98 +111,144 @@ div.after-file-uploaded {
       height: 100%;
 
       > div {
-        border-bottom: 0.5px solid rgba(128, 128, 128, 0.25);
-        padding: 0px 20px;
-        // line-height: 10px;
+        border-bottom: 0.5px solid rgba(128, 128, 128, 0.15);
+        padding: 0px 16px;
 
-        > h3 {
+        h3 {
           font-size: 18px;
-          color: #999999;
+          color: #919191;
           padding: 16px 0px;
+          padding-left: 1px;
         }
 
-        label.privacy {
-          font-size: 11px;
-          margin-left: 24px;
+        input {
+          border-radius: 3px;
+          border: none;
+          background: transparent;
+          width: 186px;
+          height: 20px;
         }
 
-        div.vertical-align {
-          position: relative;
+        input::selection {
+          background-color: rgba(51,153,255,0.5);
         }
-
-        input[type=radio] {
-          position: absolute;
-          top: 5px;
-        }
-
-        #title {
-          font-size: 18px;
-          font-weight: 600;
-        }
-
-        label, p {
-          display: inline-block;
-          padding: 7px 0;
-        }
-      }
-
-      input[type=text] {
-        background: transparent;
-        border: none;
-        width: 200px;
-        height: 24px;
-        color: #999999;
-        cursor: pointer;
-        border-radius: 3px;
-        margin-bottom: 18px;
-        // position: absolute;
-      }
-
-      input[type=text]:focus {
-        background: white;
-        color: black;
-        // position: unset;
-      }
-
-      div.position-rel {
-        position: relative;
 
         label {
+          display: inline-block;
+          width: 190px;
           cursor: pointer;
+        }
+
+        label.photo-title {
+          display: inline-block;
+          padding-top: 14px;
+          position: relative;
+          margin-bottom: 8px;
+
+          p.photo-title-hidden {
+            width: 186px;
+            position: absolute;
+            top: 16px;
+            left: 2px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #919191;
+          }
+
+          input {
+            font-size: 18px;
+            font-weight: bold;
+            color: #dddddd;
+          }
+
+          input:focus {
+            background: rgb(245, 245, 245);
+            color: black;
+          }
+        }
+
+        label.photo-desc {
+          display: inline-block;
+          position: relative;
+
+          p.photo-desc-hidden {
+            width: 186px;
+            position: absolute;
+            top: 4px;
+            left: 2px;
+            color: #919191;
+          }
+
+          input {
+            color: #dddddd;
+            margin-bottom: 12px;
+            font-size: 14px;
+          }
+
+          input:focus {
+            background: rgb(245, 245, 245);
+            color: black;
+          }
+        }
+
+        label.label-tags {
+          padding: 16px 0;
+          position: relative;
+          padding-left: 2px;
+
+          input {
+            margin-top: 16px;
+            background: rgb(245, 245, 245);
+          }
+        }
+
+        label.label-albums {
+          padding: 16px 0;
+          padding-left: 2px;
         }
       }
 
-      label.add-tags-label {
-        padding: 16px 0 16px 3px;
+      div.hover-darken:hover {
+        background: rgba(0, 0, 0, 0.3);
       }
-      input#tags {
-        position: absolute;
-        left: 20px;
-        color: transparent;
-      }
-      input#tags:focus {
-        position: unset;
-        color: black
-      }
-
-      label.add-desc-label {
-        padding-left: 3px;
-      }
-      input#description {
-        position: absolute;
-        left: 0px;
-        color: transparent;
-      }
-      input#description:focus {
-        color: black;
-      }
-
-
-
 
       div.no-bottom-border {
         border-bottom: none;
         padding-top: 10px;
+      }
+
+      div.no-bottom-border.hover-darken {
+        display: block;
+
+        p {
+          padding-top: 6px;
+          padding-bottom: 6px;
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+        }
+
+        input {
+          display: inline-block;
+          width: 11px;
+          height: 11px;
+          margin: 0;
+          font-size: 10px;
+          margin: 6px
+          // text-align: bottom;
+        }
+
+        label {
+          display: inline-block;
+          width: 150px;
+          font-size: 11px;
+          display: inline-block;
+          text-align: top;
+        }
+
+
       }
 
       button.upload-button {
@@ -218,12 +264,12 @@ div.after-file-uploaded {
   }
 
   .uploaded-photo-display {
-    display: flex;
-    align-items: center;
-    margin: 12px 40px;
+
+    margin: 40px 40px;
 
     > img {
-      max-height: 720px;
+      max-height: 70vh;
+      min-height: 400px;
       border: 5px solid rgba(0, 0, 0, .75);
       border-radius: 5px;
     }

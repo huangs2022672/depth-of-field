@@ -17,6 +17,15 @@ h1 {
   align-items: center;
 }
 
+#global-nav-logo:hover {
+  // color: rgba(128, 128, 128, 1);
+  // font-weight: bolder;
+  .iconify {
+    color: gold;
+  }
+
+}
+
 header.session-form #global-nav-logo {
   width: 150px;
   margin-left: 200px;
@@ -148,7 +157,7 @@ h2.splash-message {
 
 a.splash-message {
   font-size: 21px;
-  width: 160px;
+  width: 200px;
   height: 64px;
   background: white;
   color: #000000;

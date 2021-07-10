@@ -7,10 +7,11 @@ class PhotoUploadForm extends React.Component {
     this.state = {
       title: "",
       description: "",
-      private: false,
+      private: "false",
       photoFile: null,
       photoURL: null,
-      uploaderId: this.props.currentUserId
+      uploaderId: this.props.currentUserId,
+      selected: "",
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,6 +19,7 @@ class PhotoUploadForm extends React.Component {
     this.handleDescription = this.handleDescription.bind(this)
     this.handlePrivacy = this.handlePrivacy.bind(this)
     this.handleFile = this.handleFile.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
   }
 
   handleSubmit(e) {
@@ -32,6 +34,18 @@ class PhotoUploadForm extends React.Component {
     this.props.uploadPhoto(formData)
   }
 
+  handleClick(e) {
+    e.currentTarget.select()
+  }
+
+  handleSelect(e) {
+    if (e.currentTarget.tagName === "LABEL"){
+      this.setState({selected: `${e.currentTarget.className}`})
+    } else {
+      this.setState({selected: ""})
+    }
+  }
+
   handleTitle(e) {
     this.setState({title: e.currentTarget.value})
   }
@@ -41,6 +55,7 @@ class PhotoUploadForm extends React.Component {
   }
 
   handlePrivacy(e) {
+    debugger
     this.setState({private: e.currentTarget.value})
   }
 
@@ -89,69 +104,90 @@ class PhotoUploadForm extends React.Component {
           ) : (
             <div className="after-file-uploaded">
               <div className="photo-upload-form">
-                <form onSubmit={this.handleSubmit}
-                className="photo-upload-form"
-                >
+                <form onSubmit={this.handleSubmit} className="photo-upload-form">
+
                   <div>
                     <h3>Editing photo: </h3>
                   </div>
 
-                  <div>
-                    <div>
-                      <label htmlFor="title"></label>
+                  <div className="hover-darken">
+                    <label className="photo-title">
+                      {this.state.title === "" ? (
+                        <p className="photo-title-hidden">Add a title</p>
+                      ) : null}
                       <input type="text"
-                      id="title"
                       value={this.state.title}
                       onChange={this.handleTitle}
-                      />
-                    </div>
+                      onClick={this.handleClick}
+                      onSelect={this.handleSelect}/>
+                    </label>
 
-                    <div className="position-rel">
-                      <label className="add-desc-label"
-                      htmlFor="description">Add a description</label>
+                    <label className="photo-desc">
+                      {this.state.description === "" ? (
+                        <p className="photo-desc-hidden">Add a description</p>
+                      ) : null}
                       <input type="text"
-                      id="description"
                       value={this.state.description}
                       onChange={this.handleDescription}
-                      />
-                    </div>
+                      onClick={this.handleSelect}/>
+                    </label>
                   </div>
 
-                  <div className="position-rel">
-                    <label className="add-tags-label"
-                    htmlFor="tags">Add tags</label>
-                    <input type="text"
-                    id="tags"
-                    value={this.state.tags}
-                    onChange={this.handleTags}
-                    />
+                  <div className="hover-darken">
+                    <label onClick={this.handleSelect}
+                    className="label-tags">Add tags
+                      {this.state.selected === "label-tags" ? (
+                        <input type="text"
+                        value={this.state.tags}
+                        onChange={this.handleTags}/>
+                        ) : null
+                      }
+                    </label>
                   </div>
 
-                  <div className="no-bottom-border">
+                  <div className="hover-darken">
+                    <label onClick={this.handleSelect}
+                    className="label-albums">Add to albums
+                    </label>
+                  </div>
+
+                  <div className="no-bottom-border hover-darken">
+
                     <p>Owner Settings</p>
-                    <div className="vertical-align">
+
+                    <div>
                       <input type="radio"
                       id="public"
                       value={false}
                       onChange={this.handlePrivacy}
-                      selected={!this.state.private}
+                      checked={this.state.private === "false"}
+                      // selected={!this.state.private}
                       />
-                      <label className="privacy" htmlFor="public">Anyone (public)</label>
+                      <label htmlFor="public">
+                        Anyone (public)
+                      </label>
                     </div>
-                    <div className="vertical-align">
+
+                    <div>
                       <input type="radio"
                       id="private"
                       value={true}
                       onChange={this.handlePrivacy}
-                      selected={this.state.private}
+                      checked={this.state.private === "true"}
+                      // selected={this.state.private}
+                      name=""
                       />
-                      <label className="privacy" htmlFor="private">Only you (private)</label>
+                      <label htmlFor="private">
+                        Only you (private)
+                      </label>
                     </div>
+
                   </div>
 
                   <button className="upload-button">Upload photo</button>
 
                 </form>
+
               </div>
 
               <div className="uploaded-photo-display">

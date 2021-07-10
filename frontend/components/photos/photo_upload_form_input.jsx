@@ -6,6 +6,7 @@ const PhotoUploadInput = (props) => {
       <input type="file"
       className="photo-upload-input"
       onChange={handleFile}
+      accept="image/*"
       />
   )
 }
