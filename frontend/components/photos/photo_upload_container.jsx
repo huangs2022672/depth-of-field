@@ -9,7 +9,6 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch, ownProps) => {
-  // debugger
   return {
     uploadPhoto: (photo) => dispatch(uploadPhoto(photo)),
   }

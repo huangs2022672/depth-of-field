@@ -2,7 +2,6 @@ import React from 'react';
 
 class PhotoShow extends React.Component {
   componentDidMount() {
-    // debugger
     this.props.fetchPhoto(this.props.match.params.photoId)
   }
 
@@ -13,9 +12,7 @@ class PhotoShow extends React.Component {
         {
           photo ? (
             <img src={photo.img_url} alt={photo.title} />
-          ) : (
-            <p>photo issue</p>
-          )
+          ) : <p>photo issue</p>
         }
       </div>
     )

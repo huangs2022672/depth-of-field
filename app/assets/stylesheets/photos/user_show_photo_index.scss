@@ -1,0 +1,75 @@
+div.user-show-page {
+  width: 100%;
+  margin-top: 48px;
+
+  div.user-show-banner {
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(0, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+
+    >img {
+      max-width: 100%;
+      z-index: -1;
+      min-height: 170px;
+      min-width: 450px;
+    }
+
+    div.user-show-profile {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      height: 50%;
+      display: flex;
+      // justify-content: center;
+      align-items: flex-end;
+      color: white;
+
+      div.user-profile-left {
+        display: flex;
+        margin: 0 auto;
+
+        >img {
+          width: 100px;
+          border-radius: 50%;
+        }
+
+        div h2 {
+          font-size: 36px;
+          margin: 20px 20px 15px 15px;
+        }
+
+        div div.display-follow {
+          display: flex;
+          font-size: 16px;
+          margin-left: 15px;
+
+          a, p {
+            margin: 0 10px;
+          }
+        }
+
+      }
+
+      div.user-profile-right {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  div.user-nav-bar {
+    width: 100%;
+    height: 50px;
+    background: white;
+    border-bottom: 1px solid rgba(139, 139, 139, 0.3);
+
+  }
+
+  div.user-photos-index {
+    width: 100%;
+    height: 100%;
+    background: #f3f5f6;
+  }
+
+}

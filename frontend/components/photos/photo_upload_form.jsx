@@ -59,14 +59,12 @@ class PhotoUploadForm extends React.Component {
   }
 
   handlePrivacy(e) {
-    // debugger
     this.setState({private: e.currentTarget.value})
   }
 
   handleFile(e) {
     const file = e.currentTarget.files[0]
     const fileReader = new FileReader();
-    // debugger
     fileReader.onloadend = () => {
       this.setState({
         title: file.name,

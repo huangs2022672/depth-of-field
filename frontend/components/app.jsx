@@ -13,14 +13,15 @@ import SplashMessage from './splash/splash_message';
 import ExploreIndexContainer from './photos/explore_index_container';
 import PhotoShowContainer from './photos/photo_show_container'
 import PhotoUploadContainer from './photos/photo_upload_container'
+import UserShowContainer from './users/user_show_container'
 
 const App = () => (
-  <div>
+  <div className="app">
     <Switch>
       <AuthRoute path="/login" component={LoginFormContainer}/>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
       <Route path="/" render={ () => (
-        <div>
+        <div className="g-nav-footer">
           <GlobalNavContainer/>
           <Footer/>
         </div>
@@ -35,6 +36,8 @@ const App = () => (
       <Route exact path="/photos/upload" component={PhotoUploadContainer}/>
       <Route exact path="/photos/:photoId" component={PhotoShowContainer}/>
     </Switch>
+
+    <Route path="/users/:userId" component={UserShowContainer}/>
   </div>
 )
 

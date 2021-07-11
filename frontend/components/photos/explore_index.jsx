@@ -3,13 +3,11 @@ import ExploreIndexItem from './explore_index_item'
 
 class ExploreIndex extends React.Component {
   componentDidMount() {
-    // debugger
     this.props.fetchPhotos()
   }
 
   render() {
     const { photos } = this.props
-    // debugger
     // code to shuffle images
     // for(let i = photos.length - 1; i > 0; i--){
     //   const j = Math.floor(Math.random() * i)

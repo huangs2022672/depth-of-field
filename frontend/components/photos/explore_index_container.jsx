@@ -3,7 +3,6 @@ import ExplorerIndex from "./explore_index";
 import { fetchPhotos } from "../../actions/photo_actions";
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     photos: Object.values(state.entities.photos)
   }

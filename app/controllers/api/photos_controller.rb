@@ -6,9 +6,13 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
-    # debugger
-    @photos = Photo.all
+    # if photo_params
+    #   @photos = Photo.find_by(photo_params)
+    # else
+    #   @photos = Photo.all
+    # end
     #  add filter for most recent
+    @photos = Photo.all
     render :index
   end
 
@@ -16,7 +20,6 @@ class Api::PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     # @photo.uploader_id = params[:user_id]
     @photo.views = rand(1..100)
-    # debugger
 
     if @photo.save
       render :show
@@ -48,4 +51,5 @@ class Api::PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :description, :private, :file, :uploader_id)
   end
+
 end

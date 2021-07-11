@@ -1,8 +1,13 @@
 .explore-index {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   // justify-content: space-between;
   max-width: 85%;
+  max-height: 4500px;
+  // max-width: 20%;
+  // min-width: 10%;
+
   box-sizing: border-box;
   margin: 120px auto;
   // border: 1px solid red;
@@ -11,10 +16,12 @@
     margin: 5px;
     cursor: pointer;
     position: relative;
+    // width: 20%;
 
     img {
-    max-height: 25vh;
+    // max-height: 25vh;
     // max-width: 20vw;
+    max-width: 20vw;
     // position: absolute;
     z-index: -1;
     }

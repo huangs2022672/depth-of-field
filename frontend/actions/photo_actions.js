@@ -6,7 +6,6 @@ export const REMOVE_PHOTO = "REMOVE_PHOTO"
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
 
 const receiveAllPhotos = (photos) => {
-  // debugger
   return ({
     type: RECEIVE_ALL_PHOTOS,
     photos
@@ -25,7 +24,6 @@ const removePhoto = (photoId) => ({
 })
 
 const receiveErrors = (errors) => {
-  // debugger
   return({
     type: RECEIVE_ERRORS,
     errors
