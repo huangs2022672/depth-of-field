@@ -1,53 +1,55 @@
-.explore-index {
+div.explore-index {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  // justify-content: space-between;
-  max-width: 85%;
-  max-height: 4500px;
-  // max-width: 20%;
-  // min-width: 10%;
+  width: 80%;
+  margin: 125px auto;
+}
 
-  box-sizing: border-box;
-  margin: 120px auto;
-  // border: 1px solid red;
+div.explore-index-item {
+  flex-grow: 1;
+  margin: 2px;
+  position: relative;
+  line-height: 0;
 
-  .explore-index-item {
-    margin: 5px;
-    cursor: pointer;
-    position: relative;
-    // width: 20%;
-
-    img {
-    // max-height: 25vh;
-    // max-width: 20vw;
-    max-width: 20vw;
-    // position: absolute;
+  img {
+    height: 275px;
+    min-width: 100%;
+    max-width: 350px;
+    object-fit: cover;
     z-index: -1;
+  }
+
+  div.photo-hover-details {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: transparent;
+    font-size: 14px;
+    line-height: 1;
+
+    p {
+      margin: 10px;
     }
 
-    div.photo-hover-details {
-      // background: red;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      div {
-        padding: 10px 15px;
-        display: none;
-      }
+    .photo-title {
+      white-space: nowrap;
+      width: 65%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    div.photo-hover-details:hover {
-      div {
-        display: block;
-      }
-      // z-index: 1;
-      // border: 1px solid red;
+    .photo-likes {
+      width: 75px;
+      text-align: right;
     }
+  }
+
+  div.photo-hover-details:hover {
+    color: white;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0) 100%);
   }
 }

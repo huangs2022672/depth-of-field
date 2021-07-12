@@ -19,7 +19,7 @@ class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     # @photo.uploader_id = params[:user_id]
-    @photo.views = rand(1..100)
+    # @photo.views = rand(1..100)
 
     if @photo.save
       render :show

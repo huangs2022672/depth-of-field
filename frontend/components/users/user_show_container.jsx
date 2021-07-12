@@ -5,8 +5,6 @@ import { fetchPhotos } from "../../actions/photo_actions";
 
 const mSTP = (state, { match } ) => {
   const {params} = match;
-  let count = 0;
-  debugger
   return {
     user: state.entities.users[params.userId],
     photos: Object.values(state.entities.photos).filter(photo => {

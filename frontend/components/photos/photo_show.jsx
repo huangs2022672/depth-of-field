@@ -3,6 +3,7 @@ import React from 'react';
 class PhotoShow extends React.Component {
   componentDidMount() {
     this.props.fetchPhoto(this.props.match.params.photoId)
+    debugger
   }
 
   render() {

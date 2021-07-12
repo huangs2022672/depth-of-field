@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ExploreIndexItem from '../photos/explore_index_item'
 
 class UserShow extends React.Component {
   componentDidMount() {
@@ -12,7 +13,6 @@ class UserShow extends React.Component {
 
   render() {
     const { user, photos, isCurrentUser } = this.props
-    debugger
     return (
       <div className="user-show-page">
         <div className="user-show-banner">
@@ -37,14 +37,14 @@ class UserShow extends React.Component {
                   <p>Joined {user.created_at.slice(0,4)}</p>
                 </div>
               </div>
-            ) : <p>user issue</p>
+            ) : <p>user issue 1</p>
           }
         </div>
 
         <div className="user-nav-bar">
           <ul>
             <li>
-              Photostream
+              <a>Photostream</a>
             </li>
           </ul>
         </div>
@@ -54,11 +54,9 @@ class UserShow extends React.Component {
             {
               photos ? (
                 photos.map(photo => (
-                  <div className="photo-preview" key={photo.title}>
-                    <img src={photo.img_url} alt={photo.title} />
-                  </div>
+                  <ExploreIndexItem key={photo.id} photo={photo}/>
                 ))
-              ) : <p>photo issue</p>
+              ) : <p>photo issue 2</p>
             }
           </div>
         </div>

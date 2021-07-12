@@ -6,15 +6,15 @@ const ExploreIndexItem = (props) => {
   return (
     <div className="explore-index-item">
       <Link to={`/photos/${photo.id}`}>
-        <div className="photo-hover-details">
-          <div className="photo-title">
-            {photo.title}
-          </div>
-          <div className="photo-likes">
-            {photo.views} views
-          </div>
-        </div>
         <img src={photo.img_url} alt={photo.title} />
+        <div className="photo-hover-details">
+          <p className="photo-title">
+            {photo.title}
+          </p>
+          <p className="photo-likes">
+            {photo.views} views
+          </p>
+        </div>
       </Link>
     </div>
   )
