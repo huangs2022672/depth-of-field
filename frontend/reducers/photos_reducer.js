@@ -10,9 +10,9 @@ const photosReducer = (slice = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_ALL_PHOTOS:
-      return action.photos
+      return Object.assign({}, slice, action.payload.photos)
     case RECEIVE_PHOTO:
-      newSlice[action.photo.id] = action.photo
+      newSlice[action.payload.photo.id] = action.payload.photo
       return newSlice
     case REMOVE_PHOTO:
       delete newSlice[action.photoId]

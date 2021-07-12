@@ -3,8 +3,11 @@ import PhotoShow from "./photo_show";
 import { fetchPhoto, editPhoto, deletePhoto } from "../../actions/photo_actions";
 
 const mSTP = (state, ownProps) => {
+  const photo = state.entities.photos[ownProps.match.params.photoId]
+  const user = photo ? state.entities.users[photo.uploader_id] : null
   return {
-    photo: state.entities.photos[ownProps.match.params.photoId]
+    photo,
+    user
   }
 }
 

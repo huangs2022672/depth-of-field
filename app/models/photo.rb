@@ -11,4 +11,6 @@ class Photo < ApplicationRecord
 # Active Storage Association
   has_one_attached :file
 
+  
+
 end

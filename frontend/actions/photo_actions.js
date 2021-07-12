@@ -5,18 +5,22 @@ export const RECEIVE_PHOTO = "RECEIVE_PHOTO"
 export const REMOVE_PHOTO = "REMOVE_PHOTO"
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
 
-const receiveAllPhotos = (photos) => {
+const receiveAllPhotos = (payload) => {
+  // debugger
   return ({
     type: RECEIVE_ALL_PHOTOS,
-    photos
+    payload
   })
 }
 
+const receivePhoto = (payload) => {
+  // debugger
+  return ({
+    type: RECEIVE_PHOTO,
+    payload
+  })
 
-const receivePhoto = (photo) => ({
-  type: RECEIVE_PHOTO,
-  photo
-})
+}
 
 const removePhoto = (photoId) => ({
   type: REMOVE_PHOTO,
@@ -34,7 +38,7 @@ const receiveErrors = (errors) => {
 export const fetchPhotos = () => dispatch => {
   return (
     PhotoApiUtil.fetchPhotos()
-      .then(photos => dispatch(receiveAllPhotos(photos
+      .then(payload => dispatch(receiveAllPhotos(payload
         )), errors => dispatch(receiveErrors(errors)))
   )
 }
@@ -42,7 +46,7 @@ export const fetchPhotos = () => dispatch => {
 export const fetchPhoto = (photoId) => dispatch => {
   return (
     PhotoApiUtil.fetchPhoto(photoId)
-      .then(photo => dispatch(receivePhoto(photo
+      .then(payload => dispatch(receivePhoto(payload
         )), errors => dispatch(receiveErrors(errors)))
   )
 }

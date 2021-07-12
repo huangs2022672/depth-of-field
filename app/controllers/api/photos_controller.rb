@@ -2,6 +2,7 @@ class Api::PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    # debugger
     render :show
   end
 
@@ -12,7 +13,7 @@ class Api::PhotosController < ApplicationController
     #   @photos = Photo.all
     # end
     #  add filter for most recent
-    @photos = Photo.all
+    @photos = Photo.includes(:uploader).all
     render :index
   end
 
@@ -49,7 +50,7 @@ class Api::PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:title, :description, :private, :file, :uploader_id)
+    params.require(:photo).permit(:title, :description, :private, :file, :uploader_id, :views)
   end
 
 end

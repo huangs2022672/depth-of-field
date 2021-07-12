@@ -3,8 +3,8 @@ import UserShow from "./user_show";
 import { fetchUser } from "../../actions/user_actions";
 import { fetchPhotos } from "../../actions/photo_actions";
 
-const mSTP = (state, { match } ) => {
-  const {params} = match;
+const mSTP = (state, { match }) => {
+  const { params } = match;
   return {
     user: state.entities.users[params.userId],
     photos: Object.values(state.entities.photos).filter(photo => {
