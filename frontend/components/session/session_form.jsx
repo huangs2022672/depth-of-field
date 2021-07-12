@@ -12,7 +12,6 @@ class SessionForm extends React.Component {
       email: "",
       password: ""
     }
-
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDemo = this.handleDemo.bind(this)
   }
@@ -29,11 +28,20 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    const user = Object.assign({}, {
-      email: "demouser@gmail.com",
-      password: "1234567"
-    });
-    this.props.formAction(user);
+    let email = "demouser@gmail.com".split('');
+    let password = "1234567".split('');
+
+
+    const demoLogin = setInterval(() => {
+      if (email.length > 0) {
+        this.setState({ email: this.state.email + email.shift() })
+      } else if (password.length > 0) {
+        this.setState({ password: this.state.password + password.shift() })
+      } else {
+        clearInterval(demoLogin);
+        this.props.formAction(this.state);
+      }
+    }, 50);
   }
 
   update(field) {
@@ -41,25 +49,25 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const { errors, formType} = this.props
+    const { errors, formType } = this.props
     return (
       <div className="session-form-main">
         <header className="session-form">
-          <Logo/>
+          <Logo />
           <Link to={
             formType === "Sign Up" ? "/login" : "/signup"
           }>{
-            formType === "Sign Up" ? "Log In" : "Sign Up"
-          }</Link>
+              formType === "Sign Up" ? "Log In" : "Sign Up"
+            }</Link>
         </header>
         <main className="session-form">
           <form
-          className="session-form"
-          onSubmit={this.handleSubmit}
+            className="session-form"
+            onSubmit={this.handleSubmit}
           >
             <div id="session-form-header">
               <h2>{formType === "Sign Up" ? "Sign up for" : "Log in to"} </h2>
-              <Logo/>
+              <Logo />
             </div>
             <div className="session-form-errors">
               {
@@ -76,28 +84,28 @@ class SessionForm extends React.Component {
                   <div className="session-form">
                     <label htmlFor="first_name">First name</label>
                     <input
-                    id="first_name"
-                    type="text"
-                    value={this.state.first_name}
-                    onChange={this.update("first_name")}
+                      id="first_name"
+                      type="text"
+                      value={this.state.first_name}
+                      onChange={this.update("first_name")}
                     />
                   </div>
                   <div className="session-form">
                     <label htmlFor="last_name">Last name</label>
                     <input
-                    id="last_name"
-                    type="text"
-                    value={this.state.last_name}
-                    onChange={this.update("last_name")}
+                      id="last_name"
+                      type="text"
+                      value={this.state.last_name}
+                      onChange={this.update("last_name")}
                     />
                   </div>
                   <div className="session-form">
                     <label htmlFor="age">Your age</label>
                     <input
-                    id="age"
-                    type="number"
-                    value={this.state.age}
-                    onChange={this.update("age")}
+                      id="age"
+                      type="number"
+                      value={this.state.age}
+                      onChange={this.update("age")}
                     />
                   </div>
                 </>
@@ -106,20 +114,20 @@ class SessionForm extends React.Component {
             <div className="session-form">
               <label htmlFor="email">Email address</label>
               <input
-              id="email"
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
+                id="email"
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
               />
             </div>
             <div className="session-form">
               <label htmlFor="password">Password</label>
-                <input
+              <input
                 id="password"
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
-                />
+              />
             </div>
             <div id="session-form-button">
               <button>{formType === "Sign Up" ? "Sign up" : "Log in"}</button>
@@ -129,8 +137,8 @@ class SessionForm extends React.Component {
             formType === "Log In" ? (
               <>
                 <form
-                className="demo-user"
-                onSubmit={this.handleDemo}
+                  className="demo-user"
+                  onSubmit={this.handleDemo}
                 >
                   <div className="demo-user">
                     <button>Demo User</button>
@@ -144,8 +152,8 @@ class SessionForm extends React.Component {
             <Link to={
               formType === "Sign Up" ? "/login" : "/signup"
             }>{
-              formType === "Sign Up" ? <span> Log in here.</span> : <span> Sign up here.</span>
-            }</Link>
+                formType === "Sign Up" ? <span> Log in here.</span> : <span> Sign up here.</span>
+              }</Link>
           </div>
         </main>
         <img className="session-form" src={window.sessionBG} alt="rolling fields" />

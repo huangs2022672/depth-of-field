@@ -79,7 +79,6 @@ class PhotoUploadForm extends React.Component {
   }
 
   render() {
-    // console.log(this.state)
     const { uploadPhoto } = this.props
     return (
       <div>
@@ -91,6 +90,11 @@ class PhotoUploadForm extends React.Component {
         {
           !this.state.photoFile ? (
             <div className="upload-main">
+              <div id="drag-and-drop">
+                <PhotoUploadInput 
+                  handleFile={this.handleFile}
+                />
+              </div>
               <div className="photo-upload-content">
                 <div>
                   <div>
@@ -163,7 +167,6 @@ class PhotoUploadForm extends React.Component {
                       value={false}
                       onChange={this.handlePrivacy}
                       checked={this.state.private === "false"}
-                      // selected={!this.state.private}
                       />
                       <label htmlFor="public">
                         Anyone (public)
@@ -176,7 +179,6 @@ class PhotoUploadForm extends React.Component {
                       value={true}
                       onChange={this.handlePrivacy}
                       checked={this.state.private === "true"}
-                      // selected={this.state.private}
                       name=""
                       />
                       <label htmlFor="private">

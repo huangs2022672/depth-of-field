@@ -13,19 +13,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link href="https://fonts.googleapis.com/css2?family=Engagement&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <%# <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> %>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 
+
+
     <script type="text/javascript">
-      window.sessionBG = "<%= image_url('session.jpg') %>"
-    </script>
-    <script type="text/javascript">
+      window.sessionBG = "<%= image_url('session.jpg') %>";
       window.splashBG = "<%= image_url('splash.jpg') %>"
     </script>
+
+    <% if logged_in? %>
+      <script type="text/javascript">
+        window.currentUser = <%= render(
+          "api/users/user.json.jbuilder",
+          user: current_user
+        ).html_safe %>
+      </script>
+    <% end %>
+    
   </head>
 
   <body>

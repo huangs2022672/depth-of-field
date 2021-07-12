@@ -33,7 +33,8 @@ class UserShow extends React.Component {
                 </div>
 
                 <div className="user-profile-right">
-                  {photos ? <p>{console.log(photos)} # Photos</p> : null}
+                  {/* {console.log(photos)} */}
+                  {photos ? <p> # Photos</p> : null}
                   <p>Joined {user.created_at.slice(0,4)}</p>
                 </div>
               </div>
