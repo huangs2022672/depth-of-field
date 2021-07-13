@@ -1,13 +1,13 @@
 class Api::PhotosController < ApplicationController
 
   def show
-    @photo = Photo.includes(:uploader, :comments, file_attachment: :blob).find(params[:id])
+    @photo = Photo.includes(:uploader, :likes, file_attachment: :blob).find(params[:id])
     # debugger
     render :show
   end
 
   def index
-    @photos = Photo.includes(:uploader, file_attachment: :blob).all
+    @photos = Photo.includes(:uploader, :likes, file_attachment: :blob).all
     render :index
   end
 
