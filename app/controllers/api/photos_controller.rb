@@ -1,19 +1,13 @@
 class Api::PhotosController < ApplicationController
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.includes(:uploader, :comments, file_attachment: :blob).find(params[:id])
     # debugger
     render :show
   end
 
   def index
-    # if photo_params
-    #   @photos = Photo.find_by(photo_params)
-    # else
-    #   @photos = Photo.all
-    # end
-    #  add filter for most recent
-    @photos = Photo.includes(:uploader).all
+    @photos = Photo.includes(:uploader, file_attachment: :blob).all
     render :index
   end
 
