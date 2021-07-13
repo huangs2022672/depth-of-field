@@ -33,7 +33,8 @@ class PhotoUploadForm extends React.Component {
     formData.append('photo[uploader_id]', this.state.uploaderId);
     this.props.uploadPhoto(formData)
       .then(payload=> {
-        return this.props.history.push(`/users/${payload.photo.uploader_id}`)
+        debugger
+        this.props.history.push(`/users/${payload.payload.photo.uploader_id}`)
       })
 
   }
@@ -91,7 +92,7 @@ class PhotoUploadForm extends React.Component {
           !this.state.photoFile ? (
             <div className="upload-main">
               <div id="drag-and-drop">
-                <PhotoUploadInput 
+                <PhotoUploadInput
                   handleFile={this.handleFile}
                 />
               </div>

@@ -17,6 +17,7 @@ class UserShow extends React.Component {
 
     !user ? fetchUser(match.params.userId) : null;
     !photos ? fetchPhotos() : null;
+    let mostRecent = photos.reverse()
 
     return (
       <div className="user-show-page">
@@ -57,7 +58,7 @@ class UserShow extends React.Component {
           <div className="user-photos-index-items">
             {
               // photos ? (
-                photos.map(photo => (
+                mostRecent.map(photo => (
                   <ExploreIndexItem key={photo.id} photo={photo} />
                 ))
               // ) : <p>photo issue 2</p>
