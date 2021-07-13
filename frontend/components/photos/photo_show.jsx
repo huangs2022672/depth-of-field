@@ -45,13 +45,19 @@ class PhotoShow extends React.Component {
                     </Link>
                   </div>
                   <div className="photo-info-form">
-                    <Link to={`/users/${user.id}`}>
-                      <p>{user.first_name} {user.last_name}</p>
-                    </Link>
-                    <div>
-                      {/* buttom: displays title and desc of photo */}
-                      {/* click to edit */}
-                      {/* hover: gray with icon */}
+                    <div className="photo-info-top">
+                      <div className="user-name">
+                        <Link to={`/users/${user.id}`}>
+                          <p>{user.first_name} {user.last_name}</p>
+                        </Link>
+                      </div>
+                      <div className="follow-button">
+                        <button className="follow-button">Follow</button>
+                      </div>
+                    </div>
+                    <div className="photo-info-bot">
+                      <h2>{photo.title}</h2>
+                      <h3><p>{photo.description}</p></h3>
                     </div>
                   </div>
                 </div>
@@ -59,18 +65,55 @@ class PhotoShow extends React.Component {
             }
             <div className="photo-comments">
               <div className="comment-index">
-                {/* list of comments */}
+                COMMENTS INDEX
               </div>
               <div className="comment-form">
-                {/* a form to create comments */}
+                COMMENT TEXTAREA
               </div>
             </div>
           </div>
           <div className="photo-show-details-right">
             <div className="details-right-top">
-              {/* views, faves, comment count, taken on */}
+              <div className="views-faves-comments-date">
+                <div className="views-faves-comments">
+                  <div className="views">
+                    <h4>1</h4>
+                    <p>view</p>
+                  </div>
+                  <div className="faves">
+                    <h4>0</h4>
+                    <p>faves</p>
+                  </div>
+                  <div className="comments">
+                    <h4>1</h4>
+                    <p>comment</p>
+                  </div>
+                </div>
+                <div className="date-taken">
+                  Taken on May 24, 2019
+                </div>
+              </div>
+              <div className="tags-people">
+                <div className="tags-link">
+                  <Link to="/photos/tags">
+                    Tags
+                  </Link>
+                </div>
+                <div className="tags-index">
+                  <div><p>tag1</p></div>
+                  <div><p>tag2</p></div>
+                  <div><p>tag3</p></div>
+                </div>
+              </div>
             </div>
             <div className="details-right-bot">
+              <div className="additional-info">
+                <h3>Additional info</h3>
+                <div>
+                  <h4><span class="iconify" data-icon="cil:lock-unlocked" data-inline="false"></span> Viewing privacy</h4>
+                  <p>{ photo ? ( photo.private === true ? "Private" : "Public" ) : null }</p>
+                </div>
+              </div>
               {/* tags, privacy */}
             </div>
           </div>

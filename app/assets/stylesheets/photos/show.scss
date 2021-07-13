@@ -1,14 +1,235 @@
+div.photo-show-page {
+  background: #f3f5f6;
+}
+
 div.photo-show {
-  margin-top: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color:  #212124f1;
-  height: 782px;
+  height: 700px;
 
   img {
-    // padding: 50px;
     height: 85%;
     margin: auto;
+    padding-top: 48px
+  }
+}
+
+div.photo-show-details {
+  // border: 1px solid green;
+  min-height: 1000px;
+  width: 1060px;
+  margin: 20px auto;
+  background: #f3f5f6;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.photo-show-details-left {
+  // border: 1px solid blue;
+  width: 500px;
+
+  div.photo-details {
+    margin-top: 16px;
+    // border: 1px solid gold;
+    display: flex;
+
+    div.user-avatar {
+      // border: 1px solid red;
+
+      img {
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+    }
+
+    div.photo-info-form {
+      // border: 1px solid pink;
+      width: 100%;
+      line-height: 2;
+
+      div.photo-info-top {
+        // border: 1px solid teal;
+        height: 42px;
+        display: flex;
+        font-weight: 600px;
+
+        .user-name {
+          // height: 100%;
+          // border: 1px solid gray;
+          font-size: 18px;
+          font-weight: bold;
+          // margin-top: 5px
+        }
+
+        .follow-button {
+          // border: 1px solid magenta;
+          margin-left: 10px;
+
+          button {
+            width: 90px;
+            height: 35px;
+            background: #008ddf;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      div.photo-info-bot {
+        // border: 1px solid red;
+        min-height: 60px;
+
+        h2 {
+          font-size: 14px;
+          font-weight: bold;
+          margin-bottom: 5px;
+          // border: 1px solid green;
+        }
+
+        h3 {
+          padding-bottom: 20px;
+          font-size: 12px;
+          border-bottom: 1px solid rgba(123,123,123, 0.5);
+          // border: 1px solid red;
+        }
+      }
+    }
+  }
+
+  div.photo-comments {
+
+    .comment-index {
+      height: 300px;
+      width: 100%;
+      border: 1px solid teal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .comment-form {
+      height: 300px;
+      width: 100%;
+      border: 1px solid orange;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+div.photo-show-details-right {
+  // border: 1px solid red;
+  width: 500px;
+
+  div.details-right-top {
+    width: 100%;
+    // border: 1px solid gold;
+
+    .views-faves-comments-date {
+      height: 75px;
+      margin: 18px 0;
+      display: flex;
+      border-bottom: 1px solid rgba(123,123,123, 0.5);
+      // border: 1px solid blue;
+
+      .views-faves-comments {
+        display: flex;
+        justify-content: space-between;
+        // border: 1px solid blue;
+        width: 50%;
+
+        h4 {
+          font-size: 18px;
+          padding: 5px 0;
+          font-weight: 400;
+        }
+
+        p {
+          font-size: 12px;
+        }
+
+        .views {
+          display: block;
+          // border: 1px solid blue;
+        }
+
+        .faves {
+          display: block;
+          // border: 1px solid blue;
+        }
+
+        .comments {
+          display: block;
+          // border: 1px solid blue;
+          margin-right: 30px;
+        }
+      }
+
+      .date-taken {
+        // border: 1px solid blue;
+        width: 50%;
+        font-size: 15px;
+        padding-top: 6px;
+        padding-left: 5px;
+      }
+    }
+
+    .tags-people {
+      // border: 1px solid green;
+      // width: 50%;
+      border-bottom: 1px solid rgba(123,123,123, 0.5);
+      font-size: 14px;
+      min-height: 90px;
+      margin-bottom: 10px;
+
+      .tags-link {
+        width: 25px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        color: #006dac;
+      }
+
+      .tags-index {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+
+        div {
+          height: 27px;
+          border-radius: 4px;
+          background: #cfd6d9;
+          padding: 10px;
+          margin-right: 5px;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  div.details-right-bot {
+    font-size: 14px;
+
+    .additional-info {
+
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+    }
+
+
   }
 }
