@@ -1,0 +1,25 @@
+import {
+  RECEIVE_FOLLOWS,
+  RECEIVE_FOLLOW,
+  REMOVE_FOLLOW
+} from '../actions/follow_actions'
+
+const followsReducer = (slice ={}, action) => {
+  Object.freeze(slice)
+  let newSlice = Object.assign({}, slice)
+
+  switch(action.type) {
+    case RECEIVE_FOLLOWS:
+      return Object.assign({}, slice, action.payload.follows)
+    case RECEIVE_FOLLOW:
+      newSlice[action.payload.follow.id] = action.payload.follow
+      return newSlice
+    case REMOVE_FOLLOW:
+      delete newSlice[action.followId]
+      return newSlice
+    default:
+      return slice
+  }
+}
+
+export default followsReducer;

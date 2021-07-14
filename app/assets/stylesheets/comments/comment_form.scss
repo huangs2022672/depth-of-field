@@ -1,0 +1,50 @@
+div.comment-form {
+  // border: 1px solid orange;
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+
+  .comment-form-avatar {
+    // border: 1px solid gray;
+    margin: 8px 15px auto 28px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+  }
+
+  .comment-form-right {
+    // border: 1px solid gray;
+    width: 100%;
+
+    .comment-form-input {
+      // border: 1px solid magenta;
+
+      textarea {
+        width: 98%;
+        height: 90px;
+        resize: none;
+      }
+
+    }
+
+    .comment-form-button {
+      // border: 1px solid magenta;
+      display: flex;
+      justify-content: right;
+
+
+      button {
+        background: #008ddf;
+        width: 90px;
+        height: 35px;
+        font-size: 15px;
+        border-radius: 4px;
+      }
+
+
+    }
+  }
+}

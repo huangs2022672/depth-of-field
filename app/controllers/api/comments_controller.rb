@@ -1,4 +1,10 @@
 class Api::CommentsController < ApplicationController
+
+  def show
+    @comment = Comment.includes(:commenter).find(params[:id])
+    render :show
+  end
+
   def index
     @comments = Comment.includes(:commenter).all
     render :index
@@ -6,7 +12,6 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-
     if @comment.save
       render :show
     else
@@ -19,16 +24,17 @@ class Api::CommentsController < ApplicationController
     if @comment && @comment.update(comment_params)
       render :show
     else
-      render json: @comment.errors.full_messages, status: 401
+      # render json: @comment.errors.full_messages, status: 401
     end
   end
 
   def destroy
+    # debugger
     @comment = current_user.comments.find_by(id: params[:id])
     if @comment && @comment.destroy
       render :show
     else
-      render json: @comment.errors.full_messages, status: 401
+      # render json: @comment.errors.full_messages, status: 401
     end
   end
 

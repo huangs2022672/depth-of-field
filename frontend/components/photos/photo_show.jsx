@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import CommentIndexContainer from '../comments/comment_index_container'
+import CommentFormContainer from '../comments/comment_form_container'
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -64,12 +66,8 @@ class PhotoShow extends React.Component {
               ) : null
             }
             <div className="photo-comments">
-              <div className="comment-index">
-                COMMENTS INDEX
-              </div>
-              <div className="comment-form">
-                COMMENT TEXTAREA
-              </div>
+              { photo ? <CommentIndexContainer photo={photo}/> : null }
+              { photo ? <CommentFormContainer photo={photo}/> : null }
             </div>
           </div>
           <div className="photo-show-details-right">
@@ -110,7 +108,7 @@ class PhotoShow extends React.Component {
               <div className="additional-info">
                 <h3>Additional info</h3>
                 <div>
-                  <h4><span class="iconify" data-icon="cil:lock-unlocked" data-inline="false"></span> Viewing privacy</h4>
+                  <h4><span className="iconify" data-icon="cil:lock-unlocked" data-inline="false"></span> Viewing privacy</h4>
                   <p>{ photo ? ( photo.private === true ? "Private" : "Public" ) : null }</p>
                 </div>
               </div>

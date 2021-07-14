@@ -21,6 +21,8 @@ div.photo-show-details {
   min-height: 1000px;
   width: 1060px;
   margin: 20px auto;
+  // margin-bottom: 250px;
+  padding-bottom: 200px;
   background: #f3f5f6;
   display: flex;
   justify-content: space-between;
@@ -104,18 +106,18 @@ div.photo-show-details-left {
   div.photo-comments {
 
     .comment-index {
-      height: 300px;
+      // height: 300px;
       width: 100%;
-      border: 1px solid teal;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      // border: 1px solid teal;
+      display: block;
+      // justify-content: center;
+      // align-items: center;
     }
 
     .comment-form {
-      height: 300px;
+      // height: 300px;
       width: 100%;
-      border: 1px solid orange;
+      // border: 1px solid orange;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -228,9 +230,6 @@ div.photo-show-details-right {
         justify-content: space-between;
         margin-top: 10px;
       }
-
     }
-
-
   }
 }
