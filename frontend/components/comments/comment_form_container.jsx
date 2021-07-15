@@ -4,7 +4,7 @@ import { createComment } from "../../actions/comment_actions";
 import { removeErrors } from '../../actions/comment_actions';
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     currentUserId: state.session.currentUserId,
     errors: state.errors.comment

@@ -28,7 +28,7 @@ class CommentForm extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     const { currentUserId, photo, createComment, errors } = this.props
     return (
       <div className="comment-form">
