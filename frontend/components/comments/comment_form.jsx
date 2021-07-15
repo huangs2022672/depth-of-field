@@ -17,7 +17,10 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    // debugger
     this.props.createComment(this.state)
+    this.setState({body: ""})
+    setTimeout(() => this.props.removeErrors(), 2000)
   }
 
   handleComment(e) {
@@ -25,8 +28,8 @@ class CommentForm extends React.Component {
   }
 
   render() {
-    const { currentUser, photo, createComment } = this.props
-
+    debugger
+    const { currentUser, photo, createComment, errors } = this.props
     return (
       <div className="comment-form">
 
@@ -41,7 +44,7 @@ class CommentForm extends React.Component {
             <label htmlFor="comment">Add a comment</label>
 
             <textarea
-            id="comment"
+            id={errors[0] ? "create-comment-errors" : "comment-textarea"}
             value={this.state.body}
             onChange={this.handleComment}
             ></textarea>

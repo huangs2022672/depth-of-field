@@ -8,11 +8,14 @@ import {
 } from "../../actions/comment_actions";
 
 const mSTP = (state, ownProps) => {
+  // debugger
   const comments = Object.values(state.entities.comments)
-  const users = Object.values(state.entities.users)
+  const users = state.entities.users
+  const currentUserId = state.session.currentUserId
   return {
     comments: comments,
-    users: users
+    users: users,
+    currentUserId: currentUserId
   }
 }
 

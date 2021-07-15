@@ -30,7 +30,8 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
-    const { comment, user, photo, editComment, deleteComment } = this.props
+    const { comment, user, photo, editComment, deleteComment, currentUserId } = this.props
+    // debugger
     return (
       <div className="comment-index-item">
         <div className="comment-user-avatar">
@@ -49,19 +50,18 @@ class CommentIndexItem extends React.Component {
             ) : null }
           </div>
 
-
-
           <div className="comment-cont-dyn">
 
-
-            <div className="comment-edit-delete">
-              <button
-              onClick={() => this.setState({editing: true})}
-              className="comment-edit"><span className="iconify" data-icon="bx:bxs-edit" data-inline="false"></span></button>
-              <button
-              onClick={this.handleDelete}
-              className="comment-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
-            </div>
+            { user.id === currentUserId ? (
+              <div className="comment-edit-delete">
+                <button
+                onClick={() => this.setState({editing: true})}
+                className="comment-edit"><span className="iconify" data-icon="bx:bxs-edit" data-inline="false"></span></button>
+                <button
+                onClick={this.handleDelete}
+                className="comment-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
+              </div>
+            ) : null}
 
             { !this.state.editing ? (
                 <div className="comment-not-editing">
@@ -69,27 +69,20 @@ class CommentIndexItem extends React.Component {
                 </div>
               ) : (
                 <div className="comment-editing">
-
-
                   <form onSubmit={this.handleEdit}>
-
                     <textarea
                     name="body"
                     id="comment"
                     value={this.state.body}
                     onChange={this.handleComment}
                     ></textarea>
-
-
-
                     <div className="comment-edit-button">
                       <button>Done</button>
                     </div>
-
-
                   </form>
                 </div>
               )}
+
           </div>
         </div>
       </div>

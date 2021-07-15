@@ -7,10 +7,10 @@ div.photo-show {
   justify-content: center;
   align-items: center;
   background-color:  #212124f1;
-  height: 700px;
+  height: 800px;
 
   img {
-    height: 85%;
+    height: 90%;
     margin: auto;
     padding-top: 48px
   }
@@ -71,12 +71,13 @@ div.photo-show-details-left {
           margin-left: 10px;
 
           button {
-            width: 90px;
-            height: 35px;
             background: #008ddf;
+            padding: 0 20px;
+            height: 35px;
+            font-size: 14px;
             border-radius: 4px;
-            font-size: 15px;
-            font-weight: bold;
+            font-weight: 500;
+            color: white;
           }
         }
       }
@@ -104,6 +105,7 @@ div.photo-show-details-left {
   }
 
   div.photo-comments {
+    width: 100%;
 
     .comment-index {
       // height: 300px;

@@ -22,5 +22,13 @@ class Comment < ApplicationRecord
   belongs_to :photo,
     foreign_key: :photo_id,
     class_name: :Photo
-    
+
+  def self.find_by_photo_id(photo_id)
+
+    self
+      .select(:id, :body, :commenter_id, :photo_id, :created_at)
+      .where(photo_id: photo_id)
+
+
+  end
 end

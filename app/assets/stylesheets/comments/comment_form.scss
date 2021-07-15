@@ -17,34 +17,54 @@ div.comment-form {
 
   .comment-form-right {
     // border: 1px solid gray;
+    padding: 6px 15px 0 6px;
     width: 100%;
 
     .comment-form-input {
       // border: 1px solid magenta;
-
-      textarea {
-        width: 98%;
-        height: 90px;
-        resize: none;
+      // box-sizing: border-box;
+      label {
+        font-size: 14px;
       }
 
+      textarea {
+        box-sizing: border-box;
+        margin-top: 10px;
+        resize: none;
+        min-height: 90px;
+        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+        overflow: hidden;
+        border-radius: 3px;
+        padding: 10px;
+
+        &:focus {
+          outline: none;
+          border: 1px solid #008ddf;
+        }
+      }
+
+      #create-comment-errors {
+        border: 1px solid red;
+      }
     }
 
     .comment-form-button {
       // border: 1px solid magenta;
       display: flex;
-      justify-content: right;
-
+      justify-content: flex-end;
+      padding: 8px 0 0 0;
 
       button {
         background: #008ddf;
-        width: 90px;
+        padding: 0 20px;
         height: 35px;
-        font-size: 15px;
+        font-size: 14px;
         border-radius: 4px;
+        color: white;
+        font-weight: 500;
+
       }
-
-
     }
   }
 }

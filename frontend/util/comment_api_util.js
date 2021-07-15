@@ -1,13 +1,9 @@
 export const fetchPhotoComments = photoId => {
+  // debugger
   return (
     $.ajax({
       method: "GET",
-      url: `/api/comments`,
-      data: {
-        comment: {
-          photo_id: photoId
-        }
-      }
+      url: `/api/photos/${photoId}/comments`
     })
   )
 }
@@ -25,7 +21,7 @@ export const createComment = comment => {
   return (
     $.ajax({
       method: "POST",
-      url: `/api/users/${comment.commenterId}/comments`,
+      url: `/api/photos/${comment.commenter_id}/comments`,
       data: { comment }
     })
   )

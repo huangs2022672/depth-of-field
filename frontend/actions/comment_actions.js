@@ -48,7 +48,7 @@ export const fetchPhotoComments = photoId => dispatch => {
   return (
     CommentApitUtil.fetchPhotoComments(photoId)
       .then(payload => dispatch(receivePhotoComments(payload
-        )), errors => dispatch(receiveErrors(errors)))
+        )), errors => dispatch(receiveErrors(errors.responseJSON)))
   )
 }
 
@@ -57,7 +57,7 @@ export const fetchComment = commentId => dispatch => {
   return (
     CommentApitUtil.fetchComment(commentId)
       .then(payload => dispatch(receiveComment(payload
-        )), errors => dispatch(receiveErrors(errors)))
+        )), errors => dispatch(receiveErrors(errors.responseJSON)))
   )
 }
 
@@ -66,7 +66,7 @@ export const createComment = comment => dispatch => {
   return (
     CommentApitUtil.createComment(comment)
       .then(payload => dispatch(receiveComment(payload
-        )), errors => dispatch(receiveErrors(errors)))
+        )), errors => dispatch(receiveErrors(errors.responseJSON)))
   )
 }
 
@@ -75,7 +75,7 @@ export const editComment = comment => dispatch => {
   return (
     CommentApitUtil.editComment(comment)
       .then(payload => dispatch(receiveComment(payload
-        )), errors => dispatch(receiveErrors(errors)))
+        )), errors => dispatch(receiveErrors(errors.responseJSON)))
   )
 }
 
@@ -83,7 +83,7 @@ export const deleteComment = commentId => dispatch => {
 
   return (
     CommentApitUtil.deleteComment(commentId)
-      .then(payload => dispatch(removeComment(payload
-        )), errors => dispatch(receiveErrors(errors)))
+      .then(payload => dispatch(removeComment(payload.comment.id
+        )), errors => dispatch(receiveErrors(errors.responseJSON)))
   )
 }

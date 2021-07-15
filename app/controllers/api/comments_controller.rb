@@ -6,11 +6,13 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comments = Comment.includes(:commenter).all
+    @comments = Comment.includes(:commenter).find_by_photo_id(params[:photo_id])
+    # debugger
     render :index
   end
 
   def create
+    # debugger
     @comment = Comment.new(comment_params)
     if @comment.save
       render :show
@@ -24,7 +26,7 @@ class Api::CommentsController < ApplicationController
     if @comment && @comment.update(comment_params)
       render :show
     else
-      # render json: @comment.errors.full_messages, status: 401
+      render json: @comment.errors.full_messages, status: 401
     end
   end
 

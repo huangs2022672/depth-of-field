@@ -33,7 +33,7 @@ class PhotoUploadForm extends React.Component {
     formData.append('photo[uploader_id]', this.state.uploaderId);
     this.props.uploadPhoto(formData)
       .then(payload=> {
-        debugger
+        // debugger
         this.props.history.push(`/users/${payload.payload.photo.uploader_id}`)
       })
 

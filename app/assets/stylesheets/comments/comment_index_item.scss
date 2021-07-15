@@ -1,13 +1,16 @@
-
-
 div.comment-index-item {
   display: flex;
   width: 100%;
   margin-top: 10px;
+  padding: 10px 0;
 
   &:hover {
     background: white;
-    // color: black
+    .comment-index-right {
+      button {
+        color: lightgray;
+      }
+    }
   }
 
   .comment-user-avatar {
@@ -21,8 +24,9 @@ div.comment-index-item {
   }
 
   .comment-index-right {
-    padding-top: 6px;
-    padding-left: 6px;
+    // padding-top: 6px;
+    // padding-left: 6px;
+    padding: 6px 15px 0 6px;
     display: block;
     width: 100%;
     // border: 1px solid green;
@@ -31,8 +35,8 @@ div.comment-index-item {
 
     .comment-edit-delete {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 1px;
+      right: 2px;
       // border: 1px solid red;
       width: 60px;
       height: 20px;
@@ -44,62 +48,84 @@ div.comment-index-item {
       // color: transparent;
       // // width: 16px;
       // border: 1px solid blue;
-      font-size: 30px;
-      color: gray;
+      font-size: 24px;
+      color: #f3f5f6;
       background: transparent;
+
+      &:hover {
+        color: gray;
+      }
+
     }
 
     .commenter-name {
+      // display: inline;
       height: 24px;
-      width: 100%;
-      font-size: 12px;
+      width: auto;
+      // width: 100%;
+      font-size: 13px;
       color: #006dac;
-      font-weight: bold;
+      font-weight: 600;
       // border: 1px solid pink;
-
-
     }
 
-    // .comment-cont-dyn {
-    //   // width: 100%;
-    //   // border: 1px solid gold;
+    .comment-cont-dyn {
+      width: 100%;
+      // border: 1px solid gold;
 
 
-    //   .comment-not-editing {
-    //     // width: 100%;
-    //     // border: 1px solid teal;
+      .comment-not-editing {
+        width: 100%;
+        // border: 1px solid teal;
 
 
-    //     .comment-display {
-    //       // width: 100%;
-    //       // min-height: 98px;
-    //       // border: 1px solid orange;
+        .comment-display {
+          width: 100%;
+          // border: 1px solid orange;
+          font-size: 13px;
+          word-break:break-all;
+          line-height: 1.5;
 
-    //     }
+        }
 
 
 
 
-    //   }
+      }
 
       .comment-editing {
+        // box-sizing: border-box;
 
         textarea {
-          width: 98%;
+          box-sizing: border-box;
           resize: none;
-          height: 90px;
+          min-height: 90px;
+          width: 100%;
+	        font-family: 'Montserrat', sans-serif;
+          overflow: hidden;
+          border-radius: 3px;
+          padding: 10px;
+
+          &:focus {
+            outline: none;
+            // border: 1px solid #008ddf;
+          }
         }
 
         div.comment-edit-button {
+          display: flex;
+          justify-content: flex-end;
+          padding: 8px 0 0 0;
 
 
           button {
             background: #008ddf;
-            width: 90px;
+            padding: 0 20px;
             height: 35px;
-            font-size: 15px;
-            color: white;
+            font-size: 14px;
             border-radius: 4px;
+            color: white;
+            font-weight: 500;
 
           }
 
@@ -114,7 +140,7 @@ div.comment-index-item {
 
 
 
-    // }
+    }
 
 
 

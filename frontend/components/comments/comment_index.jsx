@@ -3,7 +3,7 @@ import CommentIndexItem from './comment_index_item'
 
 class CommentIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchPhotoComments()
+    this.props.fetchPhotoComments(this.props.photo.id)
   }
 
   render() {
@@ -14,10 +14,12 @@ class CommentIndex extends React.Component {
       fetchPhotoComments,
       createComment,
       editComment,
-      deleteComment
+      deleteComment,
+      currentUserId
     } = this.props
 
     const photoComments = comments.filter(comment => comment.photo_id === photo.id)
+    // debugger
 
     return (
       <div className="comment-index">
@@ -33,6 +35,7 @@ class CommentIndex extends React.Component {
               photo={photo}
               editComment={editComment}
               deleteComment={deleteComment}
+              currentUserId={currentUserId}
             />
             )
           })
