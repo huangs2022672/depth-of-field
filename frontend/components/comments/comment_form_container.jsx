@@ -6,7 +6,7 @@ import { removeErrors } from '../../actions/comment_actions';
 const mSTP = (state, ownProps) => {
   debugger
   return {
-    currentUser: state.entities.users[state.session.currentUserId],
+    currentUserId: state.session.currentUserId,
     errors: state.errors.comment
   }
 }

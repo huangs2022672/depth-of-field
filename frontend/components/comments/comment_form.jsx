@@ -6,7 +6,7 @@ class CommentForm extends React.Component {
     super(props)
     this.state = {
       body: "",
-      commenter_id: props.currentUser.id,
+      commenter_id: props.currentUserId,
       photo_id: props.photo.id
     }
 
@@ -29,7 +29,7 @@ class CommentForm extends React.Component {
 
   render() {
     debugger
-    const { currentUser, photo, createComment, errors } = this.props
+    const { currentUserId, photo, createComment, errors } = this.props
     return (
       <div className="comment-form">
 
