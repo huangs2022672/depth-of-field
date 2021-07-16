@@ -32,9 +32,9 @@ class UserShow extends React.Component {
                   <div>
                     <h2>{user.first_name} {user.last_name}</h2>
                     <div className="display-follow">
-                      <p>display name</p>
-                      {isCurrentUser ? <Link to={`/users/${user.id}/follower`}># Followers</Link> : <p># Followers</p>}
-                      <Link to={`/users/${user.id}/following`}># Following</Link>
+                      {/* <p>display name</p> */}
+                      {isCurrentUser ? <Link to={`/users/${user.id}/follower`}>Followers</Link> : <p># Followers</p>}
+                      <Link to={`/users/${user.id}/following`}>Following</Link>
                     </div>
                   </div>
                 </div>
