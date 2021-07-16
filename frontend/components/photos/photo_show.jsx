@@ -1,17 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container'
 import CommentFormContainer from '../comments/comment_form_container'
 
 class PhotoShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = this.props.photo
+    this.state = {
+      title: "",
+      description: "",
+      private: "",
+      views: "",
+      uploader_id: "",
+      editingTitle: false,
+      editingPrivacy: false,
+      deleting: false,
+      following: false
+    }
     // debugger
+
+    this.handleTitle = this.handleTitle.bind(this)
+    this.handleDescription = this.handleDescription.bind(this)
+    this.handlePrivacy = this.handlePrivacy.bind(this)
+    this.handleSubmitTitle = this.handleSubmitTitle.bind(this)
+    this.handleSubmitPrivacy = this.handleSubmitPrivacy.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+    this.handleFollow = this.handleFollow.bind(this)
   }
 
   componentDidMount() {
-    // this.props.fetchPhoto(this.props.match.params.photoId)
+    // this.setState({
+    //   title: photo.title,
+    //   description: photo.description,
+    //   private: photo.private,
+    //   views: photo.views
+    // })
+
+    if (!this.props.photo) {
+      this.props.fetchPhoto(this.props.match.params.photoId)
+    }
 
     // not sure how to update views for a photo atm
     // updates views for photo on each did-mount
@@ -22,10 +50,72 @@ class PhotoShow extends React.Component {
     // }
   }
 
+  handleDelete(e) {
+    const { deletePhoto, photo, user } = this.props
+    // debugger // 1 delete
+    deletePhoto(photo.id)
+      .then(payload => {
+        // debugger // 7?? delete
+        this.props.history.push(`/users/${user.id}`)
+      })
+  }
+
+  handleSubmitTitle(e) {
+    e.preventDefault()
+
+    if (this.state.title !== "")
+      this.props.editPhoto(this.state);
+
+    this.setState({editingTitle: false})
+  }
+
+  handleTitle(e) {
+    this.setState({title: e.currentTarget.value})
+  }
+
+  handleDescription(e) {
+    this.setState({description: e.currentTarget.value})
+  }
+
+  handleSubmitPrivacy(e) {
+    e.preventDefault()
+    this.props.editPhoto(this.state)
+    this.setState({editingPrivacy: false})
+  }
+
+  handlePrivacy(e) {
+    this.setState({private: e.currentTarget.value})
+  }
+
+  handleClick(e) {
+    e.currentTarget.select()
+  }
+
+  handleFollow(e) {
+    this.setState({following: !this.state.following})
+  }
+
   render() {
-    const { photo, fetchPhoto, match, user } = this.props
+    const {
+      photo,
+      user,
+      match,
+      comments,
+      currentUserId,
+      fetchPhoto,
+      deletePhoto,
+      editPhoto
+    } = this.props
+    // debugger
+
+    // !this.state.uploader_id && photo ? (
+    //   this.setState({...photo})
+    // ): null
+
     !photo ? fetchPhoto(match.params.photoId) : null;
+      // .then(payload=>(()=>this.setState({...payload.photo})))
     // !user ? fetchPhoto(match.params.photoId) : null;
+    // debugger
     return (
       <div className="photo-show-page">
         <div className="photo-show">
@@ -35,6 +125,15 @@ class PhotoShow extends React.Component {
           {/* <div>image slider</div>
           <div>left right nav</div>
           <div>zoom</div> */}
+
+
+          <div className="photo-delete">
+            <button
+            onClick={this.handleDelete}
+            className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
+          </div>
+
+
         </div>
         <div className="photo-show-details">
           <div className="photo-show-details-left">
@@ -54,13 +153,57 @@ class PhotoShow extends React.Component {
                         </Link>
                       </div>
                       <div className="follow-button">
-                        <button className="follow-button">Follow</button>
+                        <button
+                        onClick={this.handleFollow}
+                        className="follow-button">{this.state.following ? "Unfollow" : "Follow"}</button>
                       </div>
                     </div>
-                    <div className="photo-info-bot">
-                      <h2>{photo.title}</h2>
-                      <h3><p>{photo.description}</p></h3>
-                    </div>
+
+                    { !this.state.editingTitle ? (
+                      <div className="photo-info-bot">
+
+                        <div className={photo.uploader_id === currentUserId ? (
+                          "title-description has-hover-effect"
+                        ) : ( "title-description" )}>
+                          <h2>{photo.title}</h2>
+                          <h3><p className={photo.description === "" ? "description-gray" : null }>{photo.description !== "" ? photo.description : "Add description"}</p></h3>
+                          { photo.uploader_id === currentUserId ? (
+                            <div className="photo-title-edit">
+                              <button
+                              onClick={() => this.setState({...photo, editingTitle: true})}
+                              className="title-edit"><span className="iconify" data-icon="bx:bxs-edit" data-inline="false"></span></button>
+                            </div>
+                          ) : null}
+                        </div>
+
+                      </div>
+                    ) : (
+                      <div className="photo-info-bot-edit">
+                        <div className="title-desc-editing">
+                          <form onSubmit={this.handleSubmitTitle}>
+                            <label htmlFor="title"></label>
+                            <input type="text" id="title"
+                              value={this.state.title}
+                              onChange={this.handleTitle}
+                              onClick={this.handleClick}
+                              placeholder="Add title"
+                            />
+                            <label htmlFor="description"></label>
+                            <textarea
+                              id="description"
+                              value={this.state.description}
+                              onChange={this.handleDescription}
+                              placeholder="Add description"
+                              >
+                            </textarea>
+                            <div className="title-edit-button">
+                              <button>Done</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    )}
+
                   </div>
                 </div>
               ) : null
@@ -83,7 +226,7 @@ class PhotoShow extends React.Component {
                     <p>faves</p>
                   </div>
                   <div className="comments">
-                    <h4>1</h4>
+                    <h4>{photo ? comments.filter(comment => comment.photo_id === photo.id).length : null}</h4>
                     <p>comment</p>
                   </div>
                 </div>
@@ -121,4 +264,4 @@ class PhotoShow extends React.Component {
   }
 }
 
-export default PhotoShow;
+export default withRouter(PhotoShow);

@@ -1,0 +1,36 @@
+.footer-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsla(0,0%,100%,.6);
+  background: #000000;
+  z-index: 1;
+
+  .footer-text-links {
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 16px;
+
+    h3 {
+      margin: auto 15px auto 24px;
+      color: white;
+      font-weight: 500;
+    }
+
+    img {
+      width: 98px;
+    }
+  }
+
+  .footer-icon-links {
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

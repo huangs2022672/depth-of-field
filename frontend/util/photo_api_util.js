@@ -17,16 +17,27 @@ export const fetchPhoto = photoId => {
 }
 
 export const uploadPhoto = photo => {
+  // debugger //3 create
   return (
     $.ajax({
       method: "POST",
-      url: `/api/users/${photo.uploaderId}/photos`,
-      data: { photo },
+      url: `/api/users/${photo.get("photo[uploader_id]")}/photos`,
+      data: photo,
       contentType: false,
       processData: false
     })
-  )
-}
+    )
+  }
+  // data: {
+  //   photo: {
+  //     title: photo.get("photo[title]"),
+  //     description: photo.get("photo[description]"),
+  //     private: photo.get("photo[private]"),
+  //     file: photo.get("photo[file]"),
+  //     uploader_id: photo.get("photo[uploader_id]"),
+  //     views: photo.get("photo[views]"),
+  //   }
+  //  },
 
 export const editPhoto = photo => {
   return (
@@ -39,6 +50,7 @@ export const editPhoto = photo => {
 }
 
 export const deletePhoto = photoId => {
+  // debugger // 3 delete
   return (
     $.ajax({
       method: "DELETE",

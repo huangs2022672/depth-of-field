@@ -128,10 +128,13 @@ div.after-file-uploaded {
   min-height: 400px;
 
   div.photo-upload-form {
+    // width: 300px;
     width: 224px;
     margin: 14px;
     font-size: 14px;
     font-family: Arial,Helvetica,sans-serif;
+
+    // margin: 50px 0 24px 50px;
 
     form.photo-upload-form {
       border: 0.5px solid rgba(128, 128, 128, 0.25);
@@ -296,11 +299,15 @@ div.after-file-uploaded {
   }
 
   .uploaded-photo-display {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // width: 100%;
 
-    margin: 40px 40px;
+    margin:40px;
 
     > img {
-      max-height: 70vh;
+      max-height: 75vh;
       min-height: 400px;
       border: 5px solid rgba(0, 0, 0, .75);
       border-radius: 5px;

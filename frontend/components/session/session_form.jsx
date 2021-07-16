@@ -28,9 +28,14 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
+
+    this.setState({
+      email: '',
+      password: ''
+    })
+
     let email = "demouser@gmail.com".split('');
     let password = "1234567".split('');
-
 
     const demoLogin = setInterval(() => {
       if (email.length > 0) {
@@ -156,7 +161,12 @@ class SessionForm extends React.Component {
               }</Link>
           </div>
         </main>
-        <img className="session-form" src={window.sessionBG} alt="rolling fields" />
+        <div className="session-bg-img"
+        alt="session bg image"
+        style={{
+          backgroundImage: `url(${session})`
+        }}
+        />
       </div>
     )
   }

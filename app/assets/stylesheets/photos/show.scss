@@ -8,11 +8,25 @@ div.photo-show {
   align-items: center;
   background-color:  #212124f1;
   height: 800px;
+  position: relative;
 
   img {
     height: 90%;
     margin: auto;
     padding-top: 48px
+  }
+
+  .photo-delete {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    width: 50px;
+    height: 40px;
+
+    button {
+      font-size: 24px;
+    }
   }
 }
 
@@ -52,6 +66,8 @@ div.photo-show-details-left {
       width: 100%;
       line-height: 2;
 
+      padding-right: 15px;
+
       div.photo-info-top {
         // border: 1px solid teal;
         height: 42px;
@@ -82,23 +98,133 @@ div.photo-show-details-left {
         }
       }
 
+
       div.photo-info-bot {
         // border: 1px solid red;
         min-height: 60px;
+        position: relative;
+        border-bottom: 1px solid rgba(123,123,123, 0.5);
+
+        .title-description {
+          margin-bottom: 14px;
+          // border: 1px solid pink;
+        }
 
         h2 {
           font-size: 14px;
           font-weight: bold;
           margin-bottom: 5px;
           // border: 1px solid green;
+          padding-left: 4px;
         }
 
         h3 {
-          min-height: 45px;
-          padding-bottom: 20px;
+          // min-height: 45px;
+          // padding-bottom: 20px;
           font-size: 12px;
-          border-bottom: 1px solid rgba(123,123,123, 0.5);
+          padding-left: 6px;
           // border: 1px solid red;
+          .description-gray {
+            color: #898989;
+          }
+        }
+
+        .photo-title-edit {
+          position: absolute;
+          top: 1px;
+          right: 2px;
+          // border: 1px solid red;
+          width: 23px;
+          height: 20px;
+        }
+
+        button {
+          font-size: 22px;
+          color: #f3f5f6;
+          background: transparent;
+
+        }
+      }
+
+      div.has-hover-effect{
+        &:hover {
+          background: rgba(228,228,228, 0.75);
+          .photo-title-edit {
+            button {
+              color: lightgray;
+            }
+          }
+        }
+      }
+
+      div.photo-title-edit button.title-edit:hover {
+        color: gray;
+      }
+
+      div.photo-info-bot-edit {
+        min-height: 60px;
+        position: relative;
+        border-bottom: 1px solid rgba(123,123,123, 0.5);
+        // border: 1px solid red;
+
+        div.title-desc-editing {
+          margin-bottom: 14px;
+          // border: 1px solid green;
+
+          textarea {
+            font-size: 12px;
+            position: relative;
+            box-sizing: border-box;
+            resize: none;
+            min-height: 80px;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            border-radius: 3px;
+            padding: 10px;
+
+            &:focus {
+              outline: none;
+              border: 1px solid #008ddf;
+            }
+          }
+
+          input {
+            font-size: 14px;
+            box-sizing: border-box;
+            resize: none;
+            min-height: 32px;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            border-radius: 3px;
+            padding-left: 10px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+
+            &:focus {
+              border: 1px solid #008ddf;
+            }
+          }
+
+          div.title-edit-button {
+            display: flex;
+            justify-content: flex-end;
+            // padding: 8px 0 0 0;
+            // border: 1px solid blue;
+
+            button {
+              background: #008ddf;
+              padding: 0 20px;
+              height: 35px;
+              font-size: 14px;
+              border-radius: 4px;
+              color: white;
+              font-weight: 500;
+            }
+          }
         }
       }
     }

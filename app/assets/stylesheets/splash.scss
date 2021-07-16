@@ -1,0 +1,35 @@
+div.splash-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+  background: #212727;
+}
+
+@keyframes slidedown {
+  0%   {top:-300px;}
+  100% {top:-56px;}
+}
+
+// @keyframes photo-carousel {
+//   0%   {background-image: url("splash0")}
+//   33%  {background-image: url("splash1")}
+//   66%  {background-image: url("splash2")}
+//   100% {background-image: url("splash0")}
+// }
+
+div.splash-bg-img {
+  position: absolute;
+  bottom: 56px;
+  width: 100%;
+  height: 100%;
+  animation-name: slidedown;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: auto;
+}

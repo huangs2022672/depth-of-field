@@ -20,8 +20,8 @@ class CommentIndexItem extends React.Component {
   }
 
   handleEdit(e) {
-    const { editComment } = this.props
-    editComment(this.state)
+    e.preventDefault()
+    this.props.editComment(this.state)
     this.setState({editing: false})
   }
 
@@ -75,6 +75,7 @@ class CommentIndexItem extends React.Component {
                     id="comment"
                     value={this.state.body}
                     onChange={this.handleComment}
+                    placeholder="Add a comment"
                     ></textarea>
                     <div className="comment-edit-button">
                       <button>Done</button>

@@ -23,10 +23,13 @@ const receivePhoto = payload => {
 
 }
 
-const removePhoto = photoId => ({
-  type: REMOVE_PHOTO,
-  photoId
-})
+const removePhoto = payload => {
+  // debugger // 5 delete
+  return ({
+    type: REMOVE_PHOTO,
+    photoId: payload.photo.id
+  })
+}
 
 const receiveErrors = errors => {
   return({
@@ -53,6 +56,7 @@ export const fetchPhoto = photoId => dispatch => {
 }
 
 export const uploadPhoto = photo => dispatch => {
+  // debugger //2 create
   return (
     PhotoApiUtil.uploadPhoto(photo)
       .then(payload => dispatch(receivePhoto(payload
@@ -61,6 +65,7 @@ export const uploadPhoto = photo => dispatch => {
 }
 
 export const editPhoto = photo => dispatch => {
+  // debugger
   return (
     PhotoApiUtil.editPhoto(photo)
       .then(payload => dispatch(receivePhoto(payload
@@ -69,6 +74,7 @@ export const editPhoto = photo => dispatch => {
 }
 
 export const deletePhoto = photoId => dispatch => {
+  // debugger // 2 delete
   return (
     PhotoApiUtil.deletePhoto(photoId)
       .then(payload => dispatch(removePhoto(payload

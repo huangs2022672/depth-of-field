@@ -4,10 +4,16 @@ import { fetchPhoto, editPhoto, deletePhoto } from "../../actions/photo_actions"
 
 const mSTP = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.match.params.photoId]
+  // !photo ? fetchPhoto(ownProps.match.params.photoId) : null
   const user = photo ? state.entities.users[photo.uploader_id] : null
+  const comments = Object.values(state.entities.comments)
+  const currentUserId = state.session.currentUserId
+  // debugger
   return {
     photo,
-    user
+    user,
+    comments,
+    currentUserId
   }
 }
 

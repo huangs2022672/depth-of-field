@@ -21,8 +21,14 @@
 
 
     <script type="text/javascript">
-      window.sessionBG = "<%= image_url('session.jpg') %>";
-      window.splashBG = "<%= image_url('splash.jpg') %>"
+      window.flickrLogo= "<%= image_url('flickr_logo_dots.svg'); %>"
+      window.session = "<%= image_url('session1.jpg') %>";
+      window.splash0 = "<%= image_url('splash0.jpg') %>";
+      window.splash1 = "<%= image_url('splash1.jpg') %>";
+      window.splash2 = "<%= image_url('splash2.jpg') %>";
+      window.splash3 = "<%= image_url('splash3.jpg') %>";
+      window.splash4 = "<%= image_url('splash4.jpg') %>";
+
     </script>
 
     <% if logged_in? %>
@@ -33,7 +39,7 @@
         ).html_safe %>
       </script>
     <% end %>
-    
+
   </head>
 
   <body>

@@ -15,6 +15,7 @@ const photosReducer = (slice = {}, action) => {
       newSlice[action.payload.photo.id] = action.payload.photo
       return newSlice
     case REMOVE_PHOTO:
+      // debugger // 6 delete
       delete newSlice[action.photoId]
       return newSlice
     default:

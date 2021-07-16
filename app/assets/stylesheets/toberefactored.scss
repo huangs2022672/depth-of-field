@@ -11,26 +11,62 @@ h1 {
   align-items: center;
 }
 
+// @keyframes spin {
+//   0%   {color: red; transform:rotate(0deg)}
+//   10%   {color: orange; transform:rotate(36deg)}
+//   20%   {color: yellow; transform:rotate(72deg)}
+//   30%   {color: yellowgreen; transform:rotate(108deg)}
+//   40%   {color: green; transform:rotate(144deg)}
+//   50%   {color: teal; transform:rotate(180deg)}
+//   60%   {color: blue; transform:rotate(216deg)}
+//   70%   {color:mediumslateblue; transform:rotate(252deg)}
+//   80%  {color: purple; transform:rotate(288deg)}
+//   90%  {color:violet; transform:rotate(324deg)}
+//   100% {color:red; transform:rotate(360deg)}
+// }
+
+// @keyframes spin {
+//   0%   {color: red; transform:rotate(0deg)}
+//   10%   {color: orange; transform:rotate(36deg)}
+//   20%   {color: orange; transform:rotate(72deg)}
+//   30%   {color: yellow; transform:rotate(108deg)}
+//   40%   {color: yellow; transform:rotate(144deg)}
+//   50%   {color: green; transform:rotate(180deg)}
+//   60%   {color: blue; transform:rotate(216deg)}
+//   70%   {color:blue; transform:rotate(252deg)}
+//   80%  {color: purple ; transform:rotate(288deg)}
+//   90%  {color:purple; transform:rotate(324deg)}
+//   100% {color:red; transform:rotate(360deg)}
+// }
+
+@keyframes spin {
+  0%   {transform:rotate(0deg)}
+  10%  {transform:rotate(36deg)}
+  20%  {transform:rotate(72deg)}
+  30%  {transform:rotate(108deg)}
+  40%  {transform:rotate(144deg)}
+  50%  {transform:rotate(180deg)}
+  60%  {transform:rotate(216deg)}
+  70%  {transform:rotate(252deg)}
+  80%  {transform:rotate(288deg)}
+  90%  {transform:rotate(324deg)}
+  100% {transform:rotate(360deg)}
+}
+
 #global-nav-logo:hover {
   // color: rgba(128, 128, 128, 1);
   // font-weight: bolder;
   .iconify {
-    color: gold;
+    // color: transparent;
+    animation-name: spin;
+    animation-duration: .85s;
+    animation-iteration-count: infinite;
   }
 
 }
 
-header.session-form #global-nav-logo {
-  width: 150px;
-  margin-left: 200px;
-}
-
 #global-nav-logo .iconify {
   font-size: 36px;
-}
-
-header.session-form #global-nav-logo .iconify {
-  font-size: 30px;
 }
 
 #global-nav-logo h2 {
@@ -38,10 +74,6 @@ header.session-form #global-nav-logo .iconify {
   font-family: 'Engagement', cursive;
   display: flex;
   align-items: center;
-}
-
-header.session-form #global-nav-logo h2 {
-  font-size: 27px;
 }
 
 a {
@@ -168,20 +200,6 @@ a.splash-message:hover {
   color: gray;
 }
 
-div.splash-bg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -2;
-}
-
-img.splash-bg {
-  width: 100%;
-  height: 100%;
-}
-
 .welcome-logout {
   display: flex;
   margin: 0 10px;
@@ -194,6 +212,11 @@ img.splash-bg {
   span {
     padding: 10px;
     font-size: 16px;
+  }
+
+  button {
+    font-weight: 600;
+
   }
 }
 
@@ -248,218 +271,4 @@ img.splash-bg {
   box-sizing: border-box;
 }
 
-div.session-form-main {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-img.session-form {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -2;
-
-}
-
-header.session-form {
-  background: #212124;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  height: 3rem;
-}
-
-header.session-form a {
-  margin-left: 40px;
-  margin-right: 30px;
-}
-
-main.session-form {
-  width: 22rem;
-  display: block;
-  background: white;
-  border-radius: 5px;
-}
-
-form.session-form {
-  display: block;
-}
-
-form.session-form div {
-  height: 54px;
-  width: 300px;
-  margin: 10px auto;
-  position: relative;
-  border-radius: 5px;
-  border: 1px solid #898989;
-}
-
-div#session-form-header {
-  height: 100px;
-  margin: 0px auto;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  border: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-
-  a {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-  }
-
-  a h2 {
-    font-size: 45px;
-  }
-
-  a .iconify {
-    font-size: 50px;
-  }
-}
-
-form.session-form div.session-form-errors {
-  height: inherit;
-  border: none;
-  margin: 0px auto;
-  color: red;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-div.session-form input {
-  border: none;
-  position: relative;
-  top: 28px;
-  left: 20px;
-  background: transparent;
-  width: 80%;
-  font-family: 'Montserrat', sans-serif;
-}
-
-input:focus {
-  outline: none;
-}
-
-
-div.session-form label {
-  position: absolute;
-  top: 12px;
-  left: 21px;
-  color: #898989;
-  font-size: 15px;
-}
-
-div#session-form-button {
-  height: 40px;
-  width: 300px;
-  margin: 0px auto;
-  margin-top: 30px;
-}
-
-div#session-form-button button {
-  background: #128FDC;
-  width: 100%;
-  height: 100%;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 20px;
-}
-
-div#session-form-button button:hover {
-  background: #1394e4;
-
-}
-
-div#session-form-links {
-  border: none;
-  border-top: 1px solid rgba(221, 219, 219, 0.75);
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 12px;
-  width: 300px;
-  font-size: 13px;
-  height: 30px;
-
-  p {
-    padding-right: 5px;
-  }
-  span {
-    color: #006dac;
-  }
-}
-
-.demo-user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-div.demo-user {
-  height: 40px;
-  width: 300px;
-  margin: 0px auto;
-  margin-top: 10px;
-}
-
-.demo-user button {
-  background: #128FDC;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-}
-
-.demo-user button:hover {
-  background: #1394e4;
-
-}
-
-.footer-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 56px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  color: hsla(0,0%,100%,.6);
-  background: #000000;
-  z-index: 1;
-}
-
-.footer-text-links {
-  width: 70%;
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 14px;
-}
-
-.footer-icon-links {
-  width: 30%;
-  display: flex;
-  justify-content: space-evenly;
-}
