@@ -13,20 +13,21 @@ class SplashBG extends React.Component {
         splash3,
         splash4,
       ],
+      BGCycle: null
 
     }
   }
 
   componentDidMount() {
     const numImages = 5
-    const BGCycle = setInterval(() => {
+    this.state.BGCycle = setInterval(() => {
       this.state.count = (this.state.count + 1) % numImages
       this.setState({bgSplash: this.state.bgImages[this.state.count]})
     }, 5000);
   }
 
   componentWillUnmount() {
-    clearInterval(BGCycle)
+    clearInterval(this.state.BGCycle)
   }
 
   render() {
