@@ -37,6 +37,7 @@ Depth of Field, a clone of Flickr, is an app designed for photographers to uploa
 
 ## CODE:
 ### Photo carousel on the splash page
-* Using
+#### Using React:
+* when the SplashBG component is mounted, componentDidMount() will call setInterval() to update the current bgImages to the next photo in the bgImages array.
 
 ### Uploading a new photo
