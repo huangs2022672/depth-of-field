@@ -14,7 +14,6 @@ class SplashBG extends React.Component {
         splash4,
       ],
       BGCycle: null
-
     }
   }
 
@@ -35,13 +34,15 @@ class SplashBG extends React.Component {
     return (
 
       <div className="splash-bg">
+        {/* <div className="splash-bg-img"
+        alt="depth of field splash background"/> */}
+
 
         <div className="splash-bg-img"
         alt="depth of field splash background"
-        style={{
-          backgroundImage: `url(${this.state.bgSplash})`
-        }}
+        style={{backgroundImage: `url(${this.state.bgSplash})`}}
         />
+
 
         {/* <img className="splash-bg" src={window.splash1} alt="sunshine on fields" /> */}
       </div>
