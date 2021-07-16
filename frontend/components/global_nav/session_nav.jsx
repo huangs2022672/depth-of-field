@@ -8,8 +8,7 @@ const SessionNav = ({user, logout, history}) => {
         <nav className="welcome-logout">
         <span>Hi {user.first_name.slice(0,1).toUpperCase()+user.first_name.slice(1).toLowerCase()}!</span>
         <button onClick={() =>{
-          logout()
-          history.push("/")
+          logout().then(() => history.push("/"))
         }}>Log Out</button>
         </nav>
       ) : (

@@ -10,8 +10,7 @@ class SessionForm extends React.Component {
       last_name: "",
       age: "",
       email: "",
-      password: "",
-      redirect: false,
+      password: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDemo = this.handleDemo.bind(this)
@@ -24,9 +23,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.formAction(user);
-    this.props.history.push("/explore")
-    // .then(() => this.setState({redirect: true}))
+    this.props.formAction(user)
+      .then(()=> this.props.history.push("/explore"))
   }
 
   handleDemo(e) {
@@ -48,9 +46,8 @@ class SessionForm extends React.Component {
       } else {
         // debugger
         clearInterval(demoLogin);
-        this.props.formAction(this.state);
-        this.props.history.push("/explore")
-        // .then(() => this.setState({redirect: true}));
+        this.props.formAction(this.state)
+          .then(()=> this.props.history.push("/explore"))
       }
     }, 50);
   }
