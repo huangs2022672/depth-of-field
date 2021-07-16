@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect, withRouter} from 'react-router-dom'
 import Logo from '../global_nav/logo'
 
 class SessionForm extends React.Component {
@@ -10,7 +10,8 @@ class SessionForm extends React.Component {
       last_name: "",
       age: "",
       email: "",
-      password: ""
+      password: "",
+      redirect: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDemo = this.handleDemo.bind(this)
@@ -24,6 +25,8 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.formAction(user);
+    this.props.history.push("/explore")
+    // .then(() => this.setState({redirect: true}))
   }
 
   handleDemo(e) {
@@ -43,8 +46,11 @@ class SessionForm extends React.Component {
       } else if (password.length > 0) {
         this.setState({ password: this.state.password + password.shift() })
       } else {
+        debugger
         clearInterval(demoLogin);
         this.props.formAction(this.state);
+        this.props.history.push("/explore")
+        // .then(() => this.setState({redirect: true}));
       }
     }, 50);
   }
@@ -55,6 +61,7 @@ class SessionForm extends React.Component {
 
   render() {
     const { errors, formType } = this.props
+    if (this.state.redirect) { return <Redirect to="/explore"/>}
     return (
       <div className="session-form-main">
         <header className="session-form">
@@ -172,4 +179,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

@@ -12,7 +12,7 @@ const SessionNav = ({user, logout}) => {
       ) : (
         <nav className="login-signup">
         <button className="login"><Link to="/login">Log In</Link></button>
-        <button className="signup"><Link to="/signup">Sign Up</Link></button>        
+        <button className="signup"><Link to="/signup">Sign Up</Link></button>
         </nav>
       )}
     </>
