@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
       } else if (password.length > 0) {
         this.setState({ password: this.state.password + password.shift() })
       } else {
-        debugger
+        // debugger
         clearInterval(demoLogin);
         this.props.formAction(this.state);
         this.props.history.push("/explore")
