@@ -32,5 +32,11 @@
     width: 20%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+
+    img {
+      padding-top: 1px;
+      height: 22px;
+    }
   }
 }
