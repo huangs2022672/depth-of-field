@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DepthOfField</title>
+    <title>Depth of Field</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,19 +17,21 @@
 
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
-
-
+    <% if false %>
+    <% end  %>
 
     <script type="text/javascript">
-      window.flickrLogo= "<%= image_url('flickr_logo_dots.svg'); %>"
+      window.flickrLogo = "<%= image_url('flickr_logo_dots.svg') %>";
+      window.profileIcon = "<%= image_url('profile_icon.svg') %>";
       window.session = "<%= image_url('session.jpg') %>";
       window.splash0 = "<%= image_url('splash0.jpg') %>";
       window.splash1 = "<%= image_url('splash1.jpg') %>";
       window.splash2 = "<%= image_url('splash2.jpg') %>";
       window.splash3 = "<%= image_url('splash3.jpg') %>";
       window.splash4 = "<%= image_url('splash4.jpg') %>";
-
     </script>
+
+    <%= favicon_link_tag asset_path('shutter.ico') %>
 
     <% if logged_in? %>
       <script type="text/javascript">
