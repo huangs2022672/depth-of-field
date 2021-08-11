@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, Redirect, withRouter} from 'react-router-dom'
-import Logo from '../global_nav/logo'
+import { Link, Redirect, withRouter } from 'react-router-dom';
+import Logo from '../global_nav/logo';
+import SessionError from './session_error';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,10 +11,18 @@ class SessionForm extends React.Component {
       last_name: "",
       age: "",
       email: "",
-      password: ""
+      password: "",
+      errors: {
+        First: false,
+        Last: false,
+        Age: false,
+        Email: false,
+        Password: false,
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDemo = this.handleDemo.bind(this)
+    this.setErrorTag = this.setErrorTag.bind(this)
   }
 
   componentWillUnmount() {
@@ -56,9 +65,14 @@ class SessionForm extends React.Component {
     return e => this.setState({ [field]: e.target.value })
   }
 
+  setErrorTag (field) {
+    debugger
+    this.setState({errors: { [field]: true }})
+  }
+
   render() {
     const { errors, formType } = this.props
-    if (this.state.redirect) { return <Redirect to="/explore"/>}
+    if (this.state.redirect) { return <Redirect to="/explore"/> }
     return (
       <div className="session-form-main">
         <header className="session-form">
@@ -79,66 +93,80 @@ class SessionForm extends React.Component {
               <h2>{formType === "Sign Up" ? "Sign up for" : "Log in to"} </h2>
               <Logo />
             </div>
-            <div className="session-form-errors">
-              {
-                errors ? (
+
+            {/* <div className="session-form-errors">
+              { errors ? (
                   errors.map(error => (
                     <p key={error}>{error}</p>
                   ))
-                ) : null
-              }
-            </div>
-            {
-              formType === "Sign Up" ? (
+                ) : null }
+            </div> */}
+
+            {formType === "Sign Up" ? (
                 <>
-                  <div className="session-form">
-                    <label htmlFor="first_name">First name</label>
+                  <div className={this.state.errors.First ? ("session-form has-error") : ("session-form no-error")} >
                     <input
                       id="first_name"
                       type="text"
                       value={this.state.first_name}
                       onChange={this.update("first_name")}
                     />
+                    <label className={this.state.first_name.trim() ? "filled-in" : "is-empty"}
+                    htmlFor="first_name">First name</label>
                   </div>
+                  <SessionError errors={errors} inputField="First" setErrorTag={this.setErrorTag} />
+
                   <div className="session-form">
-                    <label htmlFor="last_name">Last name</label>
                     <input
                       id="last_name"
                       type="text"
                       value={this.state.last_name}
                       onChange={this.update("last_name")}
                     />
+                    <label className={this.state.last_name.trim() ? "filled-in" : "is-empty"}
+                    htmlFor="last_name">Last name</label>
                   </div>
+                  {/* <SessionError errors={errors} inputField="Last" setErrorTag={this.setErrorTag} /> */}
+
                   <div className="session-form">
-                    <label htmlFor="age">Your age</label>
                     <input
                       id="age"
                       type="number"
                       value={this.state.age}
                       onChange={this.update("age")}
                     />
+                    <label className={this.state.age !== "" ? "filled-in" : "is-empty"}
+                    htmlFor="age">Your age</label>
                   </div>
+                  {/* <SessionError errors={errors} inputField="Age" setErrorTag={this.setErrorTag} /> */}
+
                 </>
               ) : null
             }
             <div className="session-form">
-              <label htmlFor="email">Email address</label>
               <input
                 id="email"
                 type="text"
                 value={this.state.email}
                 onChange={this.update("email")}
               />
+              <label className={this.state.email.trim() ? "filled-in" : "is-empty"}
+              htmlFor="email">Email address</label>
             </div>
+            {/* <SessionError errors={errors} inputField="Email" setErrorTag={this.setErrorTag} /> */}
+
             <div className="session-form">
-              <label htmlFor="password">Password</label>
               <input
                 id="password"
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
               />
+              <label className={this.state.password ? "filled-in" : "is-empty"}
+              htmlFor="password">Password</label>
             </div>
+            {/* <SessionError errors={errors} inputField="Password" setErrorTag={this.setErrorTag} /> */}
+
             <div id="session-form-button">
               <button>{formType === "Sign Up" ? "Sign up" : "Log in"}</button>
             </div>
