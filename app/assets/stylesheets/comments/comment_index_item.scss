@@ -67,6 +67,11 @@ div.comment-index-item {
       color: #006dac;
       font-weight: 600;
       // border: 1px solid pink;
+
+      h4 {
+        display: inline;
+      }
+
     }
 
     .comment-cont-dyn {
@@ -85,6 +90,7 @@ div.comment-index-item {
           font-size: 13px;
           word-break:break-all;
           line-height: 1.5;
+          white-space: pre-wrap;
         }
       }
 
@@ -100,10 +106,12 @@ div.comment-index-item {
           overflow: hidden;
           border-radius: 3px;
           padding: 10px;
+          border: 1px solid grey;
+
 
           &:focus {
             outline: none;
-            // border: 1px solid #008ddf;
+            border: 1px solid #008ddf;
           }
         }
 

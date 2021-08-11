@@ -1,0 +1,32 @@
+@media screen and (max-width: 600px) {
+  .footer-nav {
+    justify-content: center;
+    .footer-text-links {
+      display: none;
+    }
+
+    .footer-icon-links {
+      min-width: 100%;
+    }
+  }
+
+  header.global-nav-not-root {
+    a.top-nav-explore {
+      display: none;
+    }
+    a.upload-icon {
+      display: none;
+    }
+  }
+
+  a.session-form-button {
+    display: none;
+  }
+
+  div > header.session-form #global-nav-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+}

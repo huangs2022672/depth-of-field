@@ -11,8 +11,9 @@ div.photo-show {
   position: relative;
 
   img {
-    height: 90%;
+    max-height: 90%;
     margin: auto;
+    max-width: 80% ;
     padding-top: 48px
   }
 
@@ -32,11 +33,11 @@ div.photo-show {
 
 div.photo-show-details {
   // border: 1px solid green;
-  min-height: 1000px;
+  // min-height: 1000px;
   width: 1060px;
   margin: 20px auto;
   // margin-bottom: 250px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   background: #f3f5f6;
   display: flex;
   justify-content: space-between;
@@ -126,6 +127,12 @@ div.photo-show-details-left {
           // border: 1px solid red;
           .description-gray {
             color: #898989;
+            // color: red;
+          }
+
+          p{
+            white-space: pre-wrap;
+            line-height: 1.5;
           }
         }
 
@@ -182,6 +189,8 @@ div.photo-show-details-left {
             overflow: hidden;
             border-radius: 3px;
             padding: 10px;
+            border: 1px solid grey;
+
 
             &:focus {
               outline: none;

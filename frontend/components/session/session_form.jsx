@@ -63,7 +63,8 @@ class SessionForm extends React.Component {
       <div className="session-form-main">
         <header className="session-form">
           <Logo />
-          <Link to={
+          <Link className="session-form-button"
+          to={
             formType === "Sign Up" ? "/login" : "/signup"
           }>{
               formType === "Sign Up" ? "Log In" : "Sign Up"

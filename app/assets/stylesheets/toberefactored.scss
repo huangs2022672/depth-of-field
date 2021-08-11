@@ -4,7 +4,7 @@ h1 {
 }
 
 #global-nav-logo {
-  width: 154px;
+  width: 155px;
   height: 40px;
   margin: 0 20px;
   display: flex;
@@ -74,6 +74,7 @@ h1 {
   font-family: 'Engagement', cursive;
   display: flex;
   align-items: center;
+  min-width: 155px;
 }
 
 a {
@@ -107,6 +108,7 @@ header.global-nav{
 .login-signup {
   margin-right: 20px;
   color: white;
+  min-width: 181px;
 }
 
 .login-signup button {
@@ -160,6 +162,7 @@ h1.splash-message {
   font-size: 49px;
   margin-bottom: 40px;
   font-weight: 600;
+  min-width: 540px;
 }
 
 h1.splash-message {
@@ -174,6 +177,7 @@ h2.splash-message {
   margin-bottom: 80px;
   font-weight: 600;
   line-height: 32px;
+  min-width: 640px;
 }
 
 h2.splash-message {
@@ -212,31 +216,31 @@ a.splash-message:hover {
   span {
     padding: 10px;
     font-size: 16px;
+    min-width: 120px;
   }
 
   button {
     font-weight: 600;
-
+    height: 32px;
+    min-width: 80px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background: white;
+    color:black;
   }
 }
 
-.welcome-logout button {
-  height: 32px;
-  width: 80px;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  margin-left: 10px;
-  margin-right: 10px;
-  cursor: pointer;
-  background: white;
-  color:black;
-}
 
 .global-search-form {
-  width: 50%;
+  // width: 50%;
+  width: 65%;
   display: flex;
   justify-content: center;
 }
+
 
 .global-search-form label {
   width: 100%;
@@ -270,5 +274,3 @@ a.splash-message:hover {
   padding: 0px 33px;
   box-sizing: border-box;
 }
-
-

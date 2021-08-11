@@ -21,7 +21,7 @@ class GlobalNav extends React.Component {
         <SearchBar/>
         {
           currentUser ? (
-            <Link to="/photos/upload">
+            <Link to="/photos/upload" className="upload-icon">
               <span className="iconify cloud-upload-icon" data-icon="ic:baseline-cloud-upload" data-inline="false"></span>
             </Link>
           ) : null

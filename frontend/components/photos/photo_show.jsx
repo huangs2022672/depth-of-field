@@ -36,7 +36,7 @@ class PhotoShow extends React.Component {
     //   private: photo.private,
     //   views: photo.views
     // })
-
+    window.scrollTo(0, 0);
     if (!this.props.photo) {
       this.props.fetchPhoto(this.props.match.params.photoId)
     }
@@ -127,12 +127,13 @@ class PhotoShow extends React.Component {
           <div>zoom</div> */}
 
 
-          <div className="photo-delete">
-            <button
-            onClick={this.handleDelete}
-            className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
-          </div>
-
+          {currentUserId && photo && currentUserId === photo.uploader_id ? (
+            <div className="photo-delete">
+              <button
+              onClick={this.handleDelete}
+              className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
+            </div>
+          ): null}
 
         </div>
         <div className="photo-show-details">
@@ -162,11 +163,13 @@ class PhotoShow extends React.Component {
                     { !this.state.editingTitle ? (
                       <div className="photo-info-bot">
 
-                        <div className={photo.uploader_id === currentUserId ? (
+                        <div
+                        onClick={() => this.setState({...photo, editingTitle: true})}
+                        className={photo.uploader_id === currentUserId ? (
                           "title-description has-hover-effect"
                         ) : ( "title-description" )}>
                           <h2>{photo.title}</h2>
-                          <h3><p className={photo.description === "" ? "description-gray" : null }>{photo.description !== "" ? photo.description : "Add description"}</p></h3>
+                          <h3><p className={photo.description.trim() === "" ? "description-gray" : null }>{photo.description.trim() !== "" ? photo.description : "Add description"}</p></h3>
                           { photo.uploader_id === currentUserId ? (
                             <div className="photo-title-edit">
                               <button

@@ -1,0 +1,13 @@
+@media screen and (max-width: 400px) {
+  nav.login-signup {
+    display: none;
+  }
+
+  nav.welcome-logout {
+    display: none;
+  }
+
+  div > header.global-nav {
+    justify-content: center;
+  }
+}

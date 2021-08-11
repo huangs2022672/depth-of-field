@@ -2,6 +2,7 @@ div.explore-index {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+  // width: 90%;
   margin: 125px auto;
 }
 
@@ -12,9 +13,13 @@ div.explore-index-item {
   line-height: 0;
 
   img {
-    height: 275px;
+    // height: 275px;
+    // min-width: 100%;
+    // max-width: 350px;
+    max-height: 250px;
     min-width: 100%;
-    max-width: 350px;
+    // min-height: 100%;
+    // max-width: 350px;
     object-fit: cover;
     z-index: -1;
   }

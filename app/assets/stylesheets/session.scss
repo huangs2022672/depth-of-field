@@ -48,9 +48,11 @@ header.session-form {
   height: 3rem;
 }
 
-header.session-form a {
+a.session-form-button {
   margin-left: 40px;
   margin-right: 30px;
+  min-width: 65px;
+  text-align: center;
 }
 
 main.session-form {
@@ -120,6 +122,12 @@ div.session-form input {
   width: 80%;
   font-family: 'Montserrat', sans-serif;
 }
+
+div.session-form input[type=number] {
+  -moz-appearance:textfield;
+}
+
+
 
 input:focus {
   outline: none;

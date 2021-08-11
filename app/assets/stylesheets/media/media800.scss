@@ -1,0 +1,11 @@
+@media screen and (max-width: 800px) {
+  form.global-search-form {
+    display: none;
+  }
+
+  nav.welcome-logout {
+    span {
+      display: none;
+    }
+  }
+}

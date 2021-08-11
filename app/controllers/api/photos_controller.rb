@@ -7,7 +7,9 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.includes(:uploader, :likes, file_attachment: :blob).all
+    # @photos = Photo.includes(:uploader, :likes, file_attachment: :blob).all
+    @photos = Photo.includes(:uploader, :likes, file_attachment: :blob).order(created_at: :desc).limit(15)
+    # @photos = Photo.includes(:uploader, :likes, file_attachment: :blob).limit(25)
     render :index
   end
 

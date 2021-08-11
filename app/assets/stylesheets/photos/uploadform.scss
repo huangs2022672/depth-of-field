@@ -4,7 +4,7 @@ div.photo-upload-container {
 
   .upload-control-bar {
     height: 41px;
-    background: rgba(241,241,241,1);
+    // background: rgba(241,241,241,1);
     display: flex;
     align-items: center;
     width: 65px;
@@ -307,10 +307,11 @@ div.after-file-uploaded {
     margin:40px;
 
     > img {
-      max-height: 75vh;
-      min-height: 400px;
+      max-height: calc(100vh - 200px);
+      min-height: 200px;
       border: 5px solid rgba(0, 0, 0, .75);
       border-radius: 5px;
+      max-width: calc(100vw - 360px);
     }
   }
 }
