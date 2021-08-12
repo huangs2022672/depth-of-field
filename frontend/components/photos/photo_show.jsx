@@ -50,6 +50,14 @@ class PhotoShow extends React.Component {
     // }
   }
 
+  componentDidUpdate() {
+    if (this.state.deleting) {
+      document.querySelector("html").style.overflowY = "hidden"
+    } else {
+      document.querySelector("html").style.overflowY = "auto"
+    }
+  }
+
   handleDelete(e) {
     const { deletePhoto, photo, user } = this.props
     // debugger // 1 delete
@@ -118,6 +126,30 @@ class PhotoShow extends React.Component {
     // debugger
     return (
       <div className="photo-show-page">
+
+        {this.state.deleting ? (
+          <div className="photo-delete-modal">
+            <div className="photo-delete-main">
+              <div onClick={() => this.setState({deleting: false})}
+              className="close-x">
+                <span className="iconify" data-icon="bi:x-lg"></span>
+              </div>
+              <div className="delete-title">
+                <h2>Delete Photo</h2>
+              </div>
+              <div className="delete-message">
+                <p>Do you want to permanently delete this photo?</p>
+              </div>
+              <div className="delete-buttons">
+                <button onClick={() => this.setState({deleting: false})}
+                className="cancel-button">Cancel</button>
+                <button onClick={this.handleDelete}
+                className="delete-button">Delete</button>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
         <div className="photo-show">
           {photo ? (
             <img src={photo.img_url} alt={photo.title} />
@@ -130,7 +162,7 @@ class PhotoShow extends React.Component {
           {currentUserId && photo && currentUserId === photo.uploader_id ? (
             <div className="photo-delete">
               <button
-              onClick={this.handleDelete}
+              onClick={() => this.setState({deleting: true})}
               className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
             </div>
           ): null}

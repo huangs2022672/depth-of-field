@@ -1,0 +1,85 @@
+.photo-show-page {
+  .photo-delete-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(255,255,255,.5);
+  }
+
+  .photo-delete-main {
+    width: 620px;
+    height: 185px;
+    background: white;
+    border: 1px solid rgba(100, 100, 100, 0.75);
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .close-x {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    cursor: pointer;
+    color: #c7c9cb;
+    font-size: 15px;
+
+    &:hover {
+      color: #777777;
+    }
+  }
+
+  .delete-title {
+    padding: 19px 20px 16px;
+    h2 {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+  }
+
+  .delete-message {
+    padding: 0 20px;
+    height: 58px;
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  .delete-buttons {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      height: 29px;
+      padding: 0px 20px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 14px;
+
+    }
+
+    .cancel-button {
+      background-color: #979ea2;
+      &:hover {
+        background-color: #aeb3b6;
+      }
+    }
+
+    .delete-button {
+      background-color: #e2292b;
+      &:hover {
+      background-color: #e94042;
+      }
+    }
+  }
+}
