@@ -33,6 +33,7 @@ class SearchBar extends React.Component {
             type="text"
             value={this.state.searchContext}
             onChange={this.handleSearch}
+            placeholder="Search"
           />
         </label>
       </form>

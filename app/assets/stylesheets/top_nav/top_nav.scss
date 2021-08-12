@@ -11,9 +11,19 @@ header.global-nav-not-root{
 
 .cloud-upload-icon {
   font-size: 40px;
-  margin: 0 10px;
+  margin-left: 20px;
+
+  &:hover {
+    color: rgb(218, 218, 218);
+  }
 }
 
 .top-nav-explore {
-  margin: 0 10px;
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 15px;
+
+  &:hover {
+    color: rgb(218, 218, 218);
+  }
 }

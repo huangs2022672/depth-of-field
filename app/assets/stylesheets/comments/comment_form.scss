@@ -38,8 +38,12 @@ div.comment-form {
         overflow: hidden;
         border-radius: 3px;
         padding: 10px;
-        border: 1px solid grey;
+        // border: 1px solid grey;
+        border: 1px solid #008ddf;
 
+        &:placeholder-shown {
+          border: 1px solid grey;
+        }
 
         &:focus {
           outline: none;
@@ -70,9 +74,6 @@ div.comment-form {
         }
       }
 
-
-
-
     }
 
     .comment-form-button {
@@ -89,8 +90,30 @@ div.comment-form {
         border-radius: 4px;
         color: white;
         font-weight: 500;
+        width: 120px;
+
+        &:hover {
+          background: #1394e4;
+        }
+
+        &:active {
+          border: 2px solid #005c96;
+        }
+
+        &:hover {
+          background: #1d98df;
+        }
 
       }
     }
+
+    textarea:placeholder-shown + .comment-form-button {
+      display: none;
+    }
+
+    textarea:focus + .comment-form-button {
+      display: flex;
+    }
+
   }
 }

@@ -27,6 +27,11 @@ div.photo-show {
 
     button {
       font-size: 24px;
+
+      svg:hover {
+        color:rgb(218, 218, 218)
+      }
+
     }
   }
 }
@@ -81,20 +86,47 @@ div.photo-show-details-left {
           font-size: 18px;
           font-weight: bold;
           // margin-top: 5px
+
+          &:hover {
+            color: #0053b1;
+            text-decoration: underline;
+          }
         }
 
         .follow-button {
           // border: 1px solid magenta;
           margin-left: 10px;
 
-          button {
+          button.follow {
             background: #008ddf;
-            padding: 0 20px;
+            padding: 0 15px;
             height: 35px;
             font-size: 14px;
             border-radius: 4px;
-            font-weight: 500;
+            font-weight: 600;
             color: white;
+            padding-right: 20px;
+
+            &:hover {
+              background: #329fdf;
+            }
+          }
+
+          button.following {
+            color: #008ddf;
+            border: 1px solid #008ddf;
+            padding: 0 15px;
+            height: 35px;
+            font-size: 14px;
+            border-radius: 4px;
+            font-weight: 600;
+            background: white;
+            padding-right: 20px;
+
+            &:hover {
+              color: #329fdf;
+              border: 1px solid #329fdf;
+            }
           }
         }
       }
@@ -232,6 +264,15 @@ div.photo-show-details-left {
               border-radius: 4px;
               color: white;
               font-weight: 500;
+              width: 100px;
+
+              &:hover {
+                background: #1394e4;
+              }
+
+              &:active {
+                border: 2px solid #005c96;
+              }
             }
           }
         }

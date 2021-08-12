@@ -188,7 +188,12 @@ class PhotoShow extends React.Component {
                       <div className="follow-button">
                         <button
                         onClick={this.handleFollow}
-                        className="follow-button">{this.state.following ? "Unfollow" : "Follow"}</button>
+                        className={this.state.following ? "follow-button following" :  "follow-button follow" }>
+                          {this.state.following ? (
+                          <div><i className="fa fa-check" aria-hidden="true"></i><span> Following</span></div>
+                          ) : (
+                          <div><i className="fa fa-plus" aria-hidden="true"></i><span> Follow</span></div>
+                          )}</button>
                       </div>
                     </div>
 

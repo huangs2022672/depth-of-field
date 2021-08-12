@@ -54,8 +54,7 @@ h1 {
 }
 
 #global-nav-logo:hover {
-  // color: rgba(128, 128, 128, 1);
-  // font-weight: bolder;
+  font-weight: 600;
   .iconify {
     // color: transparent;
     animation-name: spin;
@@ -116,7 +115,6 @@ header.global-nav{
   padding: 7px 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-
 }
 
 button.login {
@@ -128,10 +126,15 @@ button.signup {
   background-color: white;
   border-radius: 3px;
   font-weight: 600;
-}
+  width: 102px;
 
-button.signup:hover {
-  color: gray;
+  &:hover {
+      color: gray;
+  }
+
+  &:active {
+    border: 2px solid rgb(100, 100, 100);
+  }
 }
 
 div.splash-message {
@@ -198,10 +201,15 @@ a.splash-message {
   font-weight: bolder;
   padding: 0 20px;
   font-weight: 700;
-}
 
-a.splash-message:hover {
-  color: gray;
+  &:hover {
+      color: gray;
+  }
+
+  &:active {
+    border: 2px solid rgb(100, 100, 100);
+    color: black;
+  }
 }
 
 .welcome-logout {
@@ -230,6 +238,15 @@ a.splash-message:hover {
     cursor: pointer;
     background: white;
     color:black;
+
+    &:hover {
+      background: rgb(241, 241, 241);
+    }
+
+    &:active {
+      background: rgb(255, 255, 255);
+      border: 1px solid rgb(150, 150, 150);
+    }
   }
 }
 
@@ -267,10 +284,12 @@ a.splash-message:hover {
   border: none;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.75);
-}
-
-#global-nav-search[type=text] {
-  // width: 100%;
   padding: 0px 33px;
   box-sizing: border-box;
+  outline: none;
+
+  &:focus {
+    background: white;
+  }
+
 }

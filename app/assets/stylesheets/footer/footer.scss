@@ -17,6 +17,7 @@
     justify-content: flex-start;
     font-size: 16px;
 
+
     h3 {
       margin: auto 15px auto 24px;
       color: white;
@@ -36,9 +37,17 @@
     justify-content: space-evenly;
     align-items: center;
 
+    a:hover {
+      color: white;
+      margin-bottom: 5px;
+    }
+
     img {
       padding-top: 1px;
       height: 22px;
+      &:hover {
+        margin-bottom: 5px;
+      }
     }
   }
 }
