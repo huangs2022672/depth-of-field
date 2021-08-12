@@ -1,24 +1,26 @@
 import React from 'react';
 
-const SessionError = (props) => {
-  const { errors, inputField, setErrorTag } = props
-  let thisError = "";
-
-  if (errors) {
-    thisError = errors.filter(error => {
-      return error.split(" ")[0] === inputField
-    })[0]
+class SessionError extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: this.props.errors.filter(error => error.split(" ")[0] === this.props.inputField)[0]
+    }
   }
 
-  if (thisError) {
-    setErrorTag(inputField)
+  componentDidMount() {
+    if (this.state.error) {
+      this.props.setErrorTag(this.props.inputField)
+    }
   }
 
-  return (
-    <div className={ thisError ? ("session-form-errors has-error") : ("session-form-errors no-error")}>
-      <p>{thisError}</p>
-    </div>
-  )
+  render() {
+    return (
+      <div className={ this.state.error ? ("session-form-errors has-error") : ("session-form-errors no-error")}>
+        <p>{this.state.error}</p>
+      </div>
+    )
+  }
 }
 
 export default SessionError;

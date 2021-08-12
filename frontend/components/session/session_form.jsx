@@ -13,13 +13,14 @@ class SessionForm extends React.Component {
       email: "",
       password: "",
       errors: {
-        First: false,
-        Last: false,
-        Age: false,
-        Email: false,
-        Password: false,
+        First: "",
+        Last: "",
+        Age: "",
+        Email: "",
+        Password: "",
       }
     }
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDemo = this.handleDemo.bind(this)
     this.setErrorTag = this.setErrorTag.bind(this)
@@ -62,26 +63,24 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
+    
     return e => this.setState({ [field]: e.target.value })
   }
 
   setErrorTag (field) {
-    debugger
-    this.setState({errors: { [field]: true }})
+    this.setState({errors: {[field]: "error" }})
   }
 
   render() {
     const { errors, formType } = this.props
-    if (this.state.redirect) { return <Redirect to="/explore"/> }
+
     return (
       <div className="session-form-main">
         <header className="session-form">
           <Logo />
           <Link className="session-form-button"
-          to={
-            formType === "Sign Up" ? "/login" : "/signup"
-          }>{
-              formType === "Sign Up" ? "Log In" : "Sign Up"
+            to={formType === "Sign Up" ? "/login" : "/signup"
+            }>{formType === "Sign Up" ? "Log In" : "Sign Up"
             }</Link>
         </header>
         <main className="session-form">
@@ -93,14 +92,6 @@ class SessionForm extends React.Component {
               <h2>{formType === "Sign Up" ? "Sign up for" : "Log in to"} </h2>
               <Logo />
             </div>
-
-            {/* <div className="session-form-errors">
-              { errors ? (
-                  errors.map(error => (
-                    <p key={error}>{error}</p>
-                  ))
-                ) : null }
-            </div> */}
 
             {formType === "Sign Up" ? (
                 <>
@@ -114,7 +105,7 @@ class SessionForm extends React.Component {
                     <label className={this.state.first_name.trim() ? "filled-in" : "is-empty"}
                     htmlFor="first_name">First name</label>
                   </div>
-                  <SessionError errors={errors} inputField="First" setErrorTag={this.setErrorTag} />
+                  { errors.length > 0 ? <SessionError errors={errors} inputField="First" setErrorTag={this.setErrorTag}/> : null }
 
                   <div className="session-form">
                     <input
@@ -126,7 +117,7 @@ class SessionForm extends React.Component {
                     <label className={this.state.last_name.trim() ? "filled-in" : "is-empty"}
                     htmlFor="last_name">Last name</label>
                   </div>
-                  {/* <SessionError errors={errors} inputField="Last" setErrorTag={this.setErrorTag} /> */}
+                  { errors.length > 0 ? <SessionError errors={errors} inputField="Last" setErrorTag={this.setErrorTag}/> : null }
 
                   <div className="session-form">
                     <input
@@ -138,7 +129,7 @@ class SessionForm extends React.Component {
                     <label className={this.state.age !== "" ? "filled-in" : "is-empty"}
                     htmlFor="age">Your age</label>
                   </div>
-                  {/* <SessionError errors={errors} inputField="Age" setErrorTag={this.setErrorTag} /> */}
+                  { errors.length > 0 ? <SessionError errors={errors} inputField="Age" setErrorTag={this.setErrorTag}/> : null }
 
                 </>
               ) : null
@@ -153,7 +144,7 @@ class SessionForm extends React.Component {
               <label className={this.state.email.trim() ? "filled-in" : "is-empty"}
               htmlFor="email">Email address</label>
             </div>
-            {/* <SessionError errors={errors} inputField="Email" setErrorTag={this.setErrorTag} /> */}
+            { errors.length > 0 ? <SessionError errors={errors} inputField="Email" setErrorTag={this.setErrorTag}/> : null }
 
             <div className="session-form">
               <input
@@ -165,7 +156,7 @@ class SessionForm extends React.Component {
               <label className={this.state.password ? "filled-in" : "is-empty"}
               htmlFor="password">Password</label>
             </div>
-            {/* <SessionError errors={errors} inputField="Password" setErrorTag={this.setErrorTag} /> */}
+            { errors.length > 0 ? <SessionError errors={errors} inputField="Password" setErrorTag={this.setErrorTag}/> : null }
 
             <div id="session-form-button">
               <button>{formType === "Sign Up" ? "Sign up" : "Log in"}</button>
