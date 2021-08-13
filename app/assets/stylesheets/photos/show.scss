@@ -96,6 +96,7 @@ div.photo-show-details-left {
         .follow-button {
           // border: 1px solid magenta;
           margin-left: 10px;
+          width: 140px;
 
           button.follow {
             background: #008ddf;
@@ -106,9 +107,15 @@ div.photo-show-details-left {
             font-weight: 600;
             color: white;
             padding-right: 20px;
+            width: 110px;
 
             &:hover {
               background: #329fdf;
+            }
+
+            &:active {
+              background: #0076bb;
+              border: 2px solid #005688;
             }
           }
 
@@ -122,10 +129,32 @@ div.photo-show-details-left {
             font-weight: 600;
             background: white;
             padding-right: 20px;
+            width: 130px;
 
             &:hover {
               color: #329fdf;
               border: 1px solid #329fdf;
+
+              div {
+                display: none;
+              }
+
+              &::before {
+                content: '✖ Unfollow';
+              }
+            }
+
+            &:active {
+              color: #258ac5;
+              border: 2px solid #1e7fb8;
+
+              div {
+                display: none;
+              }
+
+              &::before {
+                content: '✖ Unfollow';
+              }
             }
           }
         }

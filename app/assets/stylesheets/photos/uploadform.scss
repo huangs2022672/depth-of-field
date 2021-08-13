@@ -13,6 +13,7 @@ div.photo-upload-container {
     .photo-upload-input {
       color: transparent;
       position: relative;
+      cursor: pointer;
     }
 
     .photo-upload-input::-webkit-file-upload-button {
@@ -70,6 +71,7 @@ div.photo-upload-container {
         width: 310px;
         height: 37px;
         font-size: 18px;
+        cursor: pointer;
       }
 
       .photo-upload-input::-webkit-file-upload-button {
