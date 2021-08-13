@@ -30,11 +30,78 @@ div.user-show-page {
 
       div.user-profile-left {
         display: flex;
-        width: 50%;
+        width: 60%;
 
         >img {
           width: 100px;
           border-radius: 50%;
+        }
+
+        .user-profile-name {
+          display: flex;
+
+          .follow-button {
+            // border: 1px solid magenta;
+            margin: 25px 0 0 0;
+
+            button.follow {
+              background: white;
+              padding: 0 15px;
+              height: 32px;
+              font-size: 14px;
+              border-radius: 4px;
+              font-weight: 600;
+              color: black;
+              padding-right: 20px;
+              width: 102px;
+
+              &:hover {
+                background: transparent;
+                border: 1px solid white;
+                color: white;
+              }
+
+              &:active {
+                border: 2px solid white;
+              }
+            }
+
+            button.following {
+              color: white;
+              border: 1px solid white;
+              padding: 0 15px;
+              height: 32px;
+              font-size: 14px;
+              border-radius: 4px;
+              font-weight: 600;
+              background: transparent;
+              padding-right: 20px;
+              width: 130px;
+
+              &:hover {
+
+                div {
+                  display: none;
+                }
+
+                &::before {
+                  content: '✖ Unfollow';
+                }
+              }
+
+              &:active {
+                border: 2px solid white;
+
+                div {
+                  display: none;
+                }
+
+                &::before {
+                  content: '✖ Unfollow';
+                }
+              }
+            }
+          }
         }
 
         div h2 {

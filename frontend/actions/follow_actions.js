@@ -43,10 +43,10 @@ export const removeFollowErrors = () => {
   }
 }
 
-export const fetchFollows = fetchWho => dispatch => {
+export const fetchFollows = (fetchWho, userId) => dispatch => {
 
   return (
-    FollowApitUtil.fetchFollows(fetchWho)
+    FollowApitUtil.fetchFollows(fetchWho, userId)
       .then(payload => dispatch(receiveFollows(payload
         )), errors => dispatch(receiveErrors(errors)))
   )

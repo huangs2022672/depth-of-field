@@ -34,7 +34,6 @@ class FollowButton extends React.Component {
     if (isFollowing) {
       deleteFollow(currentFollows[followee_id])
         .then(() => {
-          console.log(currentFollows)
           this.setState({ isFollowing: currentFollows[followee_id]})
         })
     } else {
@@ -43,7 +42,6 @@ class FollowButton extends React.Component {
         followee_id: followee_id
       })
         .then(() => {
-          console.log(currentFollows)
           this.setState({ isFollowing: currentFollows[followee_id]})
         })
     }
@@ -53,14 +51,14 @@ class FollowButton extends React.Component {
     const { isFollowing } = this.state
 
     let followButton;
-    
+
     if (isFollowing === "") {
       followButton = null
     } else if (isFollowing) {
       followButton =
         <button
           onClick={this.handleFollow}
-          className="follow-button following">
+          className="following">
           <div>
             <i className="fa fa-check" aria-hidden="true"></i>
             <span> Following</span>
@@ -70,7 +68,7 @@ class FollowButton extends React.Component {
       followButton =
         <button
           onClick={this.handleFollow}
-          className="follow-button follow">
+          className="follow">
           <div>
             <i className="fa fa-plus" aria-hidden="true"></i>
             <span> Follow</span>
