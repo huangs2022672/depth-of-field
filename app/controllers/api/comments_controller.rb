@@ -7,12 +7,10 @@ class Api::CommentsController < ApplicationController
 
   def index
     @comments = Comment.includes(:commenter).find_by_photo_id(params[:photo_id])
-    # debugger
     render :index
   end
 
   def create
-    # debugger
     @comment = Comment.new(comment_params)
     if @comment.save
       render :show
@@ -31,7 +29,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    # debugger
     @comment = current_user.comments.find_by(id: params[:id])
     if @comment && @comment.destroy
       render :show

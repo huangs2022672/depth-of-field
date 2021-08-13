@@ -1,7 +1,16 @@
 class Api::FollowsController < ApplicationController
   def show
-    @follow = Follow.find(params[:id])
+    @follow = Follow.where(
+      follower_id: follow_params[:follower_id],
+      followee_id: follow_params[:followee_id]
+    )[0]
+
     render :show
+    # if @follow
+    #   render :show
+    # else
+    #   render json: ["Follow not found"], status: 404
+    # end
   end
 
   def index
@@ -11,7 +20,7 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = Follow.new(follow_params)
-
+    # debugger #4 createFollow
     if @follow.save
       render :show
     else
@@ -20,7 +29,8 @@ class Api::FollowsController < ApplicationController
   end
 
   def destroy
-    @follow = current_user.followee.find_by(id: params[:id])
+    @follow = current_user.followers.find_by(id: params[:id])
+    # debugger #4 deleteFollow
     if @follow && @follow.destroy
       render :show
     else

@@ -17,7 +17,6 @@ export const fetchPhoto = photoId => {
 }
 
 export const uploadPhoto = photo => {
-  // debugger //3 create
   return (
     $.ajax({
       method: "POST",
@@ -50,7 +49,6 @@ export const editPhoto = photo => {
 }
 
 export const deletePhoto = photoId => {
-  // debugger // 3 delete
   return (
     $.ajax({
       method: "DELETE",

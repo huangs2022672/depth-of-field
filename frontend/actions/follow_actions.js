@@ -15,18 +15,18 @@ const receiveFollows = payload => {
 }
 
 const receiveFollow = payload => {
-
+  debugger //6 createFollow
   return ({
     type: RECEIVE_FOLLOW,
     payload
   })
 }
 
-const removeFollow = followId => {
-
+const removeFollow = payload => {
+  debugger //6 deleteFollow
   return ({
     type: REMOVE_FOLLOW,
-    followId
+    payload
   })
 }
 
@@ -37,7 +37,7 @@ const receiveErrors = errors => {
   })
 }
 
-export const removeErrors = () => {
+export const removeFollowErrors = () => {
   return {
     type: REMOVE_ERRORS,
   }
@@ -52,29 +52,33 @@ export const fetchFollows = fetchWho => dispatch => {
   )
 }
 
-export const fetchFollow = followId => dispatch => {
-
+export const fetchFollow = (followerId, followeeId) => dispatch => {
   return (
-    FollowApitUtil.fetchFollow(followId)
-      .then(payload => dispatch(receiveFollow(payload
-        )), errors => dispatch(receiveErrors(errors)))
+    FollowApitUtil.fetchFollow(followerId, followeeId)
+      .then(payload => {
+        dispatch(receiveFollow(payload))
+      }, errors => dispatch(receiveErrors(errors)))
   )
 }
 
 export const createFollow = follow => dispatch => {
-
+  debugger //2 createFollow
   return (
     FollowApitUtil.createFollow(follow)
-      .then(payload => dispatch(receiveFollow(payload
-        )), errors => dispatch(receiveErrors(errors)))
+      .then(payload => {
+        debugger //5 createFollow
+        dispatch(receiveFollow(payload))
+      }, errors => dispatch(receiveErrors(errors)))
   )
 }
 
 export const deleteFollow = followId => dispatch => {
-
+  debugger //2 deleteFollow
   return (
     FollowApitUtil.deleteFollow(followId)
-      .then(payload => dispatch(removeFollow(payload
-        )), errors => dispatch(receiveErrors(errors)))
+      .then(payload => {
+        debugger //5 deleteFollow
+        dispatch(removeFollow(payload))
+      }, errors => dispatch(receiveErrors(errors)))
   )
 }

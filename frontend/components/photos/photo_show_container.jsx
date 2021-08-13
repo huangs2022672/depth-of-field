@@ -8,7 +8,6 @@ const mSTP = (state, ownProps) => {
   const user = photo ? state.entities.users[photo.uploader_id] : null
   const comments = Object.values(state.entities.comments)
   const currentUserId = state.session.currentUserId
-  // debugger
   return {
     photo,
     user,

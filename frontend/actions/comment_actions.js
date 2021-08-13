@@ -3,11 +3,10 @@ import * as CommentApitUtil from '../util/comment_api_util';
 export const RECEIVE_PHOTO_COMMENTS = "RECEIVE_PHOTO_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_NEW_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const REMOVE_ERRORS = "REMOVE_ERRORS"
+export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
+export const REMOVE_COMMENT_ERRORS = "REMOVE_COMMENT_ERRORS"
 
 const receivePhotoComments = payload => {
-
   return ({
     type: RECEIVE_PHOTO_COMMENTS,
     payload
@@ -15,7 +14,6 @@ const receivePhotoComments = payload => {
 }
 
 const receiveComment = payload => {
-
   return ({
     type: RECEIVE_COMMENT,
     payload
@@ -23,7 +21,6 @@ const receiveComment = payload => {
 }
 
 const removeComment = commentId => {
-
   return ({
     type: REMOVE_COMMENT,
     commentId
@@ -32,14 +29,14 @@ const removeComment = commentId => {
 
 const receiveErrors = errors => {
   return({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_COMMENT_ERRORS,
     errors
   })
 }
 
-export const removeErrors = () => {
+export const removeCommentErrors = () => {
   return {
-    type: REMOVE_ERRORS,
+    type: REMOVE_COMMENT_ERRORS,
   }
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -14,13 +13,11 @@ class CommentForm extends React.Component {
     this.handleComment = this.handleComment.bind(this)
   }
 
-
   handleSubmit(e) {
     e.preventDefault()
-    // debugger
     this.props.createComment(this.state)
     this.setState({body: ""})
-    setTimeout(() => this.props.removeErrors(), 2000)
+    // setTimeout(() => this.props.removeCommentErrors(), 2000)
   }
 
   handleComment(e) {
@@ -28,8 +25,7 @@ class CommentForm extends React.Component {
   }
 
   render() {
-    // debugger
-    const { currentUserId, photo, createComment, errors } = this.props
+    const { errors } = this.props
     return (
       <div className="comment-form">
 

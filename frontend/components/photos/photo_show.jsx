@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container'
 import CommentFormContainer from '../comments/comment_form_container'
+import FollowButtonContainer from '../follows/follow_button_container';
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class PhotoShow extends React.Component {
       deleting: false,
       following: false
     }
-    // debugger
 
     this.handleTitle = this.handleTitle.bind(this)
     this.handleDescription = this.handleDescription.bind(this)
@@ -60,10 +60,8 @@ class PhotoShow extends React.Component {
 
   handleDelete(e) {
     const { deletePhoto, photo, user } = this.props
-    // debugger // 1 delete
     deletePhoto(photo.id)
-      .then(payload => {
-        // debugger // 7?? delete
+      .then(() => {
         this.props.history.push(`/users/${user.id}`)
       })
   }
@@ -71,7 +69,7 @@ class PhotoShow extends React.Component {
   handleSubmitTitle(e) {
     e.preventDefault()
 
-    if (this.state.title !== "")
+    if (this.state.title)
       this.props.editPhoto(this.state);
 
     this.setState({editingTitle: false})
@@ -99,9 +97,11 @@ class PhotoShow extends React.Component {
     e.currentTarget.select()
   }
 
+
   handleFollow(e) {
     this.setState({following: !this.state.following})
   }
+
 
   render() {
     const {
@@ -114,7 +114,6 @@ class PhotoShow extends React.Component {
       deletePhoto,
       editPhoto
     } = this.props
-    // debugger
 
     // !this.state.uploader_id && photo ? (
     //   this.setState({...photo})
@@ -123,7 +122,6 @@ class PhotoShow extends React.Component {
     !photo ? fetchPhoto(match.params.photoId) : null;
       // .then(payload=>(()=>this.setState({...payload.photo})))
     // !user ? fetchPhoto(match.params.photoId) : null;
-    // debugger
     return (
       <div className="photo-show-page">
 
@@ -185,7 +183,10 @@ class PhotoShow extends React.Component {
                           <p>{user.first_name} {user.last_name}</p>
                         </Link>
                       </div>
-                      <div className="follow-button">
+
+                      { user && currentUserId !== user.id ? <FollowButtonContainer user={user}/> : null }
+
+                      {/* <div className="follow-button">
                         <button
                         onClick={this.handleFollow}
                         className={this.state.following ? "follow-button following" :  "follow-button follow" }>
@@ -194,14 +195,21 @@ class PhotoShow extends React.Component {
                           ) : (
                           <div><i className="fa fa-plus" aria-hidden="true"></i><span> Follow</span></div>
                           )}</button>
-                      </div>
+                      </div> */}
+
+
+
                     </div>
 
                     { !this.state.editingTitle ? (
                       <div className="photo-info-bot">
 
                         <div
-                        onClick={() => this.setState({...photo, editingTitle: true})}
+                        onClick={() => {
+                          if (currentUserId && currentUserId === user.id) {
+                            this.setState({...photo, editingTitle: true})
+                          }
+                        }}
                         className={photo.uploader_id === currentUserId ? (
                           "title-description has-hover-effect"
                         ) : ( "title-description" )}>

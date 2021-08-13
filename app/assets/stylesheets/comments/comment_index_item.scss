@@ -115,7 +115,7 @@ div.comment-index-item {
           }
         }
 
-        div.comment-edit-button {
+        .comment-edit-button {
           display: flex;
           justify-content: flex-end;
           padding: 8px 0 0 0;
@@ -139,6 +139,14 @@ div.comment-index-item {
             }
           }
         }
+
+        // textarea:placeholder-shown + .comment-edit-button {
+        //   display: none;
+        // }
+
+        // textarea:focus + .comment-edit-button {
+        //   display: flex;
+        // }
       }
     }
   }

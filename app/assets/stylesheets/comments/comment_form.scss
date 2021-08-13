@@ -51,10 +51,10 @@ div.comment-form {
         }
       }
 
-      #create-comment-errors {
-        border: 1px solid red;
-        animation: shake 0.5s;
-      }
+      // #create-comment-errors {
+      //   border: 1px solid red;
+      //   animation: shake 0.5s;
+      // }
 
       @keyframes shake {
         10%, 90% {
@@ -99,11 +99,6 @@ div.comment-form {
         &:active {
           border: 2px solid #005c96;
         }
-
-        &:hover {
-          background: #1d98df;
-        }
-
       }
     }
 
@@ -114,6 +109,5 @@ div.comment-form {
     textarea:focus + .comment-form-button {
       display: flex;
     }
-
   }
 }

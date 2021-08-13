@@ -2,7 +2,6 @@ class Api::PhotosController < ApplicationController
 
   def show
     @photo = Photo.includes(:uploader, :likes, file_attachment: :blob).find(params[:id])
-    # debugger
     render :show
   end
 
@@ -14,7 +13,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-    # debugger # 4 create
     @photo = Photo.new(photo_params)
     # @photo.uploader_id = params[:user_id]
     # @photo.views = rand(1..100)
@@ -37,7 +35,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def destroy
-    # debugger # 4 delete
     @photo = current_user.photos.find_by(id: params[:id])
     if @photo && @photo.destroy
       render :show

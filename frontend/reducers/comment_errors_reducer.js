@@ -1,6 +1,6 @@
 import {
-  RECEIVE_ERRORS,
-  REMOVE_ERRORS
+  RECEIVE_COMMENT_ERRORS,
+  REMOVE_COMMENT_ERRORS
 } from '../actions/comment_actions';
 
 const commentErrorsReducer = (slice = [], action) => {
@@ -8,9 +8,9 @@ const commentErrorsReducer = (slice = [], action) => {
   // let newSlice = Object.assign({}, slice)
 
   switch(action.type) {
-    case RECEIVE_ERRORS:
+    case RECEIVE_COMMENT_ERRORS:
       return action.errors
-    case REMOVE_ERRORS:
+    case REMOVE_COMMENT_ERRORS:
       return [];
     default:
       return slice

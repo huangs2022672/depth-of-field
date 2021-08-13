@@ -25,7 +25,7 @@ const receiveErrors = (errors) => {
   }
 }
 
-export const removeErrors = () => {
+export const removeSessionErrors = () => {
   return {
     type: REMOVE_SESSION_ERRORS,
   }

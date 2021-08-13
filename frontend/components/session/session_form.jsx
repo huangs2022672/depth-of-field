@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.removeErrors()
+    this.props.removeSessionErrors()
   }
 
   handleSubmit(e) {
@@ -54,7 +54,6 @@ class SessionForm extends React.Component {
       } else if (password.length > 0) {
         this.setState({ password: this.state.password + password.shift() })
       } else {
-        // debugger
         clearInterval(demoLogin);
         this.props.formAction(this.state)
           .then(()=> this.props.history.push("/explore"))
@@ -63,7 +62,7 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
-    
+
     return e => this.setState({ [field]: e.target.value })
   }
 

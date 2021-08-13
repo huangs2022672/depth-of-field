@@ -1,5 +1,4 @@
 export const fetchPhotoComments = photoId => {
-  // debugger
   return (
     $.ajax({
       method: "GET",

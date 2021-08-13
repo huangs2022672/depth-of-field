@@ -4,11 +4,11 @@ import {
   fetchPhotoComments,
   createComment,
   editComment,
-  deleteComment
+  deleteComment,
+  removeCommentErrors
 } from "../../actions/comment_actions";
 
 const mSTP = (state, ownProps) => {
-  // debugger
   const comments = Object.values(state.entities.comments)
   const users = state.entities.users
   const currentUserId = state.session.currentUserId
@@ -25,6 +25,7 @@ const mDTP = (dispatch, ownProps) => {
     createComment: (comment) => dispatch(createComment(comment)),
     editComment: (comment) => dispatch(editComment(comment)),
     deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    removeCommentErrors: () =>  dispatch(removeCommentErrors())
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class CommentIndexItem extends React.Component {
   constructor(props) {
@@ -21,8 +21,13 @@ class CommentIndexItem extends React.Component {
 
   handleEdit(e) {
     e.preventDefault()
-    this.props.editComment(this.state)
+    if (this.state.body) {
+      this.props.editComment(this.state)
+    } else {
+      this.setState({body: this.props.comment.body})
+    }
     this.setState({editing: false})
+    // setTimeout(() => this.props.removeCommentErrors(), 2000)
   }
 
   handleComment(e) {
@@ -30,8 +35,8 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
-    const { comment, user, photo, editComment, deleteComment, currentUserId } = this.props
-    // debugger
+    const { comment, user, currentUserId } = this.props
+
     return (
       <div className="comment-index-item">
         <div className="comment-user-avatar">

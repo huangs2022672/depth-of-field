@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :photos, only: [:show, :index, :update, :destroy] do
       resources :comments, only: [:index, :create]
       resources :likes, only: [:create]
-
     end
 
     resources :comments, only: [:show, :update, :destroy]

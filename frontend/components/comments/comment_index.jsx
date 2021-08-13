@@ -11,15 +11,13 @@ class CommentIndex extends React.Component {
       comments,
       users,
       photo,
-      fetchPhotoComments,
-      createComment,
       editComment,
       deleteComment,
-      currentUserId
+      currentUserId,
+      removeCommentErrors
     } = this.props
 
     const photoComments = comments.filter(comment => comment.photo_id === photo.id)
-    // debugger
 
     return (
       <div className="comment-index">
@@ -36,6 +34,7 @@ class CommentIndex extends React.Component {
               editComment={editComment}
               deleteComment={deleteComment}
               currentUserId={currentUserId}
+              removeCommentErrors={removeCommentErrors}
             />
             )
           })

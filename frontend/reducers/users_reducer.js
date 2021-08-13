@@ -43,11 +43,11 @@ const usersReducer = (slice = {}, action) => {
       newSlice[action.payload.user.id] = action.payload.user
       return newSlice
 
-    case RECEIVE_FOLLOWS:
-      return Object.assign({}, slice, action.payload.users)
-    case RECEIVE_FOLLOW:
-      newSlice[action.payload.user.id] = action.payload.user
-      return newSlice
+    // case RECEIVE_FOLLOWS:
+    //   return Object.assign({}, slice, action.payload.users)
+    // case RECEIVE_FOLLOW:
+    //   newSlice[action.payload.user.id] = action.payload.user
+    //   return newSlice
 
     case RECEIVE_LIKES:
       return Object.assign({}, slice, action.payload.users)
