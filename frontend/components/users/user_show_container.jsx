@@ -12,7 +12,8 @@ const mSTP = (state, { match }) => {
       return photo.uploader_id == params.userId
     }),
     isCurrentUser: state.session.currentUserId === params.userId,
-    currentUserId: state.session.currentUserId
+    currentUserId: state.session.currentUserId,
+    follows: state.entities.follows,
   }
 }
 

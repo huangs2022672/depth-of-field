@@ -24,13 +24,13 @@ const sessionReducer = (slice = _nullUser, action) => {
     case LOGOUT_CURRENT_USER:
       return _nullUser
     case RECEIVE_FOLLOW:
-      debugger //7 createFollow
+      // debugger //7 createFollow
       if (action.payload.follow) {
         newSlice.currentFollows[action.payload.follow.followee_id] = action.payload.follow.id;
       }
       return newSlice
     case REMOVE_FOLLOW:
-      debugger //7 deleteFollow
+      // debugger //7 deleteFollow
       delete newSlice.currentFollows[action.payload.follow.followee_id]
       return newSlice
     default:

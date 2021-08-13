@@ -6,15 +6,19 @@ class Api::FollowsController < ApplicationController
     )[0]
 
     render :show
-    # if @follow
-    #   render :show
-    # else
-    #   render json: ["Follow not found"], status: 404
-    # end
   end
 
   def index
-    @follows = Follow.includes(:follower, :followee).all
+    # debugger
+    if follow_params[:fetch_who] == "Both"
+      @follows = Follow.where(follower_id: follow_params[:user_id])
+        .or(Follow.where(followee_id: follow_params[:user_id]))
+    elsif follow_params[:fetch_who] == "Followers"
+      @follows = Follow.where(followee_id: follow_params[:user_id])
+    elsif follow_params[:fetch_who] == "Following"
+      @follows = Follow.includes(:followee).where(follower_id: follow_params[:user_id])
+    end
+
     render :index
   end
 
@@ -40,6 +44,6 @@ class Api::FollowsController < ApplicationController
 
   private
   def follow_params
-    params.require(:follow).permit(:follower_id, :followee_id, :fetch_who)
+    params.require(:follow).permit(:follower_id, :followee_id, :fetch_who, :user_id)
   end
 end

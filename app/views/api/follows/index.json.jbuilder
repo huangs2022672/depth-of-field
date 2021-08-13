@@ -6,12 +6,11 @@
   end
 
   json.users do
-    json.set! follow.follower.id do
-      json.extract! follow.follower, :id, :first_name, :last_name, :email, :created_at
-    end
+    # json.set! follow.follower.id do
+    #   json.extract! follow.follower, :id, :first_name, :last_name, :email, :created_at
+    # end
     json.set! follow.followee.id do
       json.extract! follow.followee, :id, :first_name, :last_name, :email, :created_at
     end
   end
-
 end

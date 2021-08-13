@@ -4,21 +4,59 @@ import ExploreIndexItem from '../photos/explore_index_item';
 import FollowButtonContainer from '../follows/follow_button_container';
 
 class UserShow extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      followsFetched: false
+    }
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.fetchUser(this.props.match.params.userId)
     this.props.fetchPhotos()
-
     this.props.fetchFollows("Both", this.props.match.params.userId)
+      .then(() => this.setState({followsFetched: !this.state.followsFetched}))
   }
 
   render() {
 
-    const { user, photos, isCurrentUser, match, fetchUser, fetchPhotos, currentUserId } = this.props
+    const { user, photos, isCurrentUser, match, fetchUser, fetchPhotos, currentUserId, follows } = this.props
+
+    let followers = 0;
+    let following = 0;
+
+    debugger
+
+    for (const key in follows) {
+      debugger
+      if (follows[key].followee_id == match.params.userId) {
+        debugger
+        followers ++
+      }
+      if (follows[key].follower_id == match.params.userId) {
+        debugger
+        following ++
+      }
+    }
 
     !user ? fetchUser(match.params.userId) : null;
     !photos ? fetchPhotos() : null;
     let mostRecent = photos.reverse()
+
+    const { followsFetched } = this.state
+    let followsInfo;
+    if (followsFetched){
+      followsInfo =
+        <div className="display-follow">
+          {/* <p>display name</p> */}
+          {/* {isCurrentUser ? <Link to={`/users/${user.id}/follower`}>{followers}  Followers</Link> : <p>{followers}  Followers</p>} */}
+          <p>{followers}  Followers</p>
+          •
+          <p>{following}  Following</p>
+          {/* <Link to={`/users/${user.id}/following`}>{following}  Following</Link> */}
+        </div>
+    }
 
     return (
       <div className="user-show-page">
@@ -35,11 +73,8 @@ class UserShow extends React.Component {
                       { user && currentUserId !== user.id ? <FollowButtonContainer user={user}/> : null }
                     </div>
 
-                    <div className="display-follow">
-                      {/* <p>display name</p> */}
-                      {isCurrentUser ? <Link to={`/users/${user.id}/follower`}>Followers</Link> : <p># Followers</p>}
-                      <Link to={`/users/${user.id}/following`}>Following</Link>
-                    </div>
+                    {followsInfo}
+                    
                   </div>
                 </div>
                 <div className="user-profile-right">

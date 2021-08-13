@@ -29,7 +29,7 @@ export const fetchFollow = (followerId, followeeId) => {
 }
 
 export const createFollow = follow => {
-  debugger //3 createFollow
+  // debugger //3 createFollow
   return (
     $.ajax({
       method: "POST",
@@ -40,7 +40,7 @@ export const createFollow = follow => {
 }
 
 export const deleteFollow = followId => {
-  debugger //3 deleteFollow
+  // debugger //3 deleteFollow
   return (
     $.ajax({
       method: "DELETE",

@@ -29,7 +29,7 @@ class FollowButton extends React.Component {
     const { createFollow, deleteFollow, currentFollows } = this.props
     const { isFollowing, follower_id, followee_id } = this.state
 
-    debugger //1 create/delete follow
+    // debugger //1 create/delete follow
 
     if (isFollowing) {
       deleteFollow(currentFollows[followee_id])
