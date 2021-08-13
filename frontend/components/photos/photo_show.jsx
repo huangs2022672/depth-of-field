@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import CommentIndexContainer from '../comments/comment_index_container'
-import CommentFormContainer from '../comments/comment_form_container'
+import CommentIndexContainer from '../comments/comment_index_container';
+import CommentFormContainer from '../comments/comment_form_container';
 import FollowButtonContainer from '../follows/follow_button_container';
+import LikeIconContainer from '../likes/like_icon_container'
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class PhotoShow extends React.Component {
       .then(() => {
         this.props.history.push(`/users/${user.id}`)
       })
+    this.setState({deleting: false})
   }
 
   handleSubmitTitle(e) {
@@ -156,14 +158,16 @@ class PhotoShow extends React.Component {
           <div>left right nav</div>
           <div>zoom</div> */}
 
-
-          {currentUserId && photo && currentUserId === photo.uploader_id ? (
-            <div className="photo-delete">
+          <div className="photo-delete">
+            {currentUserId && photo && currentUserId === photo.uploader_id ? (
               <button
-              onClick={() => this.setState({deleting: true})}
-              className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span></button>
-            </div>
-          ): null}
+                onClick={() => this.setState({deleting: true})}
+                className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span>
+              </button>
+            ): (
+              <LikeIconContainer />
+            )}
+          </div>
 
         </div>
         <div className="photo-show-details">

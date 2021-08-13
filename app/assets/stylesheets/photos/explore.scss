@@ -58,3 +58,52 @@ div.explore-index-item {
     background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0) 100%);
   }
 }
+
+div.explore-index-item {
+  &:last-child {
+    flex-grow: unset;
+  }
+
+  &:nth-last-child(2) {
+    flex-grow: unset;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  div.explore-index-item {
+    &:last-child {
+      flex-grow: 1;
+    }
+
+    &:nth-last-child(2) {
+      flex-grow: 1;
+    }
+
+    max-width: 460px;
+    min-width: 460px;
+
+    img {
+      max-width: 460px;
+      min-width: 460px;
+    }
+  }
+
+  div.photo-hover-details {
+    max-width: 460px;
+    min-width: 460px;
+  }
+
+  div.explore-index {
+    width: 100%;
+    justify-content: center;
+    margin: 85px auto;
+  }
+
+  div.user-photos-index-items {
+    width: 100%;
+    justify-content: center;
+    margin: 85px auto;
+  }
+
+
+}
