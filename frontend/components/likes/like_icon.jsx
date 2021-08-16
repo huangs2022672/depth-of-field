@@ -31,7 +31,7 @@ class LikeIcon extends React.Component {
           onClick={this.handleLike}
           className="liked">
           <div>
-            <i class="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-star" aria-hidden="true"></i>
           </div>
         </button>
     } else {
@@ -40,7 +40,7 @@ class LikeIcon extends React.Component {
           onClick={this.handleLike}
           className="not-liked">
           <div>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i className="fa fa-star-o" aria-hidden="true"></i>
           </div>
         </button>
     }

@@ -23,6 +23,8 @@ class UserShow extends React.Component {
 
     const { user, photos, isCurrentUser, match, fetchUser, fetchPhotos, currentUserId, follows } = this.props
 
+    // an issue is that every time this component is re-rendered, this follows is looped to count followers and following.
+    // maybe it is needed, so that followers and following is updated at per re-render
     let followers = 0;
     let following = 0;
 
@@ -46,6 +48,8 @@ class UserShow extends React.Component {
 
     const { followsFetched } = this.state
     let followsInfo;
+
+    // issue has occured where followsFetched is not updated correctly so follow button and info is not displayed at all.
     if (followsFetched){
       followsInfo =
         <div className="display-follow">
@@ -74,7 +78,7 @@ class UserShow extends React.Component {
                     </div>
 
                     {followsInfo}
-                    
+
                   </div>
                 </div>
                 <div className="user-profile-right">
