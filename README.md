@@ -21,10 +21,10 @@ Depth of Field, a clone of Flickr, is an app designed for photographers to uploa
 
 ## Core Features:
 ### Photos:
-* Viewing all uploaded photos
+* Viewing all uploaded photos under /explore
 * Viewing one photo with addtional information
---* uploader and a link to their profile, with the ability to follow/unfollow
---* comments that are associated with the photo
+  * uploader and a link to their profile, with the ability to follow/unfollow
+  * comments that are associated with the photo
 * Upload new photos with a title and a short description
 * Edit an existing photo's title and description
 * Delete photos you no longer want
