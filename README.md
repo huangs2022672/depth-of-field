@@ -10,7 +10,7 @@ Depth of Field, a clone of Flickr, is an app designed for photographers to uploa
 ## Getting Started:
 * [Sign up](http://depth-of-field.herokuapp.com/#/signup) with your name, age, an email address and a password
 * Go to the explore page to see everyone's uploads
-* Click on a photo you liked to comment, like and connect with the photographer
+* Click on a photo to view, comment, like and connect with the photographer
 * Upload your own photos / see all of your uploads
 
 ## Technologies used:
