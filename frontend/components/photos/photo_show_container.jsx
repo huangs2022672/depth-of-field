@@ -7,11 +7,13 @@ const mSTP = (state, ownProps) => {
   // !photo ? fetchPhoto(ownProps.match.params.photoId) : null
   const user = photo ? state.entities.users[photo.uploader_id] : null
   const comments = Object.values(state.entities.comments)
+  const likes = Object.values(state.entities.likes)
   const currentUserId = state.session.currentUserId
   return {
     photo,
     user,
     comments,
+    likes,
     currentUserId
   }
 }

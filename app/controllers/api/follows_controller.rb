@@ -10,12 +10,12 @@ class Api::FollowsController < ApplicationController
 
   def index
     # debugger
-    if follow_params[:fetch_who] == "Both"
+    if follow_params[:fetch_by] == "Both"
       @follows = Follow.where(follower_id: follow_params[:user_id])
         .or(Follow.where(followee_id: follow_params[:user_id]))
-    elsif follow_params[:fetch_who] == "Followers"
+    elsif follow_params[:fetch_by] == "Followers"
       @follows = Follow.where(followee_id: follow_params[:user_id])
-    elsif follow_params[:fetch_who] == "Following"
+    elsif follow_params[:fetch_by] == "Following"
       @follows = Follow.includes(:followee).where(follower_id: follow_params[:user_id])
     end
 
@@ -44,6 +44,6 @@ class Api::FollowsController < ApplicationController
 
   private
   def follow_params
-    params.require(:follow).permit(:follower_id, :followee_id, :fetch_who, :user_id)
+    params.require(:follow).permit(:follower_id, :followee_id, :fetch_by, :user_id)
   end
 end

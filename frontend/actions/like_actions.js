@@ -3,8 +3,8 @@ import * as LikeApitUtil from '../util/like_api_util';
 export const RECEIVE_LIKES = "RECEIVE_LIKES";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const REMOVE_ERRORS = "REMOVE_ERRORS"
+export const RECEIVE_LIKE_ERRORS = "RECEIVE_LIKE_ERRORS";
+export const REMOVE_LIKE_ERRORS = "REMOVE_LIKE_ERRORS"
 
 const receiveLikes = payload => {
 
@@ -22,40 +22,40 @@ const receiveLike = payload => {
   })
 }
 
-const removeLike = likeId => {
+const removeLike = payload => {
 
   return ({
     type: REMOVE_LIKE,
-    likeId
+    payload
   })
 }
 
 const receiveErrors = errors => {
   return ({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_LIKE_ERRORS,
     errors
   })
 }
 
 export const removeLikeErrors = () => {
   return {
-    type: REMOVE_ERRORS,
+    type: REMOVE_LIKE_ERRORS,
   }
 }
 
-export const fetchLikes = fetchWho => dispatch => {
+export const fetchLikes = (fetchWhich, whichId) => dispatch => {
 
   return (
-    LikeApitUtil.fetchLikes(fetchWho)
+    LikeApitUtil.fetchLikes(fetchWhich, whichId)
       .then(payload => dispatch(receiveLikes(payload
       )), errors => dispatch(receiveErrors(errors)))
   )
 }
 
-export const fetchLike = likeId => dispatch => {
+export const fetchLike = (likerId, photoId) => dispatch => {
 
   return (
-    LikeApitUtil.fetchLike(likeId)
+    LikeApitUtil.fetchLike(likerId, photoId)
       .then(payload => dispatch(receiveLike(payload
       )), errors => dispatch(receiveErrors(errors)))
   )

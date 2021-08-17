@@ -99,11 +99,9 @@ class PhotoShow extends React.Component {
     e.currentTarget.select()
   }
 
-
   handleFollow(e) {
     this.setState({following: !this.state.following})
   }
-
 
   render() {
     const {
@@ -111,13 +109,14 @@ class PhotoShow extends React.Component {
       user,
       match,
       comments,
+      likes,
       currentUserId,
       fetchPhoto,
       deletePhoto,
       editPhoto
     } = this.props
 
-    // !this.state.uploader_id && photo ? (
+        // !this.state.uploader_id && photo ? (
     //   this.setState({...photo})
     // ): null
 
@@ -164,9 +163,15 @@ class PhotoShow extends React.Component {
                 onClick={() => this.setState({deleting: true})}
                 className="photo-delete"><span className="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span>
               </button>
-            ): (
-              <LikeIconContainer />
-            )}
+            ):( null )}
+
+            {currentUserId && photo && currentUserId !== photo.uploader_id ? (
+              <LikeIconContainer
+                likerId={currentUserId}
+                photoId={photo.id}
+                likes={likes}
+                />
+            ):( null )}
           </div>
 
         </div>
@@ -274,7 +279,7 @@ class PhotoShow extends React.Component {
                     <p>view</p>
                   </div>
                   <div className="faves">
-                    <h4>0</h4>
+                    <h4>{photo ? likes.filter(like => like.photo_id === photo.id).length : null}</h4>
                     <p>faves</p>
                   </div>
                   <div className="comments">

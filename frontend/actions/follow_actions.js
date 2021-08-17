@@ -3,8 +3,8 @@ import * as FollowApitUtil from '../util/follow_api_util';
 export const RECEIVE_FOLLOWS = "RECEIVE_FOLLOWS";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const REMOVE_ERRORS = "REMOVE_ERRORS"
+export const RECEIVE_FOLLOW_ERRORS = "RECEIVE_FOLLOW_ERRORS";
+export const REMOVE_FOLLOW_ERRORS = "REMOVE_FOLLOW_ERRORS"
 
 const receiveFollows = payload => {
 
@@ -32,14 +32,14 @@ const removeFollow = payload => {
 
 const receiveErrors = errors => {
   return({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_FOLLOW_ERRORS,
     errors
   })
 }
 
 export const removeFollowErrors = () => {
   return {
-    type: REMOVE_ERRORS,
+    type: REMOVE_FOLLOW_ERRORS,
   }
 }
 

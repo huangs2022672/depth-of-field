@@ -1,12 +1,12 @@
-export const fetchFollows = (fetchWho, userId) => {
+export const fetchFollows = (fetchBy, byId) => {
   return (
     $.ajax({
       method: "GET",
       url: `/api/follows`,
       data: {
         follow: {
-          fetch_who: fetchWho,
-          user_id: userId
+          fetch_by: fetchBy,
+          user_id: byId
         }
       }
     })

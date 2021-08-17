@@ -6,10 +6,15 @@ import {
   RECEIVE_FOLLOW,
   REMOVE_FOLLOW
 } from '../actions/follow_actions';
+import {
+  RECEIVE_LIKE,
+  REMOVE_LIKE
+} from '../actions/like_actions';
 
 const _nullUser = Object.freeze ({
   currentUserId: null,
-  currentFollows: {}
+  currentFollows: {},
+  currentLikes: {}
 })
 
 const sessionReducer = (slice = _nullUser, action) => {
@@ -32,6 +37,16 @@ const sessionReducer = (slice = _nullUser, action) => {
     case REMOVE_FOLLOW:
       // debugger //7 deleteFollow
       delete newSlice.currentFollows[action.payload.follow.followee_id]
+      return newSlice
+    case RECEIVE_LIKE:
+      // debugger //7 createFollow
+      if (action.payload.like) {
+        newSlice.currentLikes[action.payload.like.photo_id] = action.payload.like.id;
+      }
+      return newSlice
+    case REMOVE_LIKE:
+      // debugger //7 deleteFollow
+      delete newSlice.currentLikes[action.payload.like.photo_id]
       return newSlice
     default:
       return slice

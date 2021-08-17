@@ -1,16 +1,32 @@
 class Api::LikesController < ApplicationController
   def show
-    @like = Like.find(params[:id])
+    # debugger
+
+    @like = Like.where(
+      liker_id: like_params[:liker_id],
+      photo_id: like_params[:photo_id]
+    )[0]
+
+
+
     render :show
   end
 
   def index
-    @likes = Like.includes(:liker, :photo).all
+
+    if like_params[:fetch_by] == "Photo"
+      @likes = Like.where(photo_id: like_params[:photo_id])
+    elsif like_params[:fetch_by] == "Liker"
+      @likes = Like.where(liker_id: like_params[:liker_id])
+    end
+
     render :index
+    # @likes = Like.includes(:liker, :photo).all
   end
 
   def create
     @like = Like.new(like_params)
+    # debugger
 
     if @like.save
       render :show
@@ -30,6 +46,6 @@ class Api::LikesController < ApplicationController
 
   private
   def like_params
-    params.require(:like).permit(:liker_id, :photo_id)
+    params.require(:like).permit(:liker_id, :photo_id, :fetch_by, :by_id)
   end
 end

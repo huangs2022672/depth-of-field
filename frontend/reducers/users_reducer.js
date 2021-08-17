@@ -8,14 +8,14 @@ import {
   RECEIVE_PHOTO_COMMENTS,
   RECEIVE_COMMENT
 } from '../actions/comment_actions'
-import {
-  RECEIVE_FOLLOWS,
-  RECEIVE_FOLLOW
-} from '../actions/follow_actions';
-import {
-  RECEIVE_LIKES,
-  RECEIVE_LIKE
-} from '../actions/like_actions';
+// import {
+//   RECEIVE_FOLLOWS,
+//   RECEIVE_FOLLOW
+// } from '../actions/follow_actions';
+// import {
+//   RECEIVE_LIKES,
+//   RECEIVE_LIKE
+// } from '../actions/like_actions';
 
 
 
@@ -49,11 +49,11 @@ const usersReducer = (slice = {}, action) => {
     //   newSlice[action.payload.user.id] = action.payload.user
     //   return newSlice
 
-    case RECEIVE_LIKES:
-      return Object.assign({}, slice, action.payload.users)
-    case RECEIVE_LIKE:
-      newSlice[action.payload.user.id] = action.payload.user
-      return newSlice
+    // case RECEIVE_LIKES:
+    //   return Object.assign({}, slice, action.payload.users)
+    // case RECEIVE_LIKE:
+    //   newSlice[action.payload.user.id] = action.payload.user
+    //   return newSlice
 
     default:
       return slice

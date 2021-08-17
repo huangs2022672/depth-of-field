@@ -1,22 +1,29 @@
-export const fetchLikes = likerId => {
+export const fetchLikes = (fetchBy, byId) => {
   return (
     $.ajax({
       method: "GET",
       url: `/api/likes`,
       data: {
         like: {
-          liker_id: likerId
+          fetch_by: fetchBy,
+          by_id: byId
         }
       }
     })
   )
 }
 
-export const fetchLike = likeId => {
+export const fetchLike = (likerId, photoId) => {
   return (
     $.ajax({
       method: "GET",
-      url: `/api/likes/${likeId}`
+      url: `/api/likes/${likerId}`,
+      data: {
+        like: {
+          liker_id: likerId,
+          photo_id: photoId
+        }
+      }
     })
   )
 }
@@ -25,7 +32,7 @@ export const createLike = like => {
   return (
     $.ajax({
       method: "POST",
-      url: `/api/users/${like.likerId}/likes`,
+      url: `/api/photos/${like.photo_id}/likes`,
       data: { like }
     })
   )

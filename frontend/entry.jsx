@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       session: {
         currentUserId: window.currentUser.id,
-        currentFollows: {}
+        currentFollows: {},
+        currentLikes: {}
       }
     };
     store = configureStore(preloadedState);

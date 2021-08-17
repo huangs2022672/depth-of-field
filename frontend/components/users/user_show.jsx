@@ -28,16 +28,16 @@ class UserShow extends React.Component {
     let followers = 0;
     let following = 0;
 
-    debugger
+    // debugger
 
     for (const key in follows) {
-      debugger
+      // debugger
       if (follows[key].followee_id == match.params.userId) {
-        debugger
+        // debugger
         followers ++
       }
       if (follows[key].follower_id == match.params.userId) {
-        debugger
+        // debugger
         following ++
       }
     }

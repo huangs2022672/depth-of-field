@@ -2,7 +2,6 @@ div.explore-index {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  // width: 90%;
   margin: 125px auto;
 }
 
@@ -13,13 +12,8 @@ div.explore-index-item {
   line-height: 0;
 
   img {
-    // height: 275px;
-    // min-width: 100%;
-    // max-width: 350px;
     max-height: 250px;
     min-width: 100%;
-    // min-height: 100%;
-    // max-width: 350px;
     object-fit: cover;
     z-index: -1;
   }
@@ -34,10 +28,14 @@ div.explore-index-item {
     align-items: flex-end;
     color: transparent;
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.5;
 
-    p {
-      margin: 10px;
+    .photo-click-link {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      cursor: pointer;
     }
 
     .photo-title {
@@ -45,17 +43,44 @@ div.explore-index-item {
       width: 65%;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin: 5px 10px;
     }
 
     .photo-likes {
-      width: 75px;
+      display: flex;
       text-align: right;
+      margin: 5px 10px;
+      z-index: 1;
+
+      button {
+        background: transparent;
+        color: transparent;
+        font-size: 18px;
+
+        div {
+          display: flex;
+          p {
+            margin-left: 5px;
+            font-size: 14px;
+          }
+        }
+      }
+
     }
   }
 
   div.photo-hover-details:hover {
     color: white;
     background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0) 100%);
+
+    button.liked, button.not-liked {
+      color: white;
+    }
+
+    button.faded {
+      color: rgb(187, 187, 187);
+      cursor: default;
+    }
   }
 }
 
@@ -104,6 +129,4 @@ div.explore-index-item {
     justify-content: center;
     margin: 85px auto;
   }
-
-
 }

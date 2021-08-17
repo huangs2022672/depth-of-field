@@ -1,8 +1,16 @@
 .photo-delete {
-
   button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     background: transparent;
+    width: 50px;
+    height: 40px;
+
+    div {
+      p {
+        display: none;
+      }
+    }
   }
-
-
 }

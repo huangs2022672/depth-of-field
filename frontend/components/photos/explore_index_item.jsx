@@ -1,23 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import LikeIconContainer from '../likes/like_icon_container'
 
 const ExploreIndexItem = (props) => {
-  const { photo } = props
+  const { photo, currentUserId, likes } = props
+  let numLikes;
+
+  if (likes){
+    numLikes = likes.filter(like => like.photo_id === photo.id).length
+  }
+
   return (
     <div className="explore-index-item">
-      <Link to={`/photos/${photo.id}`}>
         <img src={photo.img_url} alt={photo.title} />
         <div className="photo-hover-details">
-          <p className="photo-title">
+          <div className="photo-click-link"
+          onClick={()=> props.history.push(`/photos/${photo.id}`)}
+          ></div>
+          <div className="photo-title">
             {photo.title}
-          </p>
-          <p className="photo-likes">
-            {photo.views} views
-          </p>
+          </div>
+          <div className="photo-likes">
+            {currentUserId && photo && currentUserId !== photo.uploader_id ? (
+              <LikeIconContainer
+                likerId={currentUserId}
+                photoId={photo.id}
+                likes={likes}
+                />
+            ):(
+            <button className="faded">
+              <div>
+                <i className="fa fa-star-o" aria-hidden="true"></i>
+                <p>{numLikes}</p>
+              </div>
+            </button>
+            )}
+          </div>
         </div>
-      </Link>
     </div>
   )
 }
 
-export default ExploreIndexItem
+export default withRouter(ExploreIndexItem);

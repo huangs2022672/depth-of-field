@@ -12,10 +12,12 @@ const likesReducer = (slice ={}, action) => {
     case RECEIVE_LIKES:
       return Object.assign({}, slice, action.payload.likes)
     case RECEIVE_LIKE:
-      newSlice[action.payload.like.id] = action.payload.like
+      if (action.payload.like) {
+        newSlice[action.payload.like.id] = action.payload.like
+      }
       return newSlice
     case REMOVE_LIKE:
-      delete newSlice[action.likeId]
+      delete newSlice[action.payload.like.id]
       return newSlice
     default:
       return slice
