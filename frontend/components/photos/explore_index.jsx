@@ -20,15 +20,13 @@ class ExploreIndex extends React.Component {
 
     return (
       <div className="explore-index">
-        {
-            mostRecent.map(photo => (
-              <ExploreIndexItem
-              key={photo.id}
-              photo={photo}
-              likes={likes}
-              currentUserId={currentUserId}/>
-            ))
-        }
+        { mostRecent.map(photo => (
+            <ExploreIndexItem
+            key={photo.id}
+            photo={photo}
+            likes={likes}
+            currentUserId={currentUserId}/>
+          ))}
       </div>
     )
   }

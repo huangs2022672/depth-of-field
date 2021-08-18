@@ -13,7 +13,8 @@ const mSTP = (state, { match }) => {
     }),
     isCurrentUser: state.session.currentUserId === params.userId,
     currentUserId: state.session.currentUserId,
-    follows: state.entities.follows,
+    follows: Object.values(state.entities.follows),
+    likes: Object.values(state.entities.likes)
   }
 }
 

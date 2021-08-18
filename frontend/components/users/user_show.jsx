@@ -21,26 +21,44 @@ class UserShow extends React.Component {
 
   render() {
 
-    const { user, photos, isCurrentUser, match, fetchUser, fetchPhotos, currentUserId, follows } = this.props
+    const {
+      user,
+      photos,
+      match,
+      fetchUser,
+      fetchPhotos,
+      currentUserId,
+      follows,
+      likes
+     } = this.props
 
     // an issue is that every time this component is re-rendered, this follows is looped to count followers and following.
     // maybe it is needed, so that followers and following is updated at per re-render
+
     let followers = 0;
     let following = 0;
 
     // debugger
 
-    for (const key in follows) {
-      // debugger
-      if (follows[key].followee_id == match.params.userId) {
-        // debugger
+    follows.filter(follow => {
+      if (follow.followee_id == match.params.userId) {
         followers ++
-      }
-      if (follows[key].follower_id == match.params.userId) {
-        // debugger
+      } else if (follow.follower_id == match.params.userId) {
         following ++
       }
-    }
+    })
+
+    // for (const key in follows) {
+    //   // debugger
+    //   if (follows[key].followee_id == match.params.userId) {
+    //     // debugger
+
+    //   }
+    //   if (follows[key].follower_id == match.params.userId) {
+    //     // debugger
+    //     following ++
+    //   }
+    // }
 
     !user ? fetchUser(match.params.userId) : null;
     !photos ? fetchPhotos() : null;
@@ -100,11 +118,15 @@ class UserShow extends React.Component {
         <div className="user-photos-index">
           <div className="user-photos-index-items">
             { mostRecent.map(photo => (
-                <ExploreIndexItem key={photo.id} photo={photo} />
+                <ExploreIndexItem
+                key={photo.id}
+                photo={photo}
+                likes={likes}
+                currentUserId={currentUserId}
+                />
               ))}
           </div>
         </div>
-
       </div>
     )
   }
