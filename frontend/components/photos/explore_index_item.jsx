@@ -3,11 +3,19 @@ import { withRouter } from 'react-router-dom';
 import LikeIconContainer from '../likes/like_icon_container'
 
 const ExploreIndexItem = (props) => {
-  const { photo, currentUserId, likes } = props
+  const { photo, currentUserId, likes, users, match } = props
   let numLikes;
 
   if (likes){
     numLikes = likes.filter(like => like.photo_id === photo.id).length
+  }
+
+  let uploaderName;
+
+  if (currentUserId === photo.uploader_id) {
+    uploaderName = "by YOU!"
+  } else {
+    uploaderName = `by ${users[photo.uploader_id].first_name} ${users[photo.uploader_id].last_name}`
   }
 
   return (
@@ -18,7 +26,20 @@ const ExploreIndexItem = (props) => {
           onClick={()=> props.history.push(`/photos/${photo.id}`)}
           ></div>
           <div className="photo-title">
-            {photo.title}
+            <div className="title"
+            onClick={()=> props.history.push(`/photos/${photo.id}`)}
+            >
+              {photo.title}
+            </div>
+            <div className="uploader"
+            onClick={() => {
+              if (match.params.userId != photo.uploader_id) {
+                props.history.push(`/users/${photo.uploader_id}`)
+              }
+            }}
+            >
+              {uploaderName}
+            </div>
           </div>
           <div className="photo-likes">
             {currentUserId && photo && currentUserId !== photo.uploader_id ? (

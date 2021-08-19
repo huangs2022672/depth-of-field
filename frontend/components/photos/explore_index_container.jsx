@@ -6,7 +6,8 @@ const mSTP = (state, ownProps) => {
   return {
     photos: Object.values(state.entities.photos),
     currentUserId: state.session.currentUserId,
-    likes: Object.values(state.entities.likes)
+    likes: Object.values(state.entities.likes),
+    users: state.entities.users
   }
 }
 

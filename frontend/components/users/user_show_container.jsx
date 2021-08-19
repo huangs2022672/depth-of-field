@@ -14,7 +14,8 @@ const mSTP = (state, { match }) => {
     isCurrentUser: state.session.currentUserId === params.userId,
     currentUserId: state.session.currentUserId,
     follows: Object.values(state.entities.follows),
-    likes: Object.values(state.entities.likes)
+    likes: Object.values(state.entities.likes),
+    users: state.entities.users
   }
 }
 

@@ -29,7 +29,8 @@ class UserShow extends React.Component {
       fetchPhotos,
       currentUserId,
       follows,
-      likes
+      likes,
+      users
      } = this.props
 
     // an issue is that every time this component is re-rendered, this follows is looped to count followers and following.
@@ -123,6 +124,7 @@ class UserShow extends React.Component {
                 photo={photo}
                 likes={likes}
                 currentUserId={currentUserId}
+                users={users}
                 />
               ))}
           </div>

@@ -7,7 +7,7 @@ class ExploreIndex extends React.Component {
   }
 
   render() {
-    const { photos, currentUserId, likes } = this.props
+    const { photos, currentUserId, likes, users } = this.props
     // code to shuffle images
     // for(let i = photos.length - 1; i > 0; i--){
     //   const j = Math.floor(Math.random() * i)
@@ -25,7 +25,9 @@ class ExploreIndex extends React.Component {
             key={photo.id}
             photo={photo}
             likes={likes}
-            currentUserId={currentUserId}/>
+            currentUserId={currentUserId}
+            users={users}
+            />
           ))}
       </div>
     )

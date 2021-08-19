@@ -39,39 +39,72 @@ div.explore-index-item {
     }
 
     .photo-title {
-      white-space: nowrap;
-      width: 65%;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      // width: 65%;
       margin: 5px 10px;
+      line-height: 1.2;
+      z-index: 1;
+      cursor: pointer;
+
+      .title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 500;
+        // display: inline;
+      }
+
+      .uploader {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 10px;
+        // display: inline;
+      }
     }
 
     .photo-likes {
+      position: absolute;
+      bottom: 0;
+      right: 0;
       display: flex;
-      text-align: right;
-      margin: 5px 10px;
+      justify-content: center;
+      margin: 5px 5px;
       z-index: 1;
+      min-width: 30px;
 
       button {
         background: transparent;
         color: transparent;
-        font-size: 18px;
+        font-size: 14px;
+
 
         div {
           display: flex;
+          align-items: flex-end;
+          line-height: 1;
           p {
             margin-left: 5px;
-            font-size: 14px;
+            // margin-top: 1px;
+            font-size: 12px;
           }
         }
       }
-
     }
   }
 
   div.photo-hover-details:hover {
     color: white;
     background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0) 100%);
+
+    .photo-title {
+      .uploader {
+        color: rgb(197, 197, 197);
+        &:hover {
+          color: white;
+        }
+      }
+    }
 
     button.liked, button.not-liked {
       color: white;
