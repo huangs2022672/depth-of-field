@@ -23,29 +23,25 @@ const sessionReducer = (slice = _nullUser, action) => {
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      // return { currentUserId: action.user.id }
-      newSlice["currentUserId"] = action.user.id
+      return { currentUserId: action.user.id }
+      // newSlice["currentUserId"] = action.user.id
       return newSlice
     case LOGOUT_CURRENT_USER:
       return _nullUser
     case RECEIVE_FOLLOW:
-      // debugger //7 createFollow
       if (action.payload.follow) {
         newSlice.currentFollows[action.payload.follow.followee_id] = action.payload.follow.id;
       }
       return newSlice
     case REMOVE_FOLLOW:
-      // debugger //7 deleteFollow
       delete newSlice.currentFollows[action.payload.follow.followee_id]
       return newSlice
     case RECEIVE_LIKE:
-      // debugger //7 createFollow
       if (action.payload.like) {
         newSlice.currentLikes[action.payload.like.photo_id] = action.payload.like.id;
       }
       return newSlice
     case REMOVE_LIKE:
-      // debugger //7 deleteFollow
       delete newSlice.currentLikes[action.payload.like.photo_id]
       return newSlice
     default:

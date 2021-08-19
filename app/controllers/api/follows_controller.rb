@@ -9,7 +9,6 @@ class Api::FollowsController < ApplicationController
   end
 
   def index
-    # debugger
     if follow_params[:fetch_by] == "Both"
       @follows = Follow.where(follower_id: follow_params[:user_id])
         .or(Follow.where(followee_id: follow_params[:user_id]))
@@ -24,7 +23,6 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = Follow.new(follow_params)
-    # debugger #4 createFollow
     if @follow.save
       render :show
     else
@@ -34,7 +32,6 @@ class Api::FollowsController < ApplicationController
 
   def destroy
     @follow = current_user.followers.find_by(id: params[:id])
-    # debugger #4 deleteFollow
     if @follow && @follow.destroy
       render :show
     else

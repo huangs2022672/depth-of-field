@@ -39,8 +39,6 @@ class UserShow extends React.Component {
     let followers = 0;
     let following = 0;
 
-    // debugger
-
     follows.filter(follow => {
       if (follow.followee_id == match.params.userId) {
         followers ++
@@ -50,13 +48,9 @@ class UserShow extends React.Component {
     })
 
     // for (const key in follows) {
-    //   // debugger
     //   if (follows[key].followee_id == match.params.userId) {
-    //     // debugger
-
     //   }
     //   if (follows[key].follower_id == match.params.userId) {
-    //     // debugger
     //     following ++
     //   }
     // }

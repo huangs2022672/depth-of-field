@@ -1,7 +1,5 @@
 class Api::LikesController < ApplicationController
   def show
-    # debugger
-
     @like = Like.where(
       liker_id: like_params[:liker_id],
       photo_id: like_params[:photo_id]
@@ -26,8 +24,6 @@ class Api::LikesController < ApplicationController
 
   def create
     @like = Like.new(like_params)
-    # debugger
-
     if @like.save
       render :show
     else

@@ -17,7 +17,6 @@ class LikeIcon extends React.Component {
   componentDidMount() {
     const { fetchLike, currentLikes, likerId } = this.props
     const { liker_id, photo_id } = this.state
-    // debugger
     if (likerId) {
       fetchLike(liker_id, photo_id)
         .then(() => {

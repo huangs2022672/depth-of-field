@@ -8,7 +8,6 @@ import {
 } from '../../actions/follow_actions';
 
 const mSTP = (state, ownProps) => {
-  // debugger //8 currentFollows gets updated
   return {
     currentUserId: state.session.currentUserId,
     currentFollows: state.session.currentFollows

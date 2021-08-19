@@ -12,13 +12,11 @@ const followsReducer = (slice ={}, action) => {
     case RECEIVE_FOLLOWS:
       return Object.assign({}, slice, action.payload.follows)
     case RECEIVE_FOLLOW:
-      // debugger //7 createFollow
       if (action.payload.follow) {
         newSlice[action.payload.follow.id] = action.payload.follow
       }
       return newSlice
     case REMOVE_FOLLOW:
-      // debugger //7 deleteFollow
       delete newSlice[action.payload.follow.id]
       return newSlice
     default:
