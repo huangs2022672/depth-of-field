@@ -35,6 +35,8 @@ const ExploreIndexItem = (props) => {
             onClick={() => {
               if (match.params.userId != photo.uploader_id) {
                 props.history.push(`/users/${photo.uploader_id}`)
+              } else {
+                window.scrollTo(0, 0);
               }
             }}
             >

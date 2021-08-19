@@ -300,17 +300,20 @@ div.photo-show-details-right {
         .views {
           display: block;
           // border: 1px solid blue;
+          width: 33%;
         }
 
         .faves {
           display: block;
           // border: 1px solid blue;
+          width: 33%;
         }
 
         .comments {
           display: block;
           // border: 1px solid blue;
-          margin-right: 30px;
+          // margin-right: 30px;
+          width: 33%;
         }
       }
 
@@ -319,7 +322,7 @@ div.photo-show-details-right {
         width: 50%;
         font-size: 15px;
         padding-top: 6px;
-        padding-left: 5px;
+        padding-left: 10px;
       }
     }
 

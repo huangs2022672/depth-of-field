@@ -39,9 +39,8 @@ div.explore-index-item {
     }
 
     .photo-title {
-      // width: 65%;
       margin: 5px 10px;
-      line-height: 1.2;
+      // line-height: 1.2;
       z-index: 1;
       cursor: pointer;
 
@@ -51,7 +50,6 @@ div.explore-index-item {
         overflow: hidden;
         font-size: 12px;
         font-weight: 500;
-        // display: inline;
       }
 
       .uploader {
@@ -59,7 +57,6 @@ div.explore-index-item {
         text-overflow: ellipsis;
         overflow: hidden;
         font-size: 10px;
-        // display: inline;
       }
     }
 

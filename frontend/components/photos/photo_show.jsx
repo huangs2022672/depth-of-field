@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import FollowButtonContainer from '../follows/follow_button_container';
-import LikeIconContainer from '../likes/like_icon_container'
+import LikeIconContainer from '../likes/like_icon_container';
+import Photo from './photo'
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -112,7 +113,7 @@ class PhotoShow extends React.Component {
       likes,
       currentUserId,
       fetchPhoto,
-      deletePhoto,
+      // deletePhoto,
       editPhoto
     } = this.props
 
@@ -123,6 +124,36 @@ class PhotoShow extends React.Component {
     !photo ? fetchPhoto(match.params.photoId) : null;
       // .then(payload=>(()=>this.setState({...payload.photo})))
     // !user ? fetchPhoto(match.params.photoId) : null;
+
+    let disViews, disFaves, disComments;
+
+    if (photo) {
+      let numViews = photo.views;
+      disViews =
+        <div className="views">
+          <h4>{numViews}</h4>
+          <p>{numViews === 1 ? "view" : "views" }</p>
+        </div>
+
+      let numFaves = likes.filter(like => {
+        return like.photo_id === photo.id
+      }).length;
+      disFaves =
+        <div className="faves">
+          <h4>{numFaves}</h4>
+          <p>{numFaves === 1 ? "fave" : "faves" }</p>
+        </div>
+
+      let numComments = comments.filter(comment => {
+        return comment.photo_id === photo.id
+      }).length;
+      disComments =
+        <div className="comments">
+          <h4>{numComments}</h4>
+          <p>{numComments === 1 ? "comment" : "comments"}</p>
+        </div>
+    }
+
     return (
       <div className="photo-show-page">
 
@@ -151,7 +182,8 @@ class PhotoShow extends React.Component {
 
         <div className="photo-show">
           {photo ? (
-            <img src={photo.img_url} alt={photo.title} />
+            <Photo photo={photo} editPhoto={editPhoto} />
+            // <img src={photo.img_url} alt={photo.title} />
           ) : null}
           {/* <div>image slider</div>
           <div>left right nav</div>
@@ -195,21 +227,7 @@ class PhotoShow extends React.Component {
 
                       { user && currentUserId !== user.id ? <FollowButtonContainer user={user}/> : null }
 
-                      {/* <div className="follow-button">
-                        <button
-                        onClick={this.handleFollow}
-                        className={this.state.following ? "follow-button following" :  "follow-button follow" }>
-                          {this.state.following ? (
-                          <div><i className="fa fa-check" aria-hidden="true"></i><span> Following</span></div>
-                          ) : (
-                          <div><i className="fa fa-plus" aria-hidden="true"></i><span> Follow</span></div>
-                          )}</button>
-                      </div> */}
-
-
-
                     </div>
-
                     { !this.state.editingTitle ? (
                       <div className="photo-info-bot">
 
@@ -274,18 +292,9 @@ class PhotoShow extends React.Component {
             <div className="details-right-top">
               <div className="views-faves-comments-date">
                 <div className="views-faves-comments">
-                  <div className="views">
-                    <h4>1</h4>
-                    <p>view</p>
-                  </div>
-                  <div className="faves">
-                    <h4>{photo ? likes.filter(like => like.photo_id === photo.id).length : null}</h4>
-                    <p>faves</p>
-                  </div>
-                  <div className="comments">
-                    <h4>{photo ? comments.filter(comment => comment.photo_id === photo.id).length : null}</h4>
-                    <p>comment</p>
-                  </div>
+                  { disViews }
+                  { disFaves }
+                  { disComments }
                 </div>
                 <div className="date-taken">
                   Taken on May 24, 2019
