@@ -161,6 +161,10 @@ div.after-file-uploaded {
           background: transparent;
           width: 186px;
           height: 20px;
+
+          &:focus {
+            outline: none;
+          }
         }
 
         input::selection {
