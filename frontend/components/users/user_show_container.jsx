@@ -10,7 +10,7 @@ const mSTP = (state, { match }) => {
     user: state.entities.users[params.userId],
     photos: Object.values(state.entities.photos).filter(photo => {
       return photo.uploader_id == params.userId
-    }),
+    }).reverse(),
     isCurrentUser: state.session.currentUserId === params.userId,
     currentUserId: state.session.currentUserId,
     follows: Object.values(state.entities.follows),

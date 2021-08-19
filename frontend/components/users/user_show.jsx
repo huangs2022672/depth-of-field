@@ -33,9 +33,6 @@ class UserShow extends React.Component {
       users
      } = this.props
 
-    // an issue is that every time this component is re-rendered, this follows is looped to count followers and following.
-    // maybe it is needed, so that followers and following is updated at per re-render
-
     let followers = 0;
     let following = 0;
 
@@ -57,7 +54,6 @@ class UserShow extends React.Component {
 
     !user ? fetchUser(match.params.userId) : null;
     !photos ? fetchPhotos() : null;
-    let mostRecent = photos.reverse()
 
     const { followsFetched } = this.state
     let followsInfo;
@@ -112,7 +108,7 @@ class UserShow extends React.Component {
 
         <div className="user-photos-index">
           <div className="user-photos-index-items">
-            { mostRecent.map(photo => (
+            { photos.map(photo => (
                 <ExploreIndexItem
                 key={photo.id}
                 photo={photo}

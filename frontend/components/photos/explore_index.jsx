@@ -8,19 +8,10 @@ class ExploreIndex extends React.Component {
 
   render() {
     const { photos, currentUserId, likes, users } = this.props
-    // code to shuffle images
-    // for(let i = photos.length - 1; i > 0; i--){
-    //   const j = Math.floor(Math.random() * i)
-    //   const temp = photos[i]
-    //   photos[i] = photos[j]
-    //   photos[j] = temp
-    // }
-
-    let mostRecent = photos.reverse()
 
     return (
       <div className="explore-index">
-        { mostRecent.map(photo => (
+        { photos.map(photo => (
             <ExploreIndexItem
             key={photo.id}
             photo={photo}
