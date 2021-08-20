@@ -9,7 +9,7 @@ class GlobalNav extends React.Component {
     const { currentUser, logout } = this.props
     return (
       <header className={`global-nav ${currentUser ? ("global-nav-not-root") : null}`}>
-        <Logo/>
+        <Logo currentUser={currentUser} />
         {
           currentUser ? (
             <>

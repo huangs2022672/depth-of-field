@@ -23,8 +23,8 @@ const sessionReducer = (slice = _nullUser, action) => {
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return { currentUserId: action.user.id }
-      // newSlice["currentUserId"] = action.user.id
+      // return { currentUserId: action.user.id }
+      newSlice["currentUserId"] = action.user.id
       return newSlice
     case LOGOUT_CURRENT_USER:
       return _nullUser
